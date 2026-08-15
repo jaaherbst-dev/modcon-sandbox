@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects &mdash; ModCon Sandbox</title>
+  <meta name="description" content="All projects hosted on ModCon Sandbox." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="/index.html">ModCon<span class="dot">.</span>Sandbox</a>
+      <ul class="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/apps.html" class="active">Projects</a></li>
+      </ul>
+      <div>
+        <button class="btn-icon" id="theme-toggle" aria-label="Toggle dark mode">
+          <span class="icon-moon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </span>
+          <span class="icon-sun" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-hero" style="border-bottom:none; margin-bottom:2.5rem;">
+      <p class="section-label">All projects</p>
+      <h1 style="font-size:clamp(1.75rem,4vw,2.5rem); font-weight:700; letter-spacing:-0.03em; margin-bottom:0.625rem;">What&rsquo;s in the sandbox</h1>
+      <p style="color:var(--text-sub); font-size:0.9375rem; max-width:480px;">
+        Click a project to visit it and leave feedback. Projects are added as they&rsquo;re ready to share.
+      </p>
+    </div>
+
+    <section class="section">
+      <p class="section-label">Live</p>
+      <div class="apps-grid" style="margin-bottom:2.5rem;">
+
+        <a class="app-card" href="/apps/agri-compliance.html">
+          <div class="app-card-top">
+            <div class="app-icon">&#x1F33E;</div>
+            <span class="badge badge-live">Live</span>
+          </div>
+          <div>
+            <h3>Agri Compliance</h3>
+            <p>A resource hub for Australian food safety compliance audits — consolidating tools, references, and guidance in one place.</p>
+          </div>
+          <div class="app-card-footer">
+            <span class="btn btn-secondary" style="pointer-events:none;">Explore &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+
+      <p class="section-label">Archived</p>
+      <div class="apps-grid">
+
+        <a class="app-card" href="/apps/archive.html">
+          <div class="app-card-top">
+            <div class="app-icon">&#x1F4E6;</div>
+            <span class="badge badge-archived">Archived</span>
+          </div>
+          <div>
+            <h3>Archived Project</h3>
+            <p>A preserved snapshot of a previous site — kept here for reference and possible future use.</p>
+          </div>
+          <div class="app-card-footer">
+            <span class="btn btn-secondary" style="pointer-events:none;">Explore &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>ModCon Sandbox &mdash; private use only</span>
+      <a href="/index.html">Home</a>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
