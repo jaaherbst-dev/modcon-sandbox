@@ -325,6 +325,57 @@ main {
   flex-shrink: 0;
 }
 
+/* === App cover images === */
+.app-card.has-cover {
+  padding: 0;
+  overflow: hidden;
+}
+
+.app-cover {
+  position: relative;
+  aspect-ratio: 16 / 8.4;
+  overflow: hidden;
+  background: var(--bg-hover);
+}
+
+.app-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.app-card.has-cover:hover .app-cover img { transform: scale(1.035); }
+
+.app-cover .badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+.app-card.has-cover .app-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.page-hero-cover {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.page-hero-cover img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 8.4;
+  object-fit: cover;
+}
+
 .badge {
   font-size: 0.6875rem;
   font-weight: 600;
