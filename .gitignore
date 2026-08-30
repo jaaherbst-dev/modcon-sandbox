@@ -1,0 +1,5 @@
+# Raw source folder for the Humanity, Roasted archive — contains a live API key
+# in newsletter-suite/config.php. The clean, secret-free copies live in
+# /humanity-roasted/ and /newsletter-suite/ at the repo root; this folder is
+# scratch material only and should never be committed.
+/humanity-roasted-website-archive/

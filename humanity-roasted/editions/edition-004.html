@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The bill arrives. The system shrugs. — Humanity, Roasted</title>
+<meta name="description" content="Inflation stays for dinner, NATO passes the hat, AI fires the workers it can't replace, and everyone discovers the friction was load-bearing.">
+<style>
+@font-face{font-family:"Playfair Display";font-weight:900;font-style:normal;font-display:swap;src:url("/fonts/PlayfairDisplay-Black.woff2") format("woff2");}
+@font-face{font-family:"Barlow Condensed";font-weight:600;font-style:normal;font-display:swap;src:url("/fonts/BarlowCondensed-SemiBold.woff2") format("woff2");}
+@font-face{font-family:"Barlow Condensed";font-weight:700;font-style:normal;font-display:swap;src:url("/fonts/BarlowCondensed-Bold.woff2") format("woff2");}
+@font-face{font-family:"Source Serif 4";font-weight:400;font-style:normal;font-display:swap;src:url("/fonts/SourceSerif4-Regular.woff2") format("woff2");}
+@font-face{font-family:"Inter";font-weight:400;font-style:normal;font-display:swap;src:url("/fonts/Inter-Regular.woff2") format("woff2");}
+@font-face{font-family:"Inter";font-weight:500;font-style:normal;font-display:swap;src:url("/fonts/Inter-Medium.woff2") format("woff2");}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#1C1A17;color:#F5F0E8;font-family:"Source Serif 4",Georgia,serif;}
+a{color:inherit;text-decoration:none;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;border-bottom:1px solid rgba(245,240,232,0.1);}
+.nav-logo{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:18px;letter-spacing:0.12em;text-transform:uppercase;color:#F5F0E8;}
+.nav-logo span{color:#C4530A;}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+.nav-links a{font-family:"Inter",sans-serif;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#B8AFA0;transition:color 0.2s;}
+.nav-links a[aria-label="Home"]{font-size:1.4rem;line-height:1;}
+.nav-links a:hover{color:#F5F0E8;}
+.nav-cta{font-family:"Inter",sans-serif;font-weight:500;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;background:#C4530A;color:#1C1A17;padding:9px 20px;border-radius:2px;}
+.nav-cta:hover{background:#E06020;color:#1C1A17;}
+.edition-header{max-width:720px;margin:0 auto;padding:72px 40px 48px;border-bottom:1px solid rgba(245,240,232,0.1);}
+.edition-eyebrow{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:20px;}
+.edition-subject{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(28px,4vw,42px);line-height:1.15;color:#F5F0E8;margin-bottom:20px;}
+.edition-meta{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:0.08em;color:rgba(245,240,232,0.4);text-transform:uppercase;margin-bottom:32px;}
+.edition-opening{font-family:"Source Serif 4",Georgia,serif;font-size:18px;line-height:1.8;color:rgba(245,240,232,0.85);}
+.stories{max-width:720px;margin:0 auto;padding:0 40px;}
+.story{padding:48px 0;border-bottom:1px solid rgba(245,240,232,0.1);}
+.story:last-child{border-bottom:none;}
+.story-desk{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:14px;}
+.story-hed{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(20px,3vw,28px);line-height:1.2;color:#F5F0E8;margin-bottom:16px;}
+.story-copy{font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.85;color:rgba(245,240,232,0.8);margin-bottom:14px;}
+.story-source a{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:0.06em;color:#C4530A;text-decoration:none;}
+.story-source a:hover{text-decoration:underline;}
+.edition-closing{max-width:720px;margin:0 auto;padding:48px 40px 72px;border-top:1px solid rgba(245,240,232,0.1);}
+.closing-label{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:16px;}
+.closing-text{font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.85;color:rgba(245,240,232,0.8);margin-bottom:32px;}
+.cta-btn{display:inline-block;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;background:#C4530A;color:#F5F0E8;padding:14px 36px;border-radius:2px;}
+footer{border-top:1px solid rgba(245,240,232,0.1);padding:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.footer-brand{font-family:"Playfair Display",serif;font-weight:900;font-size:14px;color:#F5F0E8;}
+.footer-sub{font-family:"Inter",sans-serif;font-size:11px;color:rgba(245,240,232,0.35);margin-top:4px;letter-spacing:0.04em;}
+.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;}
+.footer-links a{font-family:"Inter",sans-serif;font-size:12px;color:rgba(245,240,232,0.5);letter-spacing:0.04em;}
+.footer-links a:hover{color:#F5F0E8;}
+@media(max-width:600px){nav{padding:0 20px;}.nav-links{gap:16px;}.edition-header,.stories,.edition-closing{padding-left:20px;padding-right:20px;}footer{padding:32px 20px;flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/humanity-roasted/" class="nav-logo">Humanity<span>,</span> Roasted</a>
+  <ul class="nav-links">
+    <li><a href="/humanity-roasted/" aria-label="Home">⌂</a></li>
+    <li><a href="/humanity-roasted/about/">About</a></li>
+    <li><a href="/humanity-roasted/newsletter/">The Newsletter</a></li>
+    <li><a href="/humanity-roasted/coffee/">The Coffee</a></li>
+  </ul>
+  <a href="/humanity-roasted/newsletter/#join" class="nav-cta">Join the Dispatch</a>
+</nav>
+<header class="edition-header">
+  <p class="edition-eyebrow">The Still Grounded Dispatch &nbsp;·&nbsp; 2026-W28</p>
+  <h1 class="edition-subject">The bill arrives. The system shrugs.</h1>
+  <p class="edition-meta">Sunday 5 July 2026</p>
+  <p class="edition-opening">This week follows a pattern so consistent it might be structural: institutions ask for more while delivering less, systems remove the safeguards that were quietly doing the work, and the people inside the machinery start walking toward the exit. From Ankara to Canberra to Silicon Valley, the logic is the same — costs rise, buffers vanish, and someone frames the result as evolution.</p>
+</header>
+<main class="stories">
+<article class="story">
+  <p class="story-desk">Australian Affairs Desk</p>
+  <h2 class="story-hed">Inflation was leaving, changed its mind, sat back down</h2>
+  <p class="story-copy">After briefly approaching the RBA's target band, headline CPI has re-accelerated to between 4.2 and 4.6 per cent. The RBA has raised the cash rate three times in 2026 to 4.35 per cent, and further rises remain possible. Fuel, housing, electricity and insurance are doing the heavy lifting. Meanwhile the government's cost-of-living response includes a tax cut of up to $268 from 1 July — roughly the price of one tank of petrol and two weeks of groceries if you eat sparingly and do not drive anywhere interesting.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Australian Affairs Desk</p>
+  <h2 class="story-hed">Services Australia struggles with the one thing it exists to do</h2>
+  <p class="story-copy">A fresh look under the hood of Services Australia has revealed an agency that cannot effectively manage some of the most complex legislation in the country — the legislation it was specifically created to administer. Meanwhile, households relying on government payments are seeing the highest annual rises in living costs of any household type. The people most dependent on the system are paying the most while the system itself cannot figure out how to work.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Australian Affairs Desk</p>
+  <h2 class="story-hed">KPMG apologises for the way it handled being caught</h2>
+  <p class="story-copy">KPMG Australia has admitted its treatment of a whistleblower who raised concerns about client documents being inappropriately shared internally 'fell short of the firm's expectations.' Three partners were sanctioned, an internal investigation failed to substantiate the claims, an external legal review backed the internal investigation, and it took the whistleblower escalating repeatedly to the Board before a second external investigation was appointed. Chairman Martin Sheppard offered an 'unreserved apology.' The firm has now engaged a specialist to review its 'speak up culture,' which is corporate for admitting nobody was listening.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Geopolitical Desk</p>
+  <h2 class="story-hed">NATO asks members for five percent of GDP, calls it peace</h2>
+  <p class="story-copy">NATO's 32 heads of state are meeting in Ankara this week, where the big ask is now five percent of GDP on defence. Secretary General Mark Rutte has framed this as building a stronger Europe inside a stronger NATO — one that is, in his words, "less dependent on the United States, but in which the United States remains firmly rooted." Meanwhile, the Pentagon has quietly briefed allies on substantial US force cuts across Europe — fighters, bombers, destroyers, drones, and the cancellation of an armoured brigade rotation to Poland. So Europe gets the bill and America gets the door. The alliance calls this evolution.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Geopolitical Desk</p>
+  <h2 class="story-hed">The West sanctions Russia's shadow fleet again, for the twenty-first time</h2>
+  <p class="story-copy">The EU has extended its Russia sanctions for twelve months — the first time it has opted for a full year rather than the usual six-month renewal. The UK announced its largest-ever Russia sanctions package, targeting shadow fleet tankers, military procurement networks, and crypto channels used to evade prior rounds. The EU's proposed 21st sanctions package would add another 32 vessels on top of 632 already listed. At the same time, the UK quietly issued general trade licences allowing imports of diesel and jet fuel derived from Russian crude oil but processed in third countries. Sanctions are a system of carefully regulated disapproval, and business finds a way.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Geopolitical Desk</p>
+  <h2 class="story-hed">China and India remember Myanmar exists, send dignitaries</h2>
+  <p class="story-copy">Dueling state visits have revealed Myanmar re-emerging as an arena of geopolitical competition between Beijing and Delhi. The pattern is familiar — a country consumed by internal conflict becomes useful again when great powers need to demonstrate regional reach. The people of Myanmar, currently enduring a civil war that has displaced over two million, will be thrilled to learn they have been upgraded from humanitarian crisis to strategic interest.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Tech and Power Desk</p>
+  <h2 class="story-hed">AI replaces the workers, then fails to replace the workers</h2>
+  <p class="story-copy">Technology firms accounted for nearly a third of all US job cuts in the first half of 2026, with the sector announcing 139,156 roles eliminated — up 83% from the same period last year. AI was cited as the dominant restructuring force, even as a Gartner survey of 350 firms found companies that cut the deepest showed nearly identical financial returns to those that barely cut at all. The efficiency gains are, for now, aspirational. The layoffs are not.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Tech and Power Desk</p>
+  <h2 class="story-hed">The companies that made AI are now being unmade by it</h2>
+  <p class="story-copy">TechCrunch is keeping a running list of major companies citing AI as a stated factor in their 2026 layoffs. Amazon cut 16,000 corporate roles in January. Intuit eliminated 3,000. Coinbase is experimenting with 'one-person teams' combining engineering, design, and product into a single role managed by AI agents. Google, meanwhile, has quietly cut between 1,500 and 3,000 engineers through rolling reviews without ever announcing a number. The restructuring is continuous. The press release is optional.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Tech and Power Desk</p>
+  <h2 class="story-hed">LLMs can now do the work of intelligence analysts, which is the problem</h2>
+  <p class="story-copy">MIT Technology Review reported that LLM agents could dramatically reduce the friction that has historically limited mass surveillance — the time, cost, and skill required to link scattered data into comprehensive individual profiles. Data brokers already sell location data, financial records, and web searches to government agencies. What changes with AI is scale: the capacity to construct detailed profiles of millions of people, not just priority targets. A bipartisan group of senators introduced a bill requiring warrants before purchasing data from brokers. The friction, it turns out, was the last privacy protection that worked.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Bitcoin Desk</p>
+  <h2 class="story-hed">Weak jobs report is somehow good news, again</h2>
+  <p class="story-copy">The U.S. economy added just 57,000 jobs in June, roughly half what analysts expected. Bitcoin promptly rallied above $62,000. The logic: soft employment data makes the Federal Reserve less likely to raise rates at its July 28-29 meeting, so assets that produce no yield become relatively more attractive. Your purchasing power declines, the labour market weakens, and the chart goes green. This is what passes for optimism under the Warsh Fed.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Bitcoin Desk</p>
+  <h2 class="story-hed">IMF discovers that removing safety buffers removes safety buffers</h2>
+  <p class="story-copy">The IMF's Tobias Adrian warned that tokenisation — moving financial assets onto blockchain ledgers — eliminates the settlement delays that currently give regulators time to intervene during crises. 'Frictions disappear — but so do buffers,' he wrote. The institution that has spent decades managing the consequences of fast-moving capital now notices that making capital move faster might create consequences. The insight is correct. The irony is structural.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Bitcoin Desk</p>
+  <h2 class="story-hed">China's digital yuan starts paying interest, because surveillance wasn't incentive enough</h2>
+  <p class="story-copy">The People's Bank of China began paying interest on verified e-CNY wallets from January 1, breaking global CBDC consensus that digital central bank money should remain a zero-yield cash equivalent. The move reclassifies the digital yuan from digital cash toward something resembling a deposit — with deposit insurance included. It is the world's most advanced programmable money experiment, now with a yield attached. The 230 million wallets already open suggest the infrastructure is built. The question is what gets programmed next.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Culture and Media Desk</p>
+  <h2 class="story-hed">Streaming platforms now cost as much as cable, except you have to manage six apps yourself</h2>
+  <p class="story-copy">Analysts are gently suggesting that July 2026 — despite Netflix dropping Enola Holmes 3, the Heartstopper finale, and the entire Hunger Games catalogue — might actually be a good month to cancel a subscription or two. Combined monthly streaming bills across Netflix, Disney+, Hulu, Apple TV+ and HBO Max now rival or exceed the old cable packages they were supposed to liberate us from. The streaming economy's innovation, it turns out, was not eliminating the bundle but fragmenting it into six separate billing relationships and calling it consumer choice.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Culture and Media Desk</p>
+  <h2 class="story-hed">Study confirms what you already knew: influencers make misinformation worse, and brands keep paying them anyway</h2>
+  <p class="story-copy">A Cardiff Business School study published in Psychology & Marketing found that influencer-driven misinformation generates significantly more toxicity than the same content from regular users, because parasocial bonds mean followers rally behind inaccurate posts instead of questioning them. Brands invested a record $33 billion in influencer marketing in 2025 — an industry that was worth $1.7 billion in 2016 — while simultaneously creating the conditions for what researchers call 'collective, belief-driven antagonism.' The attention economy doesn't have an integrity problem. It has a business model.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Reclaimed Desk</p>
+  <h2 class="story-hed">The algorithm finally squeezed too hard and people let go</h2>
+  <p class="story-copy">Social media platforms were built on variable reward systems — the same psychological architecture as slot machines. Half of Americans reduced their use in 2025 according to an APA poll, and now in 2026 they're moving past detox into permanent disengagement. Therapists report clients aren't taking breaks anymore — they're setting boundaries, because as one put it, they've realised they're 'performing labor for an algorithm that gives them nothing in return.' Two weeks off produces measurable cognitive improvements rivalling traditional therapy. The system was designed to be hard to leave. Turns out it wasn't.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Reclaimed Desk</p>
+  <h2 class="story-hed">83% of finance workers want out but stay because the market won't let them leave yet</h2>
+  <p class="story-copy">The finance industry built a talent model that assumed people stayed because they were loyal. BambooHR data reveals 83% of finance professionals want a career change, and two-thirds cite financial stability — not satisfaction — as their reason for staying. Tenured employees aren't engaged; they're stuck. When the market thaws and alternatives appear, the industry that manages everyone else's money may discover it can't retain the people who do the managing. The most satisfied employees are the newest ones, which tells you everything about the trajectory.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Reclaimed Desk</p>
+  <h2 class="story-hed">People aren't leaving jobs for better jobs. They're leaving jobs for actual lives.</h2>
+  <p class="story-copy">The 2026 resignation wave isn't a salary negotiation tactic. Workers across industries are quitting because they've reappraised what success means — and the corporate version doesn't survive the audit. Younger professionals want meaningful work, ethical leadership, and alignment with personal values. AI is accelerating the exit by making formerly stable roles feel obsolete, pushing people to reskill toward self-directed work. The creator economy is absorbing them: fitness coaches, mechanics, teachers, all building direct-to-audience businesses on their own terms. The employment machine keeps running. Fewer people are volunteering to stand inside it.</p>
+</article>
+
+</main>
+<section class="edition-closing">
+  <p class="closing-label">Still Grounded</p>
+  <p class="closing-text">The friction was never the problem. The friction was the architecture — the thing that gave regulators time, gave workers leverage, gave systems a reason to account for the people inside them. Remove it in the name of efficiency and what remains is faster, leaner, and answerable to no one in particular. The coffee is still hot. The morning is yours.</p>
+  <a href="https://store.humanityroasted.com" class="cta-btn">Still Grounded</a>
+</section>
+<footer>
+  <div><div class="footer-brand">Humanity, Roasted</div><div class="footer-sub">A Reclaimed Media publication &nbsp;·&nbsp; humanityroasted.com</div></div>
+  <ul class="footer-links">
+    <li><a href="/humanity-roasted/newsletter/">Newsletter</a></li>
+    <li><a href="/humanity-roasted/coffee/">Coffee</a></li>
+    <li><a href="/humanity-roasted/about/">About</a></li>
+    <li><a href="https://store.humanityroasted.com">Store</a></li>
+    <li><a href="https://instagram.com/humanity_roasted">Instagram</a></li>
+  </ul>
+</footer>
+</body>
+</html>

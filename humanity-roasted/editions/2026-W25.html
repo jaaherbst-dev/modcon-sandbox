@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The old architecture is still standing. Nobody is inside it. — Humanity, Roasted</title>
+<meta name="description" content="When the system works exactly as designed, just not for anyone who designed it.">
+<style>
+@font-face{font-family:"Playfair Display";font-weight:900;font-style:normal;font-display:swap;src:url("/fonts/PlayfairDisplay-Black.woff2") format("woff2");}
+@font-face{font-family:"Barlow Condensed";font-weight:600;font-style:normal;font-display:swap;src:url("/fonts/BarlowCondensed-SemiBold.woff2") format("woff2");}
+@font-face{font-family:"Barlow Condensed";font-weight:700;font-style:normal;font-display:swap;src:url("/fonts/BarlowCondensed-Bold.woff2") format("woff2");}
+@font-face{font-family:"Source Serif 4";font-weight:400;font-style:normal;font-display:swap;src:url("/fonts/SourceSerif4-Regular.woff2") format("woff2");}
+@font-face{font-family:"Inter";font-weight:400;font-style:normal;font-display:swap;src:url("/fonts/Inter-Regular.woff2") format("woff2");}
+@font-face{font-family:"Inter";font-weight:500;font-style:normal;font-display:swap;src:url("/fonts/Inter-Medium.woff2") format("woff2");}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#1C1A17;color:#F5F0E8;font-family:"Source Serif 4",Georgia,serif;}
+a{color:inherit;text-decoration:none;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;border-bottom:1px solid rgba(245,240,232,0.1);}
+.nav-logo{font-family:"Playfair Display",serif;font-weight:900;font-size:18px;letter-spacing:0.02em;color:#F5F0E8;}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+.nav-links a{font-family:"Inter",sans-serif;font-size:13px;font-weight:500;letter-spacing:0.04em;color:rgba(245,240,232,0.7);transition:color 0.2s;}
+.nav-links a:hover{color:#F5F0E8;}
+.nav-cta{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;background:#C4530A;color:#F5F0E8;padding:9px 20px;border-radius:2px;}
+.nav-cta:hover{background:#d4601a;color:#F5F0E8;}
+.edition-header{max-width:720px;margin:0 auto;padding:72px 40px 48px;border-bottom:1px solid rgba(245,240,232,0.1);}
+.edition-eyebrow{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:20px;}
+.edition-subject{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(28px,4vw,42px);line-height:1.15;color:#F5F0E8;margin-bottom:20px;}
+.edition-meta{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:0.08em;color:rgba(245,240,232,0.4);text-transform:uppercase;margin-bottom:32px;}
+.edition-opening{font-family:"Source Serif 4",Georgia,serif;font-size:18px;line-height:1.8;color:rgba(245,240,232,0.85);}
+.stories{max-width:720px;margin:0 auto;padding:0 40px;}
+.story{padding:48px 0;border-bottom:1px solid rgba(245,240,232,0.1);}
+.story:last-child{border-bottom:none;}
+.story-desk{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:14px;}
+.story-hed{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(20px,3vw,28px);line-height:1.2;color:#F5F0E8;margin-bottom:16px;}
+.story-copy{font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.85;color:rgba(245,240,232,0.8);margin-bottom:14px;}
+.story-source a{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:0.06em;color:#C4530A;text-decoration:none;}
+.story-source a:hover{text-decoration:underline;}
+.edition-closing{max-width:720px;margin:0 auto;padding:48px 40px 72px;border-top:1px solid rgba(245,240,232,0.1);}
+.closing-label{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:16px;}
+.closing-text{font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.85;color:rgba(245,240,232,0.8);margin-bottom:32px;}
+.cta-btn{display:inline-block;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;background:#C4530A;color:#F5F0E8;padding:14px 36px;border-radius:2px;}
+footer{border-top:1px solid rgba(245,240,232,0.1);padding:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.footer-brand{font-family:"Playfair Display",serif;font-weight:900;font-size:14px;color:#F5F0E8;}
+.footer-sub{font-family:"Inter",sans-serif;font-size:11px;color:rgba(245,240,232,0.35);margin-top:4px;letter-spacing:0.04em;}
+.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;}
+.footer-links a{font-family:"Inter",sans-serif;font-size:12px;color:rgba(245,240,232,0.5);letter-spacing:0.04em;}
+.footer-links a:hover{color:#F5F0E8;}
+@media(max-width:600px){nav{padding:0 20px;}.nav-links{gap:16px;}.edition-header,.stories,.edition-closing{padding-left:20px;padding-right:20px;}footer{padding:32px 20px;flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://humanityroasted.com" class="nav-logo">Humanity, Roasted</a>
+  <ul class="nav-links">
+    <li><a href="/humanity-roasted/newsletter/">The Newsletter</a></li>
+    <li><a href="/humanity-roasted/coffee/">The Coffee</a></li>
+    <li><a href="/humanity-roasted/about/">About</a></li>
+    <li><a href="/humanity-roasted/newsletter/#join" class="nav-cta">Join the Dispatch</a></li>
+  </ul>
+</nav>
+<header class="edition-header">
+  <p class="edition-eyebrow">The Still Grounded Dispatch &nbsp;·&nbsp; 2026-W25</p>
+  <h1 class="edition-subject">The old architecture is still standing. Nobody is inside it.</h1>
+  <p class="edition-meta">Monday 15 June 2026</p>
+  <p class="edition-opening">Everywhere you look, the scaffolding is still up but the building has moved. Parties that assumed permanence are discovering arithmetic. Wars that assumed victory are discovering paperwork. Trade systems that assumed openness are discovering locks. The structures remain. The legitimacy has quietly relocated.</p>
+</header>
+<main class="stories">
+<article class="story"><p class="story-desk">Original Desk</p><h2 class="story-hed">One Nation is now Australia's most popular party, which is a sentence that exists now</h2><p class="story-copy">According to Roy Morgan polling from early June, One Nation has surged into first place on primary vote, sitting above both Labor at 27.5% and the Coalition at 23%. The Liberal Party, which underwent a leadership spill in February that replaced Sussan Ley with Angus Taylor, has watched its vote halve since 2022 while Pauline Hanson's outfit picked up the pieces - including winning the Farrer by-election in May, the first time a One Nation candidate has been directly elected to the House of Representatives. The major parties built a system that assumed they would always be the only two options. That assumption now has a primary vote of 23%.</p><p class="story-source"><a href="https://www.roymorgan.com/findings/10246-federal-voting-intention-june-9-2026" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Original Desk</p><h2 class="story-hed">The Coalition is polling at 12 seats, which is technically still a party</h2><p class="story-copy">A Redbridge MRP model now projects the Coalition winning just 12 seats in the House of Representatives, compared to One Nation's 53. Twelve seats. That is not a political party, that is a book club with parliamentary privilege. The Liberals spent decades as a broad church and have managed to renovate it into a garden shed. Meanwhile, Angus Taylor leads an opposition that is now, by the numbers, the third-largest political force in the country behind a party founded on a fish and chip shop grievance in 1997.</p><p class="story-source"><a href="https://theconversation.com/topics/australian-politics-32" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Geopolitical Desk</p><h2 class="story-hed">A hundred-day war gets a signing ceremony and a list of caveats</h2><p class="story-copy">The US-Iran war hit its 100th day this week, and a deal is reportedly set to be signed in Geneva today. The Trump administration appears to have shelved its demand for immediate denuclearisation, kicking it to a later date in order to get ink on paper. What remains is a memorandum of understanding with disputed terms, domestic opposition on both sides, and a ceasefire that was being violated by active strikes right up until the diplomatic breakthrough was announced. The Strait of Hormuz, the sanctions architecture, the Abraham Accords linkage — none of these are resolved. They are merely reclassified as future problems.</p><p class="story-source"><a href="https://www.opforjournal.com/p/weekly-significant-activity-report-b19" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Geopolitical Desk</p><h2 class="story-hed">The IMF named its report 'In the Shadow of War' and still projected resilient growth</h2><p class="story-copy">The IMF titled its April 2026 World Economic Outlook 'Global Economy in the Shadow of War' — a rare moment of editorial honesty from an institution that usually prefers euphemism. The Middle East and North Africa face a cumulative growth revision of nearly three percentage points. Meanwhile, the World Bank warns the 2020s are on track to be the weakest decade for global growth since the 1960s, while noting the economy appears 'resilient to policy uncertainty.' The word for an economy that absorbs shocks without improving lives is not resilient. It is captured.</p><p class="story-source"><a href="https://www.imf.org/en/publications/weo" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Geopolitical Desk</p><h2 class="story-hed">The EU built a trade wall and insists it is not a sanctions instrument</h2><p class="story-copy">The EU's Industrial Autonomy Act, unveiled in March 2026, introduces procurement preferences and foreign investment conditions targeting countries holding over 40 percent of global manufacturing capacity in strategic sectors. Everyone knows this means China. Beijing knows this means China. China has warned of countermeasures. The EU insists the IAA is not formally a sanctions instrument, which is technically accurate in the same way that a locked door is not formally a wall. The WTO-based trading order continues to exist in the way that a theatre set exists — convincing from one angle, hollow from behind.</p><p class="story-source"><a href="https://www.steptoe.com/en/news-publications/stepwise-risk-outlook/sanctions-update-may-4-2026.html" target="_blank" rel="noopener">Read source &rarr;</a></p></article>
+</main>
+<section class="edition-closing">
+  <p class="closing-label">Still Grounded</p>
+  <p class="closing-text">The common thread this week is not chaos. It is the quiet moment after the rules stopped applying but before anyone agreed on new ones. The old playbooks are still being read aloud. The rooms are just emptier now.</p>
+  <a href="https://store.humanityroasted.com" class="cta-btn">Still Grounded</a>
+</section>
+<footer>
+  <div><div class="footer-brand">Humanity, Roasted</div><div class="footer-sub">A Reclaimed Media publication &nbsp;·&nbsp; humanityroasted.com</div></div>
+  <ul class="footer-links">
+    <li><a href="/humanity-roasted/newsletter/">Newsletter</a></li>
+    <li><a href="/humanity-roasted/coffee/">Coffee</a></li>
+    <li><a href="/humanity-roasted/about/">About</a></li>
+    <li><a href="https://store.humanityroasted.com">Store</a></li>
+    <li><a href="https://instagram.com/humanity_roasted">Instagram</a></li>
+  </ul>
+</footer>
+</body>
+</html>

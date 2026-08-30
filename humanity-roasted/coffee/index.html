@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Coffee. Humanity, Roasted.</title>
+  <meta name="description" content="Five blends. One grounded ritual. Premium Australian coffee for people who see through the noise and still show up.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:  #C84B11;
+      --orange2: #e55a18;
+      --black:   #0D0B09;
+      --dark:    #1A1208;
+      --mid:     #2A1F14;
+      --card:    #16100A;
+      --cream:   #F2EDE3;
+      --muted:   #8A7A6A;
+      --border:  rgba(255,255,255,0.08);
+    }
+.nav-links a[aria-label="Home"] {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+    html { scroll-behavior: smooth; font-size: 19px; }
+    body {
+      background: var(--black);
+      color: var(--cream);
+      font-family: 'Barlow', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .o { color: var(--orange); }
+
+    @keyframes kenburns {
+      from { transform: scale(1)    translate(0, 0); }
+      to   { transform: scale(1.09) translate(-1.5%, -1%); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slamIn {
+      from { opacity: 0; transform: scale(1.14) translateY(-14px); }
+      to   { opacity: 1; transform: scale(1)    translateY(0); }
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .85s ease, transform .85s ease;
+    }
+    .reveal.visible          { opacity: 1; transform: none; }
+    .reveal-delay-1          { transition-delay: .15s; }
+    .reveal-delay-2          { transition-delay: .30s; }
+    .reveal-delay-3          { transition-delay: .45s; }
+
+    /* NAV - new site nav */
+    #main-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 0 2rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(13,11,9,0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--cream); text-decoration: none;
+    }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--cream); }
+    .nav-cta {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--black); background: var(--orange);
+      padding: 0.5rem 1.25rem; text-decoration: none; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--orange2); }
+    .nav-hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      padding: 8px; flex-direction: column; gap: 5px; flex-shrink: 0;
+    }
+    .nav-hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--cream); border-radius: 1px;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* MOBILE NAV */
+    .mobile-nav {
+      position: fixed; inset: 0; z-index: 998;
+      background: var(--black);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .35s ease;
+    }
+    .mobile-nav.open { opacity: 1; pointer-events: all; }
+    .mobile-nav-list { list-style: none; text-align: center; width: 100%; max-width: 440px; }
+    .mobile-nav-list li { border-bottom: 1px solid var(--border); }
+    .mobile-nav-list li:first-child { border-top: 1px solid var(--border); }
+    .mobile-nav-list a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 2.2rem;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--cream); text-decoration: none;
+      display: block; padding: 20px 36px;
+      transition: color .2s;
+    }
+    .mobile-nav-list a:active { color: var(--orange); }
+    .mobile-nav-shop {
+      margin-top: 40px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: .95rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--black); background: var(--orange);
+      padding: 16px 44px; text-decoration: none;
+      display: inline-block; transition: background .2s;
+    }
+    .mobile-nav-shop:hover { background: var(--orange2); }
+
+    /* HERO */
+    #hero {
+      position: relative; z-index: 1; height: 100vh; min-height: 640px;
+      overflow: hidden; display: flex; align-items: center;
+      padding-top: 100px; padding-bottom: 72px;
+    }
+    .hero-bg {
+      position: absolute; inset: -10%;
+      background: url('/uploads/hero blank.png') center / cover no-repeat;
+      animation: kenburns 22s ease-in-out infinite alternate;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(13,11,9,.82) 0%, rgba(13,11,9,.38) 55%, rgba(13,11,9,.62) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 68px; max-width: 1000px;
+    }
+    .hero-eyebrow {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .85rem; letter-spacing: .34em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 20px;
+      opacity: 0; animation: fadeUp .6s .3s forwards;
+    }
+    .hero-line {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; text-transform: uppercase; line-height: .9;
+    }
+    .hero-line.l1 { font-size: clamp(3.2rem, 6.5vw, 6.5rem); opacity: 0; animation: fadeUp .7s .6s forwards; }
+    .hero-line.l2 { font-size: clamp(3.2rem, 6.5vw, 6.5rem); opacity: 0; animation: fadeUp .7s .9s forwards; }
+    .hero-line.l3 { font-size: clamp(3.8rem, 7.5vw, 7.5rem); color: var(--orange); opacity: 0; animation: slamIn .55s 1.5s forwards; }
+    .hero-sub {
+      margin-top: 28px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 400; font-style: italic; font-size: 1.35rem;
+      letter-spacing: .05em; color: rgba(242,237,227,.72);
+      opacity: 0; animation: fadeUp .6s 2.1s forwards;
+    }
+    .hero-actions {
+      display: flex; align-items: center; gap: 28px; margin-top: 38px;
+      opacity: 0; animation: fadeUp .6s 2.4s forwards;
+    }
+    .btn-cream {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: .9rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--black); background: var(--cream);
+      padding: 14px 34px; text-decoration: none;
+      border: 2px solid var(--cream);
+      transition: background .2s, color .2s;
+    }
+    .btn-cream:hover { background: transparent; color: var(--cream); }
+    .btn-ghost {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600; font-size: .9rem;
+      letter-spacing: .13em; text-transform: uppercase;
+      color: rgba(242,237,227,.52); text-decoration: none;
+      transition: color .2s;
+    }
+    .btn-ghost:hover { color: var(--cream); }
+    .hero-tag {
+      margin-top: 20px;
+      font-family: 'Barlow', sans-serif;
+      font-size: .82rem; font-style: italic;
+      color: var(--orange);
+      opacity: 0; animation: fadeUp .6s 2.7s forwards;
+    }
+
+    /* TICKER */
+    .ticker-wrap { background: var(--orange); padding: 13px 0; overflow: hidden; white-space: nowrap; }
+    .ticker-track { display: inline-block; animation: ticker 42s linear infinite; }
+    .ticker-item {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: .9rem;
+      letter-spacing: .26em; text-transform: uppercase;
+      color: var(--black); padding: 0 44px;
+    }
+    .ticker-item::after { content: '★'; padding-left: 44px; }
+
+    /* SECTION COMMONS */
+    .section-label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: .8rem;
+      letter-spacing: .32em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; text-transform: uppercase; line-height: .9;
+    }
+    .btn-orange {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: .9rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--cream); background: var(--orange);
+      padding: 14px 32px; text-decoration: none;
+      border: 2px solid var(--orange);
+      transition: background .2s, color .2s;
+    }
+    .btn-orange:hover { background: transparent; color: var(--orange); }
+    .btn-orange-outline {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: .9rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--orange); background: transparent;
+      border: 2px solid var(--orange);
+      padding: 14px 32px; text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .btn-orange-outline:hover { background: var(--orange); color: var(--cream); }
+
+    /* PRODUCTS */
+    #products { background: var(--black); padding: 88px 68px; border-top: 1px solid var(--border); }
+    .products-inner { max-width: 1360px; margin: 0 auto; }
+    .products-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; gap: 32px; }
+    .products-header h2 { font-size: clamp(3.5rem, 7vw, 6.5rem); color: var(--cream); }
+    .products-header p { font-size: 1rem; color: rgba(242,237,227,.42); max-width: 320px; text-align: right; line-height: 1.65; }
+    .products-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+
+    .product-card { perspective: 1200px; cursor: pointer; }
+    .product-card-inner {
+      position: relative; width: 100%; aspect-ratio: 2/3;
+      transition: transform .65s cubic-bezier(.4,0,.2,1);
+      transform-style: preserve-3d;
+    }
+    .product-card:hover .product-card-inner,
+    .product-card.flipped .product-card-inner { transform: rotateY(180deg); }
+    .touch-device .product-card:not(.flipped):hover .product-card-inner { transform: none; }
+    .product-face, .product-back {
+      position: absolute; inset: 0;
+      backface-visibility: hidden; -webkit-backface-visibility: hidden; overflow: hidden;
+    }
+    .product-face { background: var(--mid); }
+    .product-face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .product-back {
+      transform: rotateY(180deg);
+      background: var(--dark); padding: 22px 18px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      border: 1px solid var(--border);
+    }
+    .pb-tag { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; color: var(--orange); margin-bottom: 5px; }
+    .pb-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.45rem; line-height: 1; color: var(--cream); margin-bottom: 6px; }
+    .pb-notes { font-family: 'Barlow Condensed', sans-serif; font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(242,237,227,.35); margin-bottom: 6px; }
+    .pb-tagline { font-style: italic; font-size: .84rem; color: rgba(242,237,227,.52); line-height: 1.45; margin-bottom: 8px; }
+    .pb-origin { font-family: 'Barlow Condensed', sans-serif; font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0; }
+    .pb-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+    .pb-readmore {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .74rem;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--cream); background: transparent;
+      border: 1px solid var(--border); padding: 9px 12px;
+      cursor: pointer; text-align: center;
+      transition: border-color .2s, color .2s;
+    }
+    .pb-readmore:hover { border-color: var(--orange); color: var(--orange); }
+    .pb-btn {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .74rem;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--black); background: var(--orange);
+      border: none; padding: 9px 12px;
+      text-decoration: none; display: block; text-align: center;
+      transition: background .2s;
+    }
+    .pb-btn:hover { background: var(--orange2); }
+
+    .trust-strip { display: flex; flex-wrap: wrap; border: 1px solid var(--border); margin: 48px 0 0; }
+    .trust-item {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .72rem;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--muted); padding: 18px 24px;
+      border-right: 1px solid var(--border);
+      flex: 1; text-align: center; min-width: 140px;
+    }
+    .trust-item:last-child { border-right: none; }
+    .reviews-placeholder {
+      font-style: italic; font-size: .88rem;
+      color: rgba(242,237,227,.24);
+      text-align: center; margin-top: 20px;
+      padding: 18px; border: 1px solid var(--border); border-top: none;
+    }
+    .products-shop-all { text-align: center; margin-top: 40px; }
+
+    /* PHILOSOPHY SPREADS */
+    .spread { display: grid; grid-template-columns: 1fr 1fr; }
+    .spread-img { background: var(--black); display: flex; align-items: center; justify-content: center; }
+    .spread-img img { width: 100%; height: auto; display: block; max-height: 85vh; object-fit: contain; }
+    .spread-text { background: var(--dark); padding: 64px 76px; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+    .spread-text.light { background: var(--cream); }
+    .spread-text.light .section-label { color: rgba(26,18,8,.5); }
+    .spread-quote { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 5.5vw, 6.2rem); line-height: .88; color: var(--cream); }
+    .spread-text.light .spread-quote { color: var(--black); }
+    .spread-quote em { color: var(--orange); font-style: normal; }
+    .spread-body { font-size: 1.05rem; line-height: 1.78; color: rgba(242,237,227,.58); max-width: 480px; }
+    .spread-text.light .spread-body { color: rgba(13,11,9,.58); }
+    .spread-sig { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .82rem; letter-spacing: .26em; text-transform: uppercase; color: var(--orange); }
+    .spread.reverse .spread-img { order: 2; }
+    .spread.reverse .spread-text { order: 1; }
+
+    /* WHY BUY */
+    #why-buy { background: var(--mid); padding: 72px 68px; border-top: 1px solid var(--border); }
+    .why-buy-inner { max-width: 1260px; margin: 0 auto; }
+    .why-buy-header { margin-bottom: 52px; }
+    .why-buy-header h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; text-transform: uppercase; line-height: .9; font-size: clamp(3rem, 6vw, 5.5rem); color: var(--cream); }
+    .why-buy-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+    .why-buy-card { background: var(--dark); padding: 44px 36px; }
+    .why-buy-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: .06em; text-transform: uppercase; color: var(--cream); margin-bottom: 16px; padding-bottom: 16px; border-bottom: 2px solid var(--orange); }
+    .why-buy-card p { font-size: .95rem; line-height: 1.72; color: var(--muted); }
+    .why-buy-note { margin-top: 52px; padding-top: 40px; border-top: 1px solid var(--border); max-width: 680px; }
+    .why-buy-note p { font-size: 1.05rem; line-height: 1.8; color: var(--muted); margin-bottom: 20px; }
+
+    /* STAY GROUNDED */
+    #why { background: var(--black); padding: 88px 68px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .why-inner { max-width: 1260px; margin: 0 auto; }
+    .why-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .82rem; letter-spacing: .32em; text-transform: uppercase; color: var(--orange); margin-bottom: 52px; }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 88px; }
+    .why-h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 8vw, 9.5rem); line-height: .87; color: var(--cream); margin-bottom: 34px; }
+    .why-body { font-size: 1.05rem; color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
+    .why-body strong { color: var(--cream); font-weight: 600; }
+    .why-values { border-top: 1px solid var(--border); }
+    .why-val { padding: 26px 0; border-bottom: 1px solid var(--border); }
+    .why-val-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.05rem; letter-spacing: .2em; text-transform: uppercase; color: var(--cream); margin-bottom: 8px; display: flex; align-items: center; gap: 14px; }
+    .why-val-title::before { content: ''; display: block; width: 3px; height: 16px; background: var(--orange); flex-shrink: 0; }
+    .why-val-desc { font-size: .95rem; color: var(--muted); line-height: 1.65; padding-left: 17px; }
+    .why-closing-quote { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.6rem, 3vw, 2.6rem); line-height: 1.1; color: var(--cream); margin-top: 36px; padding-top: 32px; border-top: 1px solid var(--border); }
+
+    /* JOIN */
+    #join { background: var(--dark); padding: 88px 68px; border-top: 1px solid var(--border); }
+    .join-inner { max-width: 1260px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: start; }
+    .join-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .82rem; letter-spacing: .32em; text-transform: uppercase; color: var(--orange); margin-bottom: 22px; }
+    .join-h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(5.5rem, 11vw, 12rem); line-height: .87; color: var(--cream); }
+    .join-tagline { font-style: italic; font-size: 1.05rem; color: var(--muted); line-height: 1.72; margin-bottom: 30px; }
+    .join-perks { list-style: none; margin-bottom: 34px; }
+    .join-perk { font-size: .95rem; color: var(--muted); padding: 11px 0 11px 22px; border-bottom: 1px solid var(--border); position: relative; }
+    .join-perk::before { content: '->'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
+    .join-form { display: flex; margin-bottom: 16px; }
+    .join-input { flex: 1; background: var(--black); border: 1px solid var(--border); border-right: none; color: var(--cream); font-family: 'Barlow', sans-serif; font-size: .95rem; padding: 17px 22px; outline: none; transition: border-color .2s; }
+    .join-input:focus { border-color: var(--orange); }
+    .join-input::placeholder { color: var(--muted); }
+    .join-btn { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .88rem; letter-spacing: .18em; text-transform: uppercase; color: var(--black); background: var(--orange); border: none; padding: 17px 28px; cursor: pointer; transition: background .2s; white-space: nowrap; }
+    .join-btn:hover { background: var(--orange2); }
+    .join-success-msg { font-family: 'Barlow Condensed', sans-serif; font-size: .9rem; letter-spacing: .15em; text-transform: uppercase; color: var(--orange); margin-top: 14px; }
+    .join-disclaimer { font-style: italic; font-size: .82rem; color: rgba(242,237,227,.22); margin-top: 12px; }
+
+    /* QUOTE STRIP */
+    #quote-strip { background: var(--mid); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 72px 68px; text-align: center; }
+    .qs-text { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.4rem, 5vw, 5.5rem); line-height: .93; color: var(--cream); max-width: 1100px; margin: 0 auto 22px; }
+    .qs-text .hl { color: var(--orange); }
+    .qs-attr { font-family: 'Barlow Condensed', sans-serif; font-size: .82rem; letter-spacing: .32em; text-transform: uppercase; color: var(--muted); margin-bottom: 48px; }
+    .qs-lead { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(242,237,227,.52); margin-bottom: 24px; }
+
+    /* FOOTER - new site footer */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 2rem; align-items: end;
+    }
+    .footer-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .9rem; letter-spacing: .1em; text-transform: uppercase; color: var(--cream); margin-bottom: .5rem; }
+    .footer-sub { font-family: 'Barlow', sans-serif; font-size: .75rem; color: var(--muted); opacity: .5; }
+    .footer-links { display: flex; gap: 1.75rem; list-style: none; }
+    .footer-links a { font-family: 'Barlow Condensed', sans-serif; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--cream); }
+
+    /* STICKY BAR */
+    #sticky { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: var(--dark); border-top: 1px solid var(--border); padding: 14px 52px; display: flex; align-items: center; justify-content: space-between; transform: translateY(100%); transition: transform .35s ease; }
+    #sticky.vis { transform: translateY(0); }
+    .sticky-txt { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .9rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(242,237,227,.58); }
+    .sticky-txt span { color: var(--orange); }
+    .sticky-cta { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .88rem; letter-spacing: .18em; text-transform: uppercase; color: var(--black); background: var(--orange); padding: 11px 26px; text-decoration: none; transition: background .2s; }
+    .sticky-cta:hover { background: var(--orange2); }
+
+    /* MODAL */
+    #product-modal { position: fixed; inset: 0; z-index: 500; background: rgba(13,11,9,.92); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); display: flex; align-items: center; justify-content: center; padding: 32px; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+    #product-modal.open { opacity: 1; pointer-events: all; }
+    .modal-card { background: var(--dark); border: 1px solid var(--border); max-width: 700px; width: 100%; max-height: 92vh; overflow-y: auto; padding: 56px 56px 48px; position: relative; }
+    .modal-close { position: absolute; top: 22px; right: 28px; background: none; border: none; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-size: .8rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
+    .modal-close:hover { color: var(--orange); }
+    .modal-tag { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .75rem; letter-spacing: .26em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
+    .modal-name { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.2rem, 6vw, 6rem); line-height: .88; color: var(--cream); margin-bottom: 6px; }
+    .modal-sub { font-style: italic; font-size: 1.1rem; color: var(--muted); margin-bottom: 26px; }
+    .modal-flavours { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 30px; }
+    .modal-flavour { font-family: 'Barlow Condensed', sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: rgba(242,237,227,.48); background: rgba(255,255,255,.05); border: 1px solid var(--border); padding: 5px 13px; }
+    .modal-hook { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.55rem; color: var(--cream); line-height: 1.2; margin-bottom: 18px; }
+    .modal-body { font-size: 1.02rem; color: var(--muted); line-height: 1.82; margin-bottom: 20px; }
+    .modal-brew { font-style: italic; font-size: .97rem; color: rgba(242,237,227,.28); margin-bottom: 36px; padding-top: 18px; border-top: 1px solid var(--border); }
+    .modal-cta { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .9rem; letter-spacing: .2em; text-transform: uppercase; color: var(--black); background: var(--orange); padding: 16px 34px; text-decoration: none; display: inline-block; transition: background .2s; }
+    .modal-cta:hover { background: var(--orange2); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); }
+      .why-buy-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .why-grid, .join-inner { grid-template-columns: 1fr; gap: 56px; }
+      .products-header { flex-direction: column; align-items: flex-start; }
+      .products-header p { text-align: left; max-width: 100%; }
+      .trust-strip { flex-wrap: wrap; }
+      .trust-item { flex: 0 0 50%; border-right: none; border-bottom: 1px solid var(--border); }
+      .trust-item:nth-child(odd) { border-right: 1px solid var(--border); }
+      .trust-item:last-child { border-bottom: none; }
+    }
+    @media (max-width: 768px) {
+      html { font-size: 16px; }
+      #main-nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero-content { padding: 0 24px; text-align: center; }
+      .hero-actions { justify-content: center; flex-wrap: wrap; gap: 18px; }
+      .hero-tag { text-align: center; }
+      #products, #why, #why-buy, #join, #quote-strip { padding: 52px 24px; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .why-buy-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-buy-card { padding: 28px 20px; }
+      .spread { grid-template-columns: 1fr; min-height: auto; }
+      .spread.reverse .spread-img { order: 0; }
+      .spread.reverse .spread-text { order: 1; }
+      .spread-img { min-height: 260px; }
+      .spread-text { padding: 40px 24px; }
+      .spread-body { max-width: 100%; }
+      .join-inner { gap: 44px; }
+      footer { padding: 2rem 1.25rem; grid-template-columns: 1fr; }
+      .footer-links { flex-wrap: wrap; gap: 1rem; }
+      #sticky { padding: 12px 24px; }
+      .sticky-txt { font-size: .76rem; }
+    }
+    @media (max-width: 520px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .why-buy-grid { grid-template-columns: 1fr; }
+      .join-form { flex-direction: column; }
+      .join-input { border-right: 1px solid var(--border); border-bottom: none; }
+      .modal-card { padding: 40px 18px 32px; }
+      .hero-actions { flex-direction: column; align-items: center; gap: 16px; }
+      .btn-cream { text-align: center; width: 100%; max-width: 280px; }
+      .qs-text { font-size: clamp(1.9rem, 6vw, 3rem); }
+    }
+    @media (max-width: 380px) {
+      html { font-size: 14px; }
+      .hero-content { padding: 0 18px; }
+      #products, #why, #why-buy, #join, #quote-strip { padding: 40px 18px; }
+      .spread-text { padding: 32px 18px; }
+      .why-buy-grid { grid-template-columns: 1fr; }
+      .join-h2 { font-size: clamp(4rem, 14vw, 6rem); }
+      .why-h2 { font-size: clamp(3rem, 10vw, 5rem); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="/humanity-roasted/" class="nav-logo">Humanity<span>,</span> Roasted</a>
+  <ul class="nav-links">
+    <li><a href="/humanity-roasted/" aria-label="Home">⌂</a></li>
+    <li><a href="/humanity-roasted/about/">About</a></li>
+    <li><a href="/humanity-roasted/newsletter/">The Newsletter</a></li>
+    <li><a href="/humanity-roasted/coffee/" class="active">The Coffee</a></li>
+  </ul>
+  <a href="https://store.humanityroasted.com/collections/all" class="nav-cta">Shop Now</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Navigation menu">
+  <ul class="mobile-nav-list">
+    <li><a href="/humanity-roasted/about/" class="mobile-nav-link">About</a></li>
+    <li><a href="/humanity-roasted/newsletter/" class="mobile-nav-link">The Newsletter</a></li>
+    <li><a href="/humanity-roasted/coffee/" class="mobile-nav-link">The Coffee</a></li>
+  </ul>
+  <a href="https://store.humanityroasted.com/collections/all" class="mobile-nav-shop">Shop Now</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Premium · Australian · Defiant</span>
+    <span class="hero-line l1">They Broke</span>
+    <span class="hero-line l2">Everything Else.</span>
+    <span class="hero-line l3">Not This.</span>
+    <p class="hero-sub">You see through the noise. You still choose to show up. This is your coffee.</p>
+    <div class="hero-actions">
+      <a href="https://store.humanityroasted.com/collections/all" class="btn-cream">Shop Coffee</a>
+      <a href="#products" class="btn-ghost">Find Your Blend -></a>
+    </div>
+    <p class="hero-tag">The world's absurd. The coffee's excellent.</p>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap" id="ticker-section">
+  <div class="ticker-track">
+    <span class="ticker-item">Humanity, Roasted</span>
+    <span class="ticker-item">The World's Noisy. Your Day Doesn't Have To Be.</span>
+    <span class="ticker-item">Freshly Roasted In Australia</span>
+    <span class="ticker-item">Not Financial Advice. Definitely Coffee Advice.</span>
+    <span class="ticker-item">Truth Over Trend</span>
+    <span class="ticker-item">Sarcasm As Survival</span>
+    <span class="ticker-item">Grounded In The Chaos</span>
+    <span class="ticker-item">100% Arabica · As Promised</span>
+    <span class="ticker-item">Your Small Grounded Moment Inside The Chaos</span>
+    <span class="ticker-item">Five Blends. One Ritual.</span>
+    <span class="ticker-item">Humanity, Roasted</span>
+    <span class="ticker-item">The World's Noisy. Your Day Doesn't Have To Be.</span>
+    <span class="ticker-item">Freshly Roasted In Australia</span>
+    <span class="ticker-item">Not Financial Advice. Definitely Coffee Advice.</span>
+    <span class="ticker-item">Truth Over Trend</span>
+    <span class="ticker-item">Sarcasm As Survival</span>
+    <span class="ticker-item">Grounded In The Chaos</span>
+    <span class="ticker-item">100% Arabica · As Promised</span>
+    <span class="ticker-item">Your Small Grounded Moment Inside The Chaos</span>
+    <span class="ticker-item">Five Blends. One Ritual.</span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="products-inner">
+    <div class="products-header">
+      <div>
+        <span class="section-label reveal">The Coffee</span>
+        <h2 class="section-title reveal reveal-delay-1">Five blends.<br>One <span class="o">grounded</span> ritual.</h2>
+      </div>
+      <div>
+        <p class="reveal reveal-delay-2">Choose your roast for whatever version of modern nonsense is waiting for you today.</p>
+        <p class="reveal reveal-delay-3" style="font-family:'Barlow Condensed',sans-serif; font-size:.75rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-top:12px;">Click any card to flip and see details</p>
+      </div>
+    </div>
+    <div class="products-grid reveal">
+
+      <div class="product-card" data-product="high-standards">
+        <div class="product-card-inner">
+          <div class="product-face"><img src="/humanity-roasted/uploads/high standards.png" alt="High Standards" loading="lazy"></div>
+          <div class="product-back">
+            <div>
+              <div class="pb-tag">Single Origin · Colombia · Medium Roast</div>
+              <div class="pb-name">High Standards</div>
+              <div class="pb-notes">Green Apple · Milk Choc · Hazelnut</div>
+              <div class="pb-tagline">"For when 'just one quick meeting' was already a lie at 7am."</div>
+              <div class="pb-origin">Popayan Reserve, 1700m · 100% Arabica · Best as filter</div>
+            </div>
+            <div class="pb-actions">
+              <button class="pb-readmore" data-product="high-standards">View Coffee</button>
+              <a href="https://store.humanityroasted.com/products/high-standards" class="pb-btn" target="_blank" rel="noopener">Get This Blend</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="already-wired">
+        <div class="product-card-inner">
+          <div class="product-face"><img src="/humanity-roasted/uploads/already wired.png" alt="Already Wired" loading="lazy"></div>
+          <div class="product-back">
+            <div>
+              <div class="pb-tag">Decaf · Colombia · Sugarcane Process</div>
+              <div class="pb-name">Already Wired</div>
+              <div class="pb-notes">Caramel · Brown Sugar · Red Apple</div>
+              <div class="pb-tagline">"All the ritual. None of the consequences. Suspicious, but effective."</div>
+              <div class="pb-origin">Brazil, Rwanda · 100% Arabica · Any method</div>
+            </div>
+            <div class="pb-actions">
+              <button class="pb-readmore" data-product="already-wired">View Coffee</button>
+              <a href="https://store.humanityroasted.com/products/already-wired" class="pb-btn" target="_blank" rel="noopener">Get This Blend</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="some-me-time">
+        <div class="product-card-inner">
+          <div class="product-face"><img src="/humanity-roasted/uploads/some me time.png" alt="Some Me Time" loading="lazy"></div>
+          <div class="product-back">
+            <div>
+              <div class="pb-tag">Medium Roast · Brazil / PNG / Colombia</div>
+              <div class="pb-name">Some Me Time</div>
+              <div class="pb-notes">Chocolate · Caramel · Vanilla</div>
+              <div class="pb-tagline">"Pairs well with unread emails and suspicious optimism."</div>
+              <div class="pb-origin">Brazil, PNG, Colombia · 100% Arabica · Any method</div>
+            </div>
+            <div class="pb-actions">
+              <button class="pb-readmore" data-product="some-me-time">View Coffee</button>
+              <a href="https://store.humanityroasted.com/products/some-me-time" class="pb-btn" target="_blank" rel="noopener">Get This Blend</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="still-grounded">
+        <div class="product-card-inner">
+          <div class="product-face"><img src="/humanity-roasted/uploads/still grounded.png" alt="Still Grounded" loading="lazy"></div>
+          <div class="product-back">
+            <div>
+              <div class="pb-tag">Medium Roast · Brazil / Colombia</div>
+              <div class="pb-name">Still Grounded</div>
+              <div class="pb-notes">Caramel · Milk Choc · Cardamom</div>
+              <div class="pb-tagline">"Strong enough for the news cycle. Smooth enough not to become it."</div>
+              <div class="pb-origin">Brazil, Colombia · 100% Arabica · Filter or espresso</div>
+            </div>
+            <div class="pb-actions">
+              <button class="pb-readmore" data-product="still-grounded">View Coffee</button>
+              <a href="https://store.humanityroasted.com/products/still-grounded" class="pb-btn" target="_blank" rel="noopener">Get This Blend</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product="morning-honestly">
+        <div class="product-card-inner">
+          <div class="product-face"><img src="/humanity-roasted/uploads/morning honestly.png" alt="Morning, Honestly" loading="lazy"></div>
+          <div class="product-back">
+            <div>
+              <div class="pb-tag">Medium Roast · Brazil / Rwanda · Hand-Picked</div>
+              <div class="pb-name">Morning, Honestly</div>
+              <div class="pb-notes">Brown Sugar · Blueberry · Spice</div>
+              <div class="pb-tagline">"For days that arrived without your consent."</div>
+              <div class="pb-origin">Brazil, Rwanda · 100% Arabica · Filter / espresso</div>
+            </div>
+            <div class="pb-actions">
+              <button class="pb-readmore" data-product="morning-honestly">View Coffee</button>
+              <a href="https://store.humanityroasted.com/products/morning-honestly" class="pb-btn" target="_blank" rel="noopener">Get This Blend</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="trust-strip reveal">
+      <div class="trust-item">100% Arabica</div>
+      <div class="trust-item">Roasted in Australia</div>
+      <div class="trust-item">Shipped across Australia</div>
+      <div class="trust-item">250g and 1kg bags</div>
+      <div class="trust-item">Fresh, honest coffee</div>
+    </div>
+    <div class="reviews-placeholder reveal">Early drinkers are currently forming opinions. Strong ones, probably.</div>
+    <div class="products-shop-all reveal reveal-delay-1">
+      <a href="https://store.humanityroasted.com/collections/all" class="btn-orange">Shop All Blends</a>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY SPREAD - THE REALISATION -->
+<div class="spread reverse reveal">
+  <div class="spread-img">
+    <img src="/humanity-roasted/uploads/But you learned to live in it anyway. Without the rage. Without the performance. Just clear eyes and better coffee. (1).png" alt="Clear eyes and better coffee" loading="lazy">
+  </div>
+  <div class="spread-text light">
+    <span class="section-label">The Realisation</span>
+    <h2 class="spread-quote" style="color:var(--black)">The world's absurd.<br>The coffee's<br><em>excellent.</em></h2>
+    <p class="spread-body">You can't control the news cycle. You can control your daily ritual. One of these things is within your power. We suggest starting there and seeing how the rest of the day feels. It usually helps. Not always. But usually.</p>
+    <span class="spread-sig">Both true. Choose your focus.</span>
+  </div>
+</div>
+
+<!-- WHY BUY THIS COFFEE -->
+<section id="why-buy">
+  <div class="why-buy-inner">
+    <div class="why-buy-header">
+      <span class="section-label reveal">Why This Coffee</span>
+      <h2 class="reveal reveal-delay-1">Why this coffee?</h2>
+    </div>
+    <div class="why-buy-grid">
+      <div class="why-buy-card reveal"><h3>Actually good coffee</h3><p>Because attitude without quality is just branding having a tantrum.</p></div>
+      <div class="why-buy-card reveal reveal-delay-1"><h3>Built for daily ritual</h3><p>The world gets a turn at you every day. This is yours back.</p></div>
+      <div class="why-buy-card reveal reveal-delay-2"><h3>No fake lifestyle theatre</h3><p>No beach yoga. No rented Lamborghini. No pretending a coffee bag will fix your life.</p></div>
+      <div class="why-buy-card reveal reveal-delay-3"><h3>Grounded in the chaos</h3><p>You can't stop the circus. You can, however, make better coffee.</p></div>
+    </div>
+    <div class="why-buy-note reveal">
+      <p>You've figured out that arguing with the unreasonable is a waste of a perfectly good day. So you make coffee. You breathe. You show up anyway. That's not apathy. That's discipline.</p>
+      <span class="spread-sig">Stay grounded.</span>
+    </div>
+  </div>
+</section>
+
+<!-- STAY GROUNDED -->
+<section id="why">
+  <div class="why-inner">
+    <div class="why-label reveal">Why This Exists</div>
+    <div class="why-grid">
+      <div>
+        <h2 class="why-h2 reveal">You've Been<br><span class="o">Roasted</span><br>By The World.<br>Fair Enough.<br><span class="o">Roast Back.</span></h2>
+        <p class="why-body reveal reveal-delay-1">The inbox. The headlines. The systems. The polite little collapse of common sense. Modern life has had its turn. This is ours.</p>
+        <p class="why-body reveal reveal-delay-1">Not with rage. Not with lectures. <strong>Just clear eyes, dry humour, and coffee worth showing up for.</strong></p>
+        <a href="https://store.humanityroasted.com/collections/all" class="btn-orange-outline reveal reveal-delay-2" style="margin-top:36px">Roast Back</a>
+      </div>
+      <div class="why-values reveal reveal-delay-1">
+        <div class="why-val"><div class="why-val-title">Truth Over Trend</div><div class="why-val-desc">We don't follow the narrative. We question it. Calmly. Consistently. With excellent coffee.</div></div>
+        <div class="why-val"><div class="why-val-title">Sarcasm As Survival</div><div class="why-val-desc">If you can't laugh at the absurdity, it'll crush you. We choose to laugh, and then get on with it.</div></div>
+        <div class="why-val"><div class="why-val-title">Grounded In The Chaos</div><div class="why-val-desc">The world's loud. We're still making good coffee. That's the whole thing.</div></div>
+        <div class="why-val"><div class="why-val-title">Real Over Fake</div><div class="why-val-desc">No performance. No pretence. Just humans being human, with a decent cup in hand.</div></div>
+        <div class="why-val"><div class="why-val-title">Warmth Without Lecturing</div><div class="why-val-desc">We're not here to fix you. We're here to make your day a little more yours.</div></div>
+        <p class="why-closing-quote">Still human. Still showing up. <span style="color:var(--orange)">Still grounded.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY SPREAD - THE RECOGNITION -->
+<div class="spread reveal">
+  <div class="spread-img">
+    <img src="/humanity-roasted/uploads/4.png" alt="That moment when someone finally gets it" loading="lazy">
+  </div>
+  <div class="spread-text">
+    <span class="section-label">The Recognition</span>
+    <h2 class="spread-quote">Some people<br>just <em>get</em> it.</h2>
+    <p class="spread-body">Coffee for people carrying more than they say.<br><br>Still grounded.<br>Still showing up.</p>
+  </div>
+</div>
+
+<!-- JOIN -->
+<section id="join">
+  <div class="join-inner">
+    <div>
+      <div class="join-label">* The Still Grounded Dispatch *</div>
+      <h2 class="join-h2">JOIN<br><span class="o">THE<br>GRIND.</span></h2>
+    </div>
+    <div>
+      <p class="join-tagline">Sharp dispatches, coffee drops, dry humour, and 10% off every repeat subscription order. Because apparently even defiance needs an email list.</p>
+      <ul class="join-perks">
+        <li class="join-perk">10% off every repeat subscription order</li>
+        <li class="join-perk">First to know when new blends drop</li>
+        <li class="join-perk">Satirical dispatches from the slow collapse</li>
+        <li class="join-perk">Unsubscribe anytime. We'll survive. Probably.</li>
+      </ul>
+      <form class="join-form" id="hr-signup-form" novalidate>
+        <input type="email" id="hr-email" class="join-input" placeholder="your@email.com" required />
+        <button type="submit" id="join-btn" class="join-btn">Count Me In</button>
+      </form>
+      <div id="hr-signup-archived" style="display:none;">
+        <p class="join-success-msg">This newsletter is no longer live &mdash; signups are closed.</p>
+      </div>
+      <p class="join-disclaimer">No spam. No lecturing. Unsubscribe any time.<br>10% discount applies to repeat subscription orders only, on standard pricing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE STRIP -->
+<section id="quote-strip">
+  <p class="qs-text">"The <span class="hl">revolution</span> doesn't have to be loud. Sometimes it just needs a grinder, a kettle and some perspective, <em>with a little <span class="hl">sarcasm.</span></em>"</p>
+  <p class="qs-attr">Humanity, Roasted</p>
+  <p class="qs-lead">Start with better coffee.</p>
+  <a href="https://store.humanityroasted.com/collections/all" class="btn-orange">Shop Coffee</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <p class="footer-brand">Humanity, Roasted</p>
+    <p class="footer-sub">A Reclaimed Media publication &nbsp;·&nbsp; humanityroasted.com</p>
+  </div>
+  <ul class="footer-links">
+    <li><a href="/humanity-roasted/newsletter/">Newsletter</a></li>
+    <li><a href="/humanity-roasted/coffee/">Coffee</a></li>
+    <li><a href="/humanity-roasted/about/">About</a></li>
+    <li><a href="https://store.humanityroasted.com" target="_blank">Store</a></li>
+  </ul>
+</footer>
+
+<!-- STICKY BAR -->
+<div id="sticky">
+  <div class="sticky-txt">Humanity, Roasted: <span>Premium Australian Coffee</span></div>
+  <a href="https://store.humanityroasted.com/collections/all" class="sticky-cta">Get Coffee -></a>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div id="product-modal" role="dialog" aria-modal="true" aria-label="Product details">
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close-btn">Close X</button>
+    <div class="modal-tag"  id="modal-tag"></div>
+    <div class="modal-name" id="modal-name"></div>
+    <div class="modal-sub"  id="modal-sub"></div>
+    <div class="modal-flavours" id="modal-flavours"></div>
+    <div class="modal-hook" id="modal-hook"></div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-brew" id="modal-brew"></div>
+    <a href="#" class="modal-cta" id="modal-cta" target="_blank" rel="noopener">Get This Blend -></a>
+  </div>
+</div>
+
+<script>
+var hamburger  = document.getElementById('nav-hamburger');
+var mobileNav  = document.getElementById('mobile-nav');
+function openMobileNav() { hamburger.classList.add('open'); mobileNav.classList.add('open'); document.body.style.overflow = 'hidden'; hamburger.setAttribute('aria-label', 'Close menu'); }
+function closeMobileNav() { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); document.body.style.overflow = ''; hamburger.setAttribute('aria-label', 'Open menu'); }
+hamburger.addEventListener('click', function() { mobileNav.classList.contains('open') ? closeMobileNav() : openMobileNav(); });
+document.querySelectorAll('.mobile-nav-link, .mobile-nav-shop').forEach(function(el) { el.addEventListener('click', closeMobileNav); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && mobileNav.classList.contains('open')) closeMobileNav(); });
+
+var PRODUCTS = {
+  'high-standards': { tag: 'Single Origin · Colombia · Medium Roast', name: 'High Standards', sub: 'Some things still deserve the effort.', flavours: ['Green Apple', 'Milk Chocolate', 'Hazelnut'], hook: 'Patience, rewarded.', body: 'Most coffee cuts corners. This one doesn\'t. Sixty-five growers at 1700m above sea level. The result. Balanced. Clean. Remarkable.', brew: 'Best as filter. Will reward the extra two minutes it takes.', url: 'https://store.humanityroasted.com/products/high-standards' },
+  'already-wired': { tag: 'Decaf · Colombia · Sugarcane Process', name: 'Already Wired', sub: 'You don\'t need the caffeine.', flavours: ['Caramel', 'Brown Sugar', 'Toffee', 'Red Apple'], hook: 'You\'ve got enough going on.', body: 'You want the second cup without the jolt. Natural decaffeination removes caffeine, keeps everything else. The result. All the coffee, none of the consequences.', brew: 'Brew it however you like. It\'s not trying to prove anything.', url: 'https://store.humanityroasted.com/products/already-wired' },
+  'some-me-time': { tag: 'Medium Roast · Brazil / PNG / Colombia', name: 'Some Me Time', sub: 'The world can wait. Briefly.', flavours: ['Chocolate', 'Caramel', 'Vanilla', 'Golden Raisin'], hook: 'For five minutes that are actually yours.', body: 'You\'ve earned five minutes to yourself. Rich dark chocolate and smooth caramel. Vanilla whispers. Golden raisin finish. The result. Quiet luxury in a cup.', brew: 'Brew it any way you like. It\'s not precious about it.', url: 'https://store.humanityroasted.com/products/some-me-time' },
+  'still-grounded': { tag: 'Medium Roast · Brazil / Colombia', name: 'Still Grounded', sub: 'Reliable. Grounded. Works your way, every time.', flavours: ['Caramel', 'Milk Chocolate', 'Cardamom'], hook: 'Consistent when everything else isn\'t.', body: 'You have preferences. This respects them. Smooth caramel and milk chocolate. A quiet hint of cardamom. The result. Works your way, every time.', brew: 'Filter or espresso. Your call.', url: 'https://store.humanityroasted.com/products/still-grounded' },
+  'morning-honestly': { tag: 'Medium Roast · Brazil / Rwanda · Hand-Picked', name: 'Morning, Honestly', sub: 'For long days, and longer nights.', flavours: ['Brown Sugar', 'Green Apple', 'Blueberry', 'Spice'], hook: 'Don\'t talk to me. Just yet.', body: 'You expect familiar. You get grounded brown sugar sweetness that shifts to green apple and blueberry. The result. More interesting than it needed to be.', brew: 'Brews beautifully as filter. Holds its own as espresso.', url: 'https://store.humanityroasted.com/products/morning-honestly' }
+};
+
+var modal = document.getElementById('product-modal');
+var modalClose = document.getElementById('modal-close-btn');
+function openModal(key) {
+  var p = PRODUCTS[key]; if (!p) return;
+  document.getElementById('modal-tag').textContent  = p.tag;
+  document.getElementById('modal-name').textContent = p.name;
+  document.getElementById('modal-sub').textContent  = p.sub;
+  document.getElementById('modal-hook').textContent = p.hook;
+  document.getElementById('modal-body').textContent = p.body;
+  document.getElementById('modal-brew').textContent = p.brew;
+  document.getElementById('modal-cta').href         = p.url;
+  document.getElementById('modal-flavours').innerHTML = p.flavours.map(function(f) { return '<span class="modal-flavour">' + f + '</span>'; }).join('');
+  modal.classList.add('open'); document.body.style.overflow = 'hidden';
+}
+function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+document.querySelectorAll('.pb-readmore').forEach(function(btn) {
+  btn.addEventListener('click', function(e) { e.stopPropagation(); openModal(this.dataset.product); });
+});
+
+var isTouchDevice = window.matchMedia('(hover: none)').matches;
+if (isTouchDevice) { document.body.classList.add('touch-device'); }
+var activeCard = null;
+document.querySelectorAll('.product-card').forEach(function(card) {
+  card.addEventListener('click', function(e) {
+    if (!isTouchDevice) return;
+    if (e.target.closest('.pb-readmore') || e.target.closest('.pb-btn')) return;
+    if (activeCard && activeCard !== card) { activeCard.classList.remove('flipped'); }
+    card.classList.toggle('flipped');
+    activeCard = card.classList.contains('flipped') ? card : null;
+  });
+});
+
+var nav    = document.getElementById('main-nav');
+var sticky = document.getElementById('sticky');
+window.addEventListener('scroll', function() {
+  var y = window.scrollY;
+  sticky.classList.toggle('vis', y > 400);
+}, { passive: true });
+
+var revealEls = document.querySelectorAll('.reveal');
+var io = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(function(el) { io.observe(el); });
+
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var href = a.getAttribute('href');
+    if (href === '#') return;
+    var target = document.querySelector(href);
+    if (target) { e.preventDefault(); window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('hr-signup-form');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('hr-signup-form').style.display = 'none';
+    var archivedMsg = document.getElementById('hr-signup-archived');
+    if (archivedMsg) { archivedMsg.style.display = 'block'; }
+  });
+});
+</script>
+
+</body>
+</html>

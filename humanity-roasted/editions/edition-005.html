@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The money is vast. The circle it flows through is not. — Humanity, Roasted</title>
+<meta name="description" content="Rate hikes, arms pledges, ceasefire collapses, and a trillion dollars looking for twelve companies.">
+<style>
+@font-face{font-family:"Playfair Display";font-weight:900;font-style:normal;font-display:swap;src:url("/fonts/PlayfairDisplay-Black.woff2") format("woff2");}
+@font-face{font-family:"Barlow Condensed";font-weight:600;font-style:normal;font-display:swap;src:url("/fonts/BarlowCondensed-SemiBold.woff2") format("woff2");}
+@font-face{font-family:"Barlow Condensed";font-weight:700;font-style:normal;font-display:swap;src:url("/fonts/BarlowCondensed-Bold.woff2") format("woff2");}
+@font-face{font-family:"Source Serif 4";font-weight:400;font-style:normal;font-display:swap;src:url("/fonts/SourceSerif4-Regular.woff2") format("woff2");}
+@font-face{font-family:"Inter";font-weight:400;font-style:normal;font-display:swap;src:url("/fonts/Inter-Regular.woff2") format("woff2");}
+@font-face{font-family:"Inter";font-weight:500;font-style:normal;font-display:swap;src:url("/fonts/Inter-Medium.woff2") format("woff2");}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#1C1A17;color:#F5F0E8;font-family:"Source Serif 4",Georgia,serif;}
+a{color:inherit;text-decoration:none;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;border-bottom:1px solid rgba(245,240,232,0.1);}
+.nav-logo{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:18px;letter-spacing:0.12em;text-transform:uppercase;color:#F5F0E8;}
+.nav-logo span{color:#C4530A;}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+.nav-links a{font-family:"Inter",sans-serif;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#B8AFA0;transition:color 0.2s;}
+.nav-links a[aria-label="Home"]{font-size:1.4rem;line-height:1;}
+.nav-links a:hover{color:#F5F0E8;}
+.nav-cta{font-family:"Inter",sans-serif;font-weight:500;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;background:#C4530A;color:#1C1A17;padding:9px 20px;border-radius:2px;}
+.nav-cta:hover{background:#E06020;color:#1C1A17;}
+.edition-header{max-width:720px;margin:0 auto;padding:72px 40px 48px;border-bottom:1px solid rgba(245,240,232,0.1);}
+.edition-eyebrow{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:20px;}
+.edition-subject{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(28px,4vw,42px);line-height:1.15;color:#F5F0E8;margin-bottom:20px;}
+.edition-meta{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:0.08em;color:rgba(245,240,232,0.4);text-transform:uppercase;margin-bottom:32px;}
+.edition-opening{font-family:"Source Serif 4",Georgia,serif;font-size:18px;line-height:1.8;color:rgba(245,240,232,0.85);}
+.stories{max-width:720px;margin:0 auto;padding:0 40px;}
+.story{padding:48px 0;border-bottom:1px solid rgba(245,240,232,0.1);}
+.story:last-child{border-bottom:none;}
+.story-desk{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:14px;}
+.story-hed{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(20px,3vw,28px);line-height:1.2;color:#F5F0E8;margin-bottom:16px;}
+.story-copy{font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.85;color:rgba(245,240,232,0.8);margin-bottom:14px;}
+.story-source a{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:0.06em;color:#C4530A;text-decoration:none;}
+.story-source a:hover{text-decoration:underline;}
+.edition-closing{max-width:720px;margin:0 auto;padding:48px 40px 72px;border-top:1px solid rgba(245,240,232,0.1);}
+.closing-label{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:16px;}
+.closing-text{font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.85;color:rgba(245,240,232,0.8);margin-bottom:32px;}
+.cta-btn{display:inline-block;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;background:#C4530A;color:#F5F0E8;padding:14px 36px;border-radius:2px;}
+footer{border-top:1px solid rgba(245,240,232,0.1);padding:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.footer-brand{font-family:"Playfair Display",serif;font-weight:900;font-size:14px;color:#F5F0E8;}
+.footer-sub{font-family:"Inter",sans-serif;font-size:11px;color:rgba(245,240,232,0.35);margin-top:4px;letter-spacing:0.04em;}
+.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;}
+.footer-links a{font-family:"Inter",sans-serif;font-size:12px;color:rgba(245,240,232,0.5);letter-spacing:0.04em;}
+.footer-links a:hover{color:#F5F0E8;}
+@media(max-width:600px){nav{padding:0 20px;}.nav-links{gap:16px;}.edition-header,.stories,.edition-closing{padding-left:20px;padding-right:20px;}footer{padding:32px 20px;flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/humanity-roasted/" class="nav-logo">Humanity<span>,</span> Roasted</a>
+  <ul class="nav-links">
+    <li><a href="/humanity-roasted/" aria-label="Home">⌂</a></li>
+    <li><a href="/humanity-roasted/about/">About</a></li>
+    <li><a href="/humanity-roasted/newsletter/">The Newsletter</a></li>
+    <li><a href="/humanity-roasted/coffee/">The Coffee</a></li>
+  </ul>
+  <a href="/humanity-roasted/newsletter/#join" class="nav-cta">Join the Dispatch</a>
+</nav>
+<header class="edition-header">
+  <p class="edition-eyebrow">The Still Grounded Dispatch</p>
+  <h1 class="edition-subject">The money is vast. The circle it flows through is not.</h1>
+  <p class="edition-meta">Sunday 12 July 2026</p>
+  <p class="edition-opening">This week the world demonstrated its preferred method of problem-solving: move very large numbers from one column to another and describe the result as progress. Central banks raised rates, alliances pledged billions in weapons, venture capital poured hundreds of billions into a dozen firms, and ceasefire language collapsed under the weight of its own deliberate vagueness. Everywhere you look, the structures are working exactly as designed — which is precisely the problem.</p>
+</header>
+<main class="stories">
+<article class="story">
+  <p class="story-desk">Geopolitical Desk</p>
+  <h2 class="story-hed">Iran-US ceasefire collapses mid-summit because the Strait of Hormuz remains everybody's favourite pressure point</h2>
+  <p class="story-copy">The 60-day Memorandum of Understanding signed in June between Washington and Tehran lasted roughly three weeks before unravelling. Iran struck commercial vessels in the Strait of Hormuz while Trump was at the NATO summit in Ankara, prompting US retaliatory strikes on 90 Iranian targets and Trump declaring the ceasefire 'over.' The MOU's language on safe passage was deliberately vague — Iran read it as permission to control the strait and eventually collect fees, Washington read it as unconditional reopening. Mediators are now working to get both sides back to talks, which is diplomatic language for 'we are starting again.'</p>
+  <p class="story-source"><a href="https://www.cnn.com/2026/07/08/world/live-news/iran-war-nato-summit-ukraine-trump">Read source &rarr;</a></p>
+</article>
+<article class="story">
+  <p class="story-desk">Geopolitical Desk</p>
+  <h2 class="story-hed">NATO meets in Ankara, pledges seventy billion euros to Ukraine and fifty billion in new weapons, calls it defence</h2>
+  <p class="story-copy">NATO's 32 members gathered in Ankara and pledged EUR 70 billion in military equipment and training for Ukraine in 2026 alone, with commitments to sustain equivalent levels into 2027. At the Defence Industry Forum, allies announced over USD 50 billion in new procurements spanning precision strike, missile defence, and uncrewed systems. Secretary General Rutte framed it as building an alliance 'less dependent on the United States, but in which the United States remains firmly rooted' — a sentence doing remarkable diplomatic load-bearing.</p>
+  <p class="story-source"><a href="https://www.nato.int/en/news-and-events/events/2026/07/overview---2026-nato-summit-in-ankara-">Read source &rarr;</a></p>
+</article>
+<article class="story">
+  <p class="story-desk">Geopolitical Desk</p>
+  <h2 class="story-hed">Beijing installs a 352-metre pool rope across an international waterway and calls it sovereignty</h2>
+  <p class="story-copy">China erected a 352-metre floating barrier at Scarborough Shoal in April, blocking access to a lagoon that sits squarely inside the Philippines' exclusive economic zone. Satellite imagery confirmed the barrier was supported by maritime militia and coast guard vessels — grey-zone tactics designed to shift the status quo without triggering armed conflict. Meanwhile, Beijing is constructing a 1,500-acre airbase on Antelope Reef in the Paracels. The US is managing the Strait of Hormuz, a trade war with Canada, and NATO burden-sharing complaints. Beijing is measuring response times, and the answer is: slow.</p>
+  <p class="story-source"><a href="https://www.fdd.org/analysis/2026/04/16/china-restricts-access-and-expands-reach-in-the-south-china-sea/">Read source &rarr;</a></p>
+</article>
+<article class="story">
+  <p class="story-desk">Australian Affairs Desk</p>
+  <h2 class="story-hed">Australia signs defence treaties and hosts summits while the region watches politely</h2>
+  <p class="story-copy">Narendra Modi arrived in Melbourne this week for the Australia-India Annual Leaders' Summit, where the relationship was described as having never been more consequential. In Brisbane, Albanese and PNG's James Marape formalised the Pukpuk Treaty — a mutual defence pact that allows deeper integration between the ADF and PNG Defence Force. Bilateral trade with PNG hit $10 billion in 2025. The Pacific charm offensive also included stops in Fiji and Solomon Islands the week prior. The strategy is clear: sign enough documents across enough islands and maybe nobody notices the region's security architecture is being negotiated in real time against a backdrop nobody in Canberra wants to name directly.</p>
+  <p class="story-source"><a href="https://www.internationalaffairs.org.au/australianoutlook/10-july-2026-the-week-in-australian-foreign-affairs/">Read source &rarr;</a></p>
+</article>
+<article class="story">
+  <p class="story-desk">Australian Affairs Desk</p>
+  <h2 class="story-hed">RBA raises rates again because everything is going to plan</h2>
+  <p class="story-copy">The Reserve Bank has now raised the cash rate three times in 2026 to 4.35 percent, because inflation decided it wasn't done with us. Headline CPI has climbed back to between 4.2 and 4.6 percent — more than double the RBA's own target midpoint. The drivers are the usual suspects: fuel, housing, energy, and the Middle East conflict feeding directly into petrol and freight costs. Meanwhile, the government's cost-of-living response includes tax cuts of up to $268 from July 1 — roughly enough to cover one week of the gap between what you earn and what things cost. The Melbourne Institute gathered 120 experts to discuss the crisis. One noted Australia earns more from beer tax than from taxing its own natural gas exports. That's not a punchline. That's the structure.</p>
+  <p class="story-source"><a href="https://hudsonfinancialplanning.com.au/resources/education-reports/cost-of-living-and-inflation/">Read source &rarr;</a></p>
+</article>
+<article class="story">
+  <p class="story-desk">Australian Affairs Desk</p>
+  <h2 class="story-hed">Wages are growing. Living standards are not. Thank you for your patience</h2>
+  <p class="story-copy">Charles Sturt University researchers have reframed the Australian economic conversation from wage growth to wage survival — the observation that even where nominal wages are rising, purchasing power is going backwards. Inflation at 4.6 percent in March, driven by fuel, housing and electricity, means households are spending more to stand still. The government's five rounds of tax cuts since 2024 will eventually deliver around $2,500 a year to average earners. Meanwhile, Perth rents jumped 5.7 percent in a single quarter to a record $740 a week. The arithmetic is not complicated. The responses are designed to look like they are.</p>
+  <p class="story-source"><a href="https://news.csu.edu.au/opinion/from-wage-growth-to-wage-survival-australias-cost-of-living-christmas-in-2026">Read source &rarr;</a></p>
+</article>
+<article class="story">
+  <p class="story-desk">Tech and Power Desk</p>
+  <h2 class="story-hed">$412.7 billion in venture funding. Most of it went to about twelve companies</h2>
+  <p class="story-copy">US venture capital hit $412.7 billion in the first half of 2026 — nearly 30% more than all of last year — with AI companies absorbing 86% of every dollar. Rounds of $100 million or more accounted for 87.5% of deployment. Three firms — Andreessen Horowitz, Thrive Capital, and Founders Fund — gathered 48% of all fundraising dollars between them. The money is vast. The circle it flows through is not.</p>
+  <p class="story-source"><a href="https://siliconangle.com/2026/07/09/pitchbook-us-venture-funding-hits-412-7b-first-half-ai-deals-dominate/">Read source &rarr;</a></p>
+</article>
+<article class="story">
+  <p class="story-desk">Tech and Power Desk</p>
+  <h2 class="story-hed">The EU simplified its AI Act. The deadlines got longer. The bans got sharper</h2>
+  <p class="story-copy">The EU Council gave final approval to its 'Digital Omnibus on AI', pushing back the toughest high-risk system obligations to December 2027 and August 2028 respectively. In exchange, it banned AI-generated non-consensual intimate imagery and CSAM by December 2026, and shortened the grace period for transparency on AI-generated content. The message: Europe will give industry more time to comply with the complicated bits, while drawing hard lines on the ones that were always obvious.</p>
+  <p class="story-source"><a href="https://www.consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules/">Read source &rarr;</a></p>
+</article>
+<article class="story">
+  <p class="story-desk">Tech and Power Desk</p>
+  <h2 class="story-hed">Google lost its antitrust case, appealed, and is still Google</h2>
+  <p class="story-copy">Google filed its appeal on April 25, arguing that the DOJ's remedies — data-sharing mandates, syndication requirements, and a ban on exclusive distribution contracts — threaten user privacy and innovation. The DOJ described its package as the most aggressive imposed on a US tech company since the Microsoft consent decree. Morgan Stanley estimated mandatory choice screens alone could cost Google $15–25 billion in annual ad revenue. The company's defence, as ever, is that the market moves too fast for the court to catch it. The court's finding was that Google made sure it didn't move at all.</p>
+  <p class="story-source"><a href="https://tech-insider.org/google-antitrust-appeal-doj-search-monopoly-2026/">Read source &rarr;</a></p>
+</article>
+<article class="story">
+  <p class="story-desk">Reclaimed Desk</p>
+  <h2 class="story-hed">People are leaving the algorithm for rooms with actual doors</h2>
+  <p class="story-copy">A growing wave of startups is building smaller, more personal social networks designed around tighter communities instead of engagement metrics. Bluesky has grown past 40 million users. Decentralised platforms like Mastodon let you own your own server. Apps like Corner curate real places, not sponsored content. The system being reclaimed from is the attention economy that turned friendship into content and connection into data. The reclaiming looks like choosing platforms where nobody's optimising your eyeball time.</p>
+  <p class="story-source"><a href="https://techcrunch.com/2026/06/06/beyond-instagram-introducing-the-next-generation-of-social-apps/">Read source &rarr;</a></p>
+</article>
+<article class="story">
+  <p class="story-desk">Reclaimed Desk</p>
+  <h2 class="story-hed">Half the workforce wants out but the door's expensive, so they're just standing near it</h2>
+  <p class="story-copy">According to LinkedIn's latest data, 52% of workers plan to job hunt in 2026. But most aren't actually leaving — they're 'job hugging,' staying put not out of loyalty but because everything else feels riskier. The employment machine has always relied on the gap between dissatisfaction and alternatives being just wide enough to keep people in their seats. The quiet reclaiming is that people have stopped pretending the seat is comfortable. That's not nothing.</p>
+  <p class="story-source"><a href="https://www.forbes.com/sites/dougmelville/2026/03/19/as-50-of-workers-consider-switching-jobs-in-2026-these-4-corporate-culture-priorities-are-key/">Read source &rarr;</a></p>
+</article>
+<article class="story">
+  <p class="story-desk">Reclaimed Desk</p>
+  <h2 class="story-hed">The herbal medicine market is projected to hit $1.4 trillion because people got tired of side effects</h2>
+  <p class="story-copy">The global complementary and alternative medicine market is expected to grow at 26.4% annually through 2033. Consumers are turning to herbal medicine, adaptogens, yoga, and naturopathy not because they read a blog post but because prolonged pharmaceutical use came with a bill their bodies couldn't pay. The system being reclaimed from is a healthcare model built on treating symptoms after they arrive rather than preventing them from showing up. The reclaiming is ordinary people reaching for turmeric before reaching for a prescription — and a trillion-dollar market forming around that quiet preference.</p>
+  <p class="story-source"><a href="https://www.grandviewresearch.com/industry-analysis/complementary-alternative-medicine-market">Read source &rarr;</a></p>
+</article>
+
+</main>
+<section class="edition-closing">
+  <p class="closing-label">Still Grounded</p>
+  <p class="closing-text">The arithmetic this week is not subtle. Billions flow toward weapons and AI models with remarkable speed, while the mechanisms meant to keep ordinary life affordable move at the pace of a parliamentary subcommittee. People are not waiting for the structure to notice them. They are finding smaller rooms, quieter platforms, and older remedies — not because those things are perfect, but because the alternative is standing still in a system that was never designed to carry them.</p>
+  <a href="https://store.humanityroasted.com" class="cta-btn">Still Grounded</a>
+</section>
+<footer>
+  <div><div class="footer-brand">Humanity, Roasted</div><div class="footer-sub">A Reclaimed Media publication &nbsp;·&nbsp; humanityroasted.com</div></div>
+  <ul class="footer-links">
+    <li><a href="/humanity-roasted/newsletter/">Newsletter</a></li>
+    <li><a href="/humanity-roasted/coffee/">Coffee</a></li>
+    <li><a href="/humanity-roasted/about/">About</a></li>
+    <li><a href="https://store.humanityroasted.com">Store</a></li>
+  </ul>
+</footer>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The rules changed. The scoreboards changed. The strait closed again. Everything is functioning as designed. — Humanity, Roasted</title>
+<meta name="description" content="Australia discovers gravity, Iran discovers bad faith, and Disney discovers new maths.">
+<style>
+@font-face{font-family:"Playfair Display";font-weight:900;font-style:normal;font-display:swap;src:url("/fonts/PlayfairDisplay-Black.woff2") format("woff2");}
+@font-face{font-family:"Barlow Condensed";font-weight:600;font-style:normal;font-display:swap;src:url("/fonts/BarlowCondensed-SemiBold.woff2") format("woff2");}
+@font-face{font-family:"Barlow Condensed";font-weight:700;font-style:normal;font-display:swap;src:url("/fonts/BarlowCondensed-Bold.woff2") format("woff2");}
+@font-face{font-family:"Source Serif 4";font-weight:400;font-style:normal;font-display:swap;src:url("/fonts/SourceSerif4-Regular.woff2") format("woff2");}
+@font-face{font-family:"Inter";font-weight:400;font-style:normal;font-display:swap;src:url("/fonts/Inter-Regular.woff2") format("woff2");}
+@font-face{font-family:"Inter";font-weight:500;font-style:normal;font-display:swap;src:url("/fonts/Inter-Medium.woff2") format("woff2");}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#1C1A17;color:#F5F0E8;font-family:"Source Serif 4",Georgia,serif;}
+a{color:inherit;text-decoration:none;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;border-bottom:1px solid rgba(245,240,232,0.1);}
+.nav-logo{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:18px;letter-spacing:0.12em;text-transform:uppercase;color:#F5F0E8;}
+.nav-logo span{color:#C4530A;}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+.nav-links a{font-family:"Inter",sans-serif;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#B8AFA0;transition:color 0.2s;}
+.nav-links a[aria-label="Home"]{font-size:1.4rem;line-height:1;}
+.nav-links a:hover{color:#F5F0E8;}
+.nav-cta{font-family:"Inter",sans-serif;font-weight:500;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;background:#C4530A;color:#1C1A17;padding:9px 20px;border-radius:2px;}
+.nav-cta:hover{background:#E06020;color:#1C1A17;}
+.edition-header{max-width:720px;margin:0 auto;padding:72px 40px 48px;border-bottom:1px solid rgba(245,240,232,0.1);}
+.edition-eyebrow{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:20px;}
+.edition-subject{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(28px,4vw,42px);line-height:1.15;color:#F5F0E8;margin-bottom:20px;}
+.edition-meta{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:0.08em;color:rgba(245,240,232,0.4);text-transform:uppercase;margin-bottom:32px;}
+.edition-opening{font-family:"Source Serif 4",Georgia,serif;font-size:18px;line-height:1.8;color:rgba(245,240,232,0.85);}
+.stories{max-width:720px;margin:0 auto;padding:0 40px;}
+.story{padding:48px 0;border-bottom:1px solid rgba(245,240,232,0.1);}
+.story:last-child{border-bottom:none;}
+.story-desk{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:14px;}
+.story-hed{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(20px,3vw,28px);line-height:1.2;color:#F5F0E8;margin-bottom:16px;}
+.story-copy{font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.85;color:rgba(245,240,232,0.8);margin-bottom:14px;}
+.story-source a{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:0.06em;color:#C4530A;text-decoration:none;}
+.story-source a:hover{text-decoration:underline;}
+.edition-closing{max-width:720px;margin:0 auto;padding:48px 40px 72px;border-top:1px solid rgba(245,240,232,0.1);}
+.closing-label{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:16px;}
+.closing-text{font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.85;color:rgba(245,240,232,0.8);margin-bottom:32px;}
+.cta-btn{display:inline-block;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;background:#C4530A;color:#F5F0E8;padding:14px 36px;border-radius:2px;}
+footer{border-top:1px solid rgba(245,240,232,0.1);padding:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.footer-brand{font-family:"Playfair Display",serif;font-weight:900;font-size:14px;color:#F5F0E8;}
+.footer-sub{font-family:"Inter",sans-serif;font-size:11px;color:rgba(245,240,232,0.35);margin-top:4px;letter-spacing:0.04em;}
+.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;}
+.footer-links a{font-family:"Inter",sans-serif;font-size:12px;color:rgba(245,240,232,0.5);letter-spacing:0.04em;}
+.footer-links a:hover{color:#F5F0E8;}
+@media(max-width:600px){nav{padding:0 20px;}.nav-links{gap:16px;}.edition-header,.stories,.edition-closing{padding-left:20px;padding-right:20px;}footer{padding:32px 20px;flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/humanity-roasted/" class="nav-logo">Humanity<span>,</span> Roasted</a>
+  <ul class="nav-links">
+    <li><a href="/humanity-roasted/" aria-label="Home">⌂</a></li>
+    <li><a href="/humanity-roasted/about/">About</a></li>
+    <li><a href="/humanity-roasted/newsletter/">The Newsletter</a></li>
+    <li><a href="/humanity-roasted/coffee/">The Coffee</a></li>
+  </ul>
+  <a href="/humanity-roasted/newsletter/#join" class="nav-cta">Join the Dispatch</a>
+</nav>
+<header class="edition-header">
+  <p class="edition-eyebrow">The Still Grounded Dispatch &nbsp;·&nbsp; Edition No. 3</p>
+  <h1 class="edition-subject">The rules changed. The scoreboards changed. The strait closed again. Everything is functioning as designed.</h1>
+  <p class="edition-meta">Saturday 27 June 2026</p>
+  <p class="edition-opening">This week, the machinery of modern life revealed its preferred operating mode: adjustment without acknowledgement. Subsidies that were never called subsidies are being withdrawn. Scoreboards that told the wrong story are being quietly retired. Deals signed at Versailles lasted about as long as deals signed at Versailles usually do. And across every sector — housing, energy, employment, media, money — the people running the systems keep changing the metrics while insisting the system is fine.</p>
+</header>
+<main class="stories">
+<article class="story">
+  <p class="story-desk">Geopolitical Desk</p>
+  <h2 class="story-hed">Iran closes the strait again, three days after agreeing to open it</h2>
+  <p class="story-copy">On June 17, Trump and Iranian president Pezeshkian signed a memorandum of understanding at Versailles to end the war, which included reopening the Strait of Hormuz. Three days later, the IRGC declared it closed again, citing Israeli strikes on Lebanon as a breach of the deal. CENTCOM said 55 ships carrying 17 million barrels of oil passed through anyway. The IEA had already characterised the original closure as the largest supply disruption in the history of the global oil market, surpassing the 1973 OPEC embargo. So now the world's energy architecture rests on whether Israel will stop bombing through a ceasefire it agreed to, which historically is not what you would call a safe bet.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Geopolitical Desk</p>
+  <h2 class="story-hed">America tells Europe it is on its own now. Quietly, via Der Spiegel.</h2>
+  <p class="story-copy">In late May, the Pentagon quietly briefed senior NATO officials on plans to cut fighters, bombers, destroyers, submarines, tankers, and armed drones from what it would offer the alliance in a crisis. European diplomats were reportedly taken aback, having expected limited adjustments rather than across-the-board retrenchment. Analysts estimate compensating for the fighter reduction alone would require roughly 400 additional European combat aircraft. The June NATO force generation conference was meant to show how allies would fill the gap. The gap, it turns out, is structural, not seasonal.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Geopolitical Desk</p>
+  <h2 class="story-hed">BRICS discovers internal disagreement is not a Western monopoly</h2>
+  <p class="story-copy">At the BRICS Foreign Ministers' meeting in New Delhi in May, heated exchanges between Iran and the UAE — both now BRICS members, both participants in the West Asia conflict — left the group unable to produce a joint statement. India, as chair, issued a solo chair statement instead. Putin, speaking at the St. Petersburg forum, claimed BRICS contributed 49 percent of global growth over five years to the G7's 18 percent. The numbers are doing heavy lifting for a bloc that cannot agree on a communiqué about a war involving two of its own members. Meanwhile, the BRICS de-dollarisation project continues apace, which is easy when the hardest part — agreeing on what to replace the dollar with — is the part nobody talks about.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Australian Affairs Desk</p>
+  <h2 class="story-hed">Australia's property market discovers gravity, investors discover the Budget was serious</h2>
+  <p class="story-copy">For the first time since the start of Covid, Australia's auction clearance rate has fallen below 50 per cent. Sellers are pulling properties from auction and switching to private treaty, which is estate-agent language for 'nobody showed up with a paddle.' The timing is not coincidental — the Albanese government's 2026 Budget announced negative gearing on established properties would be restricted from 1 July 2027 for anything purchased after Budget night. The 50 per cent CGT discount is being replaced with cost-base indexation and a 30 per cent minimum tax on gains. For the 1.1 million Australians who were negatively gearing property, this is a generational shift in the rules. For the rest, it's the system slowly acknowledging it was a subsidy for people who already owned things.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Australian Affairs Desk</p>
+  <h2 class="story-hed">The ABS measured what you already knew at the checkout</h2>
+  <p class="story-copy">The Australian Bureau of Statistics confirmed living costs for employee households rose 1.4 per cent in the March quarter alone, up from 0.2 per cent the quarter before. All banks passed on the RBA's February and March rate hikes in full to variable home loans, because of course they did. Across all household types, annual living costs rose between 2.6 and 5.2 per cent, with households relying on government payments hit hardest. The government's response is a $268 tax cut from 1 July and a $1,000 instant deduction you don't need receipts for. Rent in Sydney is $800 a week. The maths is not mathing.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Tech and Power Desk</p>
+  <h2 class="story-hed">Companies fire workers, blame the machines, buy more machines</h2>
+  <p class="story-copy">As of mid-June, 183,966 workers have been displaced across 247 layoff events in 2026 — roughly 1,115 jobs lost per working day, nearly double the pace of 2025. About half of all cuts are attributed to AI. Meanwhile Meta, Amazon, Microsoft, and Alphabet have collectively committed $725 billion in capital expenditure this year, almost entirely on AI infrastructure. Even OpenAI's Sam Altman has acknowledged the phenomenon of 'AI washing' — blaming artificial intelligence for layoffs companies planned to make anyway. The machines get the capex. The humans get the Slack notification.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Tech and Power Desk</p>
+  <h2 class="story-hed">Surveillance capitalism now has an oil and gas division</h2>
+  <p class="story-copy">A Harvard Carr-Ryan Center study has mapped how surveillance capitalism is extending well beyond the tech sector. Firms in oil and gas, luxury goods, and mass consumer products are building internal capabilities to collect, analyse, and monetise personal data. The researchers found companies routinely re-identifying anonymised data by combining it with other sources, effectively bypassing privacy rules through technical means. Among the companies named: Nvidia, Salesforce, Snowflake, LiveRamp, and Palantir. The infrastructure is no longer Silicon Valley's alone. It's just the plumbing now.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Culture and Media Desk</p>
+  <h2 class="story-hed">Paramount swallows Warner Bros. for $110 billion because apparently one content firehose wasn't enough</h2>
+  <p class="story-copy">After a months-long bidding war between Netflix and Paramount Skydance over who gets to own Warner Bros. Discovery, Paramount walked away with the $110.9 billion prize. Netflix had initially bid $82.7 billion in December 2025, only for Paramount to outbid them at $31 per share. The deal is being framed as a 'scale play built around intellectual property,' which is corporate for 'we bought the rights to Batman and called it strategy.'</p>
+</article>
+<article class="story">
+  <p class="story-desk">Culture and Media Desk</p>
+  <h2 class="story-hed">Disney stops counting its subscribers out loud, says the number doesn't matter anymore</h2>
+  <p class="story-copy">Disney has officially stopped reporting subscriber counts for Disney+, Hulu and ESPN+, calling the metrics 'less meaningful to evaluating the performance of our businesses.' This conveniently follows Netflix doing the same thing. When the number was going up, it was the only number that mattered. Now it's not the right metric. The attention economy's favourite trick: change the scoreboard when the score gets awkward.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Bitcoin Desk</p>
+  <h2 class="story-hed">Congress bans the digital dollar that nobody was building, inside a housing bill nobody expected</h2>
+  <p class="story-copy">The U.S. Senate passed the 21st Century ROAD to Housing Act 85–5, and the House followed at 358–32. Tucked inside the housing legislation is a provision banning the Federal Reserve from issuing a central bank digital currency through December 2030. The ban covers any digital asset 'substantially similar' to a CBDC, while explicitly carving out private stablecoins. New Fed Chair Kevin Warsh has called a U.S. CBDC a 'bad policy choice,' and the White House agrees. So Congress legislated against something no institution was pursuing — which is Washington's way of saying the door is closed while making sure everyone notices the lock is temporary.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Bitcoin Desk</p>
+  <h2 class="story-hed">China's digital yuan now pays interest. The rest of the world should be paying attention.</h2>
+  <p class="story-copy">On January 1, 2026, the People's Bank of China began paying interest on verified e-CNY wallets at demand deposit rates — a global first that reclassifies the digital yuan from digital cash into something closer to a deposit instrument. The PBOC also extended deposit insurance to digital yuan balances. With 230 million wallets and 16.7 trillion yuan in cumulative transactions, e-CNY is the largest CBDC programme on earth by every measure. While Washington bans its own digital dollar, Beijing is quietly building the monetary control infrastructure that CBDCs were always designed to enable. Two systems. Two approaches. Same direction of travel — just at different speeds and with different levels of candour about the destination.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Reclaimed Desk</p>
+  <h2 class="story-hed">78% of workers have one foot out the door and the other on a banana peel</h2>
+  <p class="story-copy">FlexJobs surveyed over 4,000 US professionals and found 41% have recently quit or are thinking about it — up from 33% last cycle. Among those who left, the majority did so without another role lined up. Meanwhile, 92% of workers say life is too short to stay in jobs they're not passionate about, and 97% report higher engagement when work aligns with purpose. The employment machine built for loyalty and output is watching its workforce recalculate the equation in real time. The workers aren't angry. They're just doing the maths.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Reclaimed Desk</p>
+  <h2 class="story-hed">Man builds his own news pipeline because platforms kept optimising for outrage</h2>
+  <p class="story-copy">The algorithmic feed is, by design, a system that converts your attention into advertising revenue. One researcher got fed up with the signal-to-noise ratio on X and LinkedIn — platforms optimising for clickbait over substance — and built his own curated news pipeline using RSS and coding agents. He now decides when and what to read, instead of having a machine make that call for him. The revelation that this felt remarkable tells you everything about where the defaults landed.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Reclaimed Desk</p>
+  <h2 class="story-hed">People leave the algorithm's house, build their own rooms</h2>
+  <p class="story-copy">A Luxembourgish company called Monnett launched with a single promise: no algorithm. You sign up, you see your friends. That's it. Meanwhile, Bluesky grew from 25 million to over 41 million users, and decentralised platforms like Mastodon and Pixelfed keep expanding — all built on the premise that you should own your feed. The system being reclaimed from: closed-source platforms where, as one researcher put it, 'algorithms have become our dictators.' The reclaiming is quieter, slower, and deliberately unfunded by engagement metrics.</p>
+</article>
+<article class="story">
+  <p class="story-desk">Reclaimed Desk</p>
+  <h2 class="story-hed">Peru puts community therapy circles into public health. The system notices.</h2>
+  <p class="story-copy">Brazil's Integrative Community Therapy — simple circles where people share coping strategies and build support networks at near-zero cost — has been embedded in national health policy since 2017 and now operates in over 47 countries. Peru's Reforma de Vida programme sends multidisciplinary teams into workplaces to address chronic disease through food, movement, and purpose, structured around Andean cultural values. The pharmaceutical-industrial complex didn't build this. Communities did, then health systems caught up. The WHO's message is careful but clear: traditional medicine is not positioned as an alternative to formal systems, but as a way to strengthen them.</p>
+</article>
+
+</main>
+<section class="edition-closing">
+  <p class="closing-label">Still Grounded</p>
+  <p class="closing-text">Every system in this edition is telling the same story from a different angle: the gap between what institutions say and what they do is now wide enough to measure. Straits open and close in the same week. Subsidies get renamed as they're withdrawn. Scoreboards vanish when the numbers turn. Somewhere in the margin between the official version and the lived one, people are quietly building their own infrastructure — for news, for health, for money, for meaning. That's not a movement. It's just what happens when the defaults stop working.</p>
+  <a href="https://store.humanityroasted.com" class="cta-btn">Still Grounded</a>
+</section>
+<footer>
+  <div><div class="footer-brand">Humanity, Roasted</div><div class="footer-sub">A Reclaimed Media publication &nbsp;·&nbsp; humanityroasted.com</div></div>
+  <ul class="footer-links">
+    <li><a href="/humanity-roasted/newsletter/">Newsletter</a></li>
+    <li><a href="/humanity-roasted/coffee/">Coffee</a></li>
+    <li><a href="/humanity-roasted/about/">About</a></li>
+    <li><a href="https://store.humanityroasted.com">Store</a></li>
+    <li><a href="https://instagram.com/humanity_roasted">Instagram</a></li>
+  </ul>
+</footer>
+</body>
+</html>

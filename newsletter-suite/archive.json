@@ -1,0 +1,738 @@
+[
+    {
+        "id": "hr_6a77b089870fe6.49276101",
+        "desk": "runner",
+        "deskName": "Multi-Desk Edition",
+        "focus": "assembled",
+        "focusLabel": "assembled edition",
+        "date": "2026-08-08",
+        "time": "22:41",
+        "subject": "Institutions build the flood, then sell you the sandbags",
+        "newsletter": {
+            "subject": "Institutions build the flood, then sell you the sandbags",
+            "subject_b": "The discount expired. The jobs left. The meeting was scheduled.",
+            "preview": "Coles finds cheaper humans, the EU schedules a meeting, and AI companies help write their own rules.",
+            "opening": "This week's pattern is not complicated. Institutions created the conditions, took credit when things looked manageable, and are now rebranding the consequences as someone else's problem. Supermarkets ship jobs offshore while selling groceries to the people they just stopped employing. Governments let rebates expire and call rising bills a market outcome. Safety companies file IPO paperwork. The mechanisms are different. The logic is identical.",
+            "stories": [
+                {
+                    "desk": "Australian Affairs Desk",
+                    "hr_headline": "Coles finds cheaper humans elsewhere",
+                    "copy": "Supermarket giant Coles confirmed it is shipping jobs offshore through a new arrangement with Accenture, because a company that made its fortune selling groceries to Australians apparently cannot justify employing them. CEO Leah Weckert communicated the news to staff via internal email, which is the corporate equivalent of breaking up by text. The cost savings will presumably not be passed on to customers at checkout.",
+                    "source_url": "https:\/\/www.finnewsnetwork.com.au\/archives\/finance_news_network5443263.html"
+                },
+                {
+                    "desk": "Australian Affairs Desk",
+                    "hr_headline": "The rebate era is over. The bill era is back.",
+                    "copy": "Household electricity bills are now 25.4 percent higher than a year ago, not because energy got more expensive to generate but because the Commonwealth and state government rebates that had been cushioning the blow quietly expired. For households already under financial pressure, this translates to hundreds of dollars in additional annual costs. The government gave you a discount, took credit for it, then took it away. Standard procedure.",
+                    "source_url": "https:\/\/www.mozo.com.au\/family-finances\/cost-of-living-guide"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "60,000 people crossed into Ceuta. The EU scheduled a meeting",
+                    "copy": "An estimated 60,000 migrants entered Spain's North African enclave of Ceuta over three days, most by swimming. At least 88 people died. The territory's population is 84,000. The EU's response was an emergency meeting of interior ministers, where some member states used the occasion to criticise Madrid's immigration policies rather than address anything structural. Morocco's border enforcement conveniently lapsed and then resumed. The mechanism is familiar. The bodies are new.",
+                    "source_url": "https:\/\/www.euronews.com\/my-europe\/2026\/08\/03\/at-least-72-dead-in-ceuta-spain-says-as-eu-prepares-talks-on-uncontrolled-migrant-crossing"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "Washington demands Iran denuclearise while offering Saudi Arabia enrichment rights",
+                    "copy": "While the US presses Iran to end its nuclear programme as a condition of any Hormuz deal, a parallel US-Saudi nuclear cooperation agreement reportedly includes enrichment rights for Riyadh. The contradiction is not subtle. Granting one Gulf state the nuclear capabilities you're demanding another abandon is the kind of precedent that makes the NPT look like a suggestion rather than a treaty. The Iran-Hormuz story dominates. This one, with its longer fuse, barely registers.",
+                    "source_url": "https:\/\/buttondown.com\/geodaily\/archive\/geopolitical-daily-august-3-2026\/"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "NATO discovers the Arctic exists, builds accordingly",
+                    "copy": "Denmark is expanding its military presence in the Faroe Islands as NATO's Arctic Sentry mission, launched in early 2026, continues to grow. Romania's Mihail Kogalniceanu airbase is being reconstructed to become NATO's largest base in Europe. The Ramstein Flag 2026 exercise in July deployed over 200 aircraft across five countries. The alliance is building infrastructure at a pace that suggests it has quietly stopped expecting the current situation to be temporary.",
+                    "source_url": "https:\/\/www.bloomberg.com\/latest\/nato"
+                },
+                {
+                    "desk": "Tech and Power Desk",
+                    "hr_headline": "Europe's AI Act goes live, and the first thing it regulates is honesty",
+                    "copy": "The EU AI Act's transparency obligations took effect on 2 August, requiring chatbots to disclose they are not human and deepfakes to carry labels. Noncompliance can trigger fines of up to \u20ac15 million or 3% of worldwide annual turnover. The high-risk system rules, however, were quietly postponed until December 2027 \u2014 framed as an 'implementation adjustment' rather than a retreat. One might call that an optimistic relabelling, which is rather on-theme.",
+                    "source_url": "https:\/\/ec.europa.eu\/commission\/presscorner\/detail\/en\/ip_26_1714"
+                },
+                {
+                    "desk": "Tech and Power Desk",
+                    "hr_headline": "The White House asks AI companies to help design their own safety tests. No conflict spotted",
+                    "copy": "The Trump administration hosted OpenAI, Anthropic, and Google at the White House to discuss a voluntary framework for safety-testing AI models. The framework springs from a June executive order that outlined an opt-in approach to safety reviews. Voluntary. Opt-in. Designed in consultation with the companies being reviewed. The regulatory architecture here is best described as aspirational.",
+                    "source_url": "https:\/\/www.bloomberg.com\/news\/articles\/2026-08-03\/openai-anthropic-google-to-join-white-house-ai-safety-meeting"
+                },
+                {
+                    "desk": "Tech and Power Desk",
+                    "hr_headline": "Anthropic and OpenAI prepare for the part where safety companies become public companies",
+                    "copy": "Anthropic appointed former California Supreme Court Justice Tino Cu\u00e9llar as its first Chief Global Affairs Officer, while OpenAI prepares to file its S-1 ahead of a planned Q4 2026 IPO. Both companies are now simultaneously building lobbying infrastructure and listing paperwork. The transition from 'research lab concerned about existential risk' to 'public company concerned about quarterly earnings' continues on schedule.",
+                    "source_url": "https:\/\/www.anthropic.com\/news"
+                },
+                {
+                    "desk": "Culture and Media Desk",
+                    "hr_headline": "Audiences discover they don't trust people who are paid to be trustworthy",
+                    "copy": "A growing body of data says the influencer model is fraying at the edges. More than half of Americans are posting less than they did five years ago, over half of creators earn under $15,000 a year, and consumers are increasingly sceptical of sponsored content dressed as personal recommendation. The industry's response, naturally, is to rebrand the problem: 'authenticity' is now the premium product, which is a neat trick if you don't think about it too hard.",
+                    "source_url": "https:\/\/www.nbcpalmsprings.com\/therogginreport\/2026\/08\/06\/influencers-influence-may-be-waning"
+                },
+                {
+                    "desk": "Culture and Media Desk",
+                    "hr_headline": "Pinterest lets you opt out of AI content, which tells you everything about how much AI content there is",
+                    "copy": "In a quietly revealing move, Pinterest has added a toggle allowing users to reduce AI-generated content in their feeds. Meanwhile, a Pangram Labs analysis found that more than 40% of long-form LinkedIn posts show signs of full AI generation. The platforms built the flood, and now they're selling you the sandbags. Call it the authenticity industrial complex \u2014 it's the only growth sector left.",
+                    "source_url": "https:\/\/newengen.com\/insights\/influencer-marketing-trends-august-2026\/"
+                },
+                {
+                    "desk": "Bitcoin Desk",
+                    "hr_headline": "BlackRock hoovers up $604 million in Bitcoin while the Fear & Greed Index reads 'extreme fear'",
+                    "copy": "BlackRock's IBIT absorbed 9,269 BTC \u2014 roughly $604 million \u2014 over four consecutive days in early August, capturing roughly 76% of all spot Bitcoin ETF inflows. This follows the worst month of ETF flows in 2026, with spot Bitcoin funds recording $5.4 billion in net outflows during the first half of the year. BlackRock doesn't buy in fear. It buys what others are afraid of.",
+                    "source_url": "https:\/\/cryptobriefing.com\/blackrock-ibit-bitcoin-etf-604m-inflows\/"
+                },
+                {
+                    "desk": "Bitcoin Desk",
+                    "hr_headline": "Central banks keep calling their surveillance coins 'digital cash' and hoping nobody checks the definition",
+                    "copy": "The ECB has entered the 'next and final phase' of digital euro preparation, with pilots slated for 2027 and rollout targeted for 2029. China's digital yuan now pays interest on wallet balances \u2014 a decisive break from global CBDC orthodoxy that quietly turns a payment tool into a monetary policy instrument. Meanwhile, Russia targets September 2026 for nationwide Digital Ruble rollout. The common thread: every CBDC requires identity-linked wallets, which is another way of saying none of them are cash.",
+                    "source_url": "https:\/\/bitcoinnews.com\/p\/cbdc-trends-reshaping-digital-money-2026"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "People are leaving the platform economy. The platforms have not noticed.",
+                    "copy": "Facebook built a community engine that monetised the community and kept the engine. Now millions are migrating to purpose-built alternatives \u2014 Circle, Discord, Mighty Networks, even old-school forums reborn \u2014 that let people own their contact lists and run groups without an algorithm deciding who gets to see what. The new platform Chime.In launched in 2026 explicitly without algorithm-driven feeds. The strategy is brutally simple: own the contact, rent the reach.",
+                    "source_url": "https:\/\/www.tekrevol.com\/blogs\/top-alternatives-to-facebook-for-social-media-users\/"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "The bank used to be a building. Then an app. Now it is someone else's feature.",
+                    "copy": "For decades, customer inertia was one of banking's most reliable economic engines \u2014 people stayed because switching was complicated. In 2026, embedded finance, zero-click payments, and contextual services are dissolving that friction entirely. E-commerce platforms from Amazon to Mercado Libre now originate credit, insurance, and payments at point of need. The bank didn't disappear. It just stopped being the place you go.",
+                    "source_url": "https:\/\/zafin.com\/insights\/banking-blueprints\/blogs\/2026-outlook-the-ten-big-questions-shaping-the-future-of-banking\/"
+                }
+            ],
+            "closing": "The through-line this week is institutional confidence in its own permanence. Supermarkets assume you will keep shopping. Governments assume you will keep paying. Platforms assume you will keep scrolling. Central banks assume you will keep trusting. Every one of these assumptions is still mostly correct, which is exactly why none of them feel the need to change. The gap between what institutions promise and what they deliver is not a bug. It is the product.",
+            "cta_line": "Still Grounded"
+        }
+    },
+    {
+        "id": "hr_6a5c2a5f2bf4e3.44534752",
+        "desk": "runner",
+        "deskName": "Multi-Desk Edition",
+        "focus": "assembled",
+        "focusLabel": "assembled edition",
+        "date": "2026-07-19",
+        "time": "01:37",
+        "subject": "The bill arrives, the exits appear, and the machinery keeps machining",
+        "newsletter": {
+            "subject": "The bill arrives, the exits appear, and the machinery keeps machining",
+            "subject_b": "Subsidies end, alliances wobble, and people start building the doors themselves",
+            "preview": "Your electricity rebate left. NATO survived itself. Gen Z bought a flip phone.",
+            "opening": "This week, the common thread is the gap between what institutions say they are doing and what actually lands. Governments removed supports and hoped the maths would not be noticed. Alliances declared survival a deliverable. And somewhere between a ceasefire that nobody honoured and a Security Council debate on resource governance chaired by a nation still being mined by everyone in the room, a growing number of people decided to stop waiting for systems to fix themselves and started building quieter alternatives instead.",
+            "stories": [
+                {
+                    "desk": "Australian Affairs Desk",
+                    "hr_headline": "The government stopped picking up part of your electricity tab and hopes you did not notice",
+                    "copy": "The federal Energy Bill Relief Fund ended on 31 December 2025 after two years of automatic credits that quietly reduced household power bills by up to $300 a year. Electricity costs rose 37 per cent in the 12 months to February 2026, though the underlying retail price increase was closer to 4.9 per cent. The rebates never fixed anything. They just stood between you and the actual price of electricity. Now they have stepped aside, and the bill is finally an honest document.",
+                    "source_url": "https:\/\/www.energymatters.com.au\/renewable-news\/the-end-of-universal-energy-bill-rebates-what-it-means-for-your-power-bills-in-2026\/"
+                },
+                {
+                    "desk": "Australian Affairs Desk",
+                    "hr_headline": "Inflation slowed down, technically, if you ignore everything you actually buy",
+                    "copy": "Living costs rose 4.6 per cent in the year to March 2026. Headline CPI has re-accelerated to between 4.2 and 4.6 per cent after briefly approaching the RBA target band. Households whose main source of income is government payments recorded the highest rises. Wages are rising, but not faster than the trolley that used to cost $180 and now runs to $220. The Melbourne Institute called it a cost-of-living 'super squeeze', which is a polite way of describing the feeling of watching your salary arrive and immediately leave.",
+                    "source_url": "https:\/\/www.mozo.com.au\/family-finances\/cost-of-living-guide"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "NATO meets in Ankara. Declares continued existence a deliverable",
+                    "copy": "The Ankara summit produced a EUR 70 billion pledge for Ukraine, a 5% GDP defence spending target by 2035, and a Defence Industry Forum featuring Lockheed Martin, BAE Systems, and Baykar Technologies on the same stage. Bloomberg's headline said it plainly: NATO success is surviving a summit with Trump. Several allies, including Spain, France, and Italy, had reportedly restricted U.S. access to their airspace for Iran operations. Trump, in return, said he was strongly considering pulling the U.S. out of the alliance entirely. The revolvers Erdogan gifted to leaders reportedly ran into European gun laws.",
+                    "source_url": "https:\/\/www.bloomberg.com\/latest\/nato"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "The ceasefire ended. The Strait of Hormuz didn't get the memo either",
+                    "copy": "Despite a June memorandum of understanding meant to end hostilities, Iran has been firing on commercial vessels in the Strait of Hormuz and attempting to impose tolls on shipping traffic through its self-declared Persian Gulf Strait Authority. The U.S. responded by bombing Iranian bridges. Iran hit a Kuwaiti desalination plant. OFAC sanctioned the toll authority under the name Operation Economic Fury. The MoU, it turns out, was less a ceasefire and more a suggestion made in a language neither side reads.",
+                    "source_url": "https:\/\/www.britannica.com\/event\/2026-Iran-war"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "The DRC chairs the Security Council. Picks natural resources as its topic. Nobody blinks",
+                    "copy": "The Democratic Republic of the Congo holds the UN Security Council presidency this month and has convened a high-level open debate on natural resource governance and peace. President Tshisekedi will chair. The irony of a nation whose eastern provinces have been systematically mined by foreign interests for decades leading a global conversation on resource governance is either poetic or structural. The Council also plans to vote on renewing Houthi reporting requirements and extending CAR sanctions, because the machinery keeps machining.",
+                    "source_url": "https:\/\/www.securitycouncilreport.org\/monthly-forecast\/2026-07\/overview-91.php"
+                },
+                {
+                    "desk": "Australian Affairs Desk",
+                    "hr_headline": "Five million under-16 accounts removed, platforms under investigation, penalties doubled. Business as usual.",
+                    "copy": "The government doubled the maximum penalty for breaching Australia's social media minimum age law to $99 million and strengthened the eSafety Commissioner's information-gathering powers. Since the ban took effect in December, more than five million under-16 accounts have been removed, deactivated or restricted. The eSafety Commissioner is investigating potential non-compliance by Facebook, Instagram, Snapchat, TikTok and YouTube. All of them. Every single one.",
+                    "source_url": "https:\/\/www.internationalaffairs.org.au\/australianoutlook\/3-july-2026-the-week-in-australian-foreign-affairs\/"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "Banks discover their most reliable product was your inability to leave",
+                    "copy": "For decades, customer inertia was banking's most reliable economic engine \u2014 people stayed because switching was complicated and alternatives were scarce. Now embedded payments, contextual financial services, and zero-click interactions are dissolving that friction entirely. The system didn't get reformed. The exit just got easier.",
+                    "source_url": "https:\/\/zafin.com\/insights\/banking-blueprints\/blogs\/2026-outlook-the-ten-big-questions-shaping-the-future-of-banking\/"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "Forty million people joined a platform no algorithm controls and nobody noticed",
+                    "copy": "Bluesky grew from 25 million to over 41 million users in a single year, while decentralised platforms like Mastodon operate through distributed server networks where no single company manages the platform. Meanwhile, Monnett, a Luxembourgish startup, launched with one promise: no algorithm, just your actual friends. The attention extraction economy isn't collapsing \u2014 people are just building the exits themselves.",
+                    "source_url": "https:\/\/www.euronews.com\/next\/2026\/04\/29\/are-there-alternatives-to-mainstream-social-media-platforms-euronews-tech-talks"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "Gen Z invented the smartphone era and is now buying flip phones on purpose",
+                    "copy": "Digital burnout is at an all-time high in 2026, and the backlash has a name: the Quiet Life Movement \u2014 people permanently reconfiguring how they relate to technology, not through periodic fasts but structural redesign. Gen Z, the generation raised on smartphones, is leading the pushback. The attention economy's most valuable demographic just decided the product isn't worth the price.",
+                    "source_url": "https:\/\/citipen.com\/digital-detox-life-hacks-2026\/"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "The therapy industry sold you a weekly subscription to yourself",
+                    "copy": "People who felt stuck after years of talking are turning to somatic healing, peer support collectives, breathwork, and community engagement \u2014 not because therapy failed, but because the model assumed healing required a licensed intermediary and a recurring billing cycle. Journaling, movement, and showing up for your neighbours turns out to be evidence-based too. The self-help industry commodified clarity. People are finding it anyway, mostly for free.",
+                    "source_url": "https:\/\/citizenadvocates.net\/blog\/alternatives-for-mental-health\/"
+                }
+            ],
+            "closing": "The pattern is not complicated. The subsidy ends. The alliance wobbles. The platform surveils. The bill lands. And then, without fanfare, people start walking toward the exits that were always there \u2014 just harder to see when someone else was holding the door. The machinery keeps running. But so do the people it was built to process.",
+            "cta_line": "Still Grounded"
+        }
+    },
+    {
+        "id": "hr_6a52c7a73c12d1.05598126",
+        "desk": "runner",
+        "deskName": "Multi-Desk Edition",
+        "focus": "assembled",
+        "focusLabel": "assembled edition",
+        "date": "2026-07-11",
+        "time": "22:45",
+        "subject": "The money is vast. The circle it flows through is not.",
+        "newsletter": {
+            "subject": "The money is vast. The circle it flows through is not.",
+            "subject_b": "$412 billion, 70 billion euros, and $268 in tax cuts walk into a bar",
+            "preview": "Rate hikes, arms pledges, ceasefire collapses, and a trillion dollars looking for twelve companies.",
+            "opening": "This week the world demonstrated its preferred method of problem-solving: move very large numbers from one column to another and describe the result as progress. Central banks raised rates, alliances pledged billions in weapons, venture capital poured hundreds of billions into a dozen firms, and ceasefire language collapsed under the weight of its own deliberate vagueness. Everywhere you look, the structures are working exactly as designed \u2014 which is precisely the problem.",
+            "stories": [
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "Iran-US ceasefire collapses mid-summit because the Strait of Hormuz remains everybody's favourite pressure point",
+                    "copy": "The 60-day Memorandum of Understanding signed in June between Washington and Tehran lasted roughly three weeks before unravelling. Iran struck commercial vessels in the Strait of Hormuz while Trump was at the NATO summit in Ankara, prompting US retaliatory strikes on 90 Iranian targets and Trump declaring the ceasefire 'over.' The MOU's language on safe passage was deliberately vague \u2014 Iran read it as permission to control the strait and eventually collect fees, Washington read it as unconditional reopening. Mediators are now working to get both sides back to talks, which is diplomatic language for 'we are starting again.'",
+                    "source_url": "https:\/\/www.cnn.com\/2026\/07\/08\/world\/live-news\/iran-war-nato-summit-ukraine-trump"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "NATO meets in Ankara, pledges seventy billion euros to Ukraine and fifty billion in new weapons, calls it defence",
+                    "copy": "NATO's 32 members gathered in Ankara and pledged EUR 70 billion in military equipment and training for Ukraine in 2026 alone, with commitments to sustain equivalent levels into 2027. At the Defence Industry Forum, allies announced over USD 50 billion in new procurements spanning precision strike, missile defence, and uncrewed systems. Secretary General Rutte framed it as building an alliance 'less dependent on the United States, but in which the United States remains firmly rooted' \u2014 a sentence doing remarkable diplomatic load-bearing.",
+                    "source_url": "https:\/\/www.nato.int\/en\/news-and-events\/events\/2026\/07\/overview---2026-nato-summit-in-ankara-"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "Beijing installs a 352-metre pool rope across an international waterway and calls it sovereignty",
+                    "copy": "China erected a 352-metre floating barrier at Scarborough Shoal in April, blocking access to a lagoon that sits squarely inside the Philippines' exclusive economic zone. Satellite imagery confirmed the barrier was supported by maritime militia and coast guard vessels \u2014 grey-zone tactics designed to shift the status quo without triggering armed conflict. Meanwhile, Beijing is constructing a 1,500-acre airbase on Antelope Reef in the Paracels. The US is managing the Strait of Hormuz, a trade war with Canada, and NATO burden-sharing complaints. Beijing is measuring response times, and the answer is: slow.",
+                    "source_url": "https:\/\/www.fdd.org\/analysis\/2026\/04\/16\/china-restricts-access-and-expands-reach-in-the-south-china-sea\/"
+                },
+                {
+                    "desk": "Australian Affairs Desk",
+                    "hr_headline": "Australia signs defence treaties and hosts summits while the region watches politely",
+                    "copy": "Narendra Modi arrived in Melbourne this week for the Australia-India Annual Leaders' Summit, where the relationship was described as having never been more consequential. In Brisbane, Albanese and PNG's James Marape formalised the Pukpuk Treaty \u2014 a mutual defence pact that allows deeper integration between the ADF and PNG Defence Force. Bilateral trade with PNG hit $10 billion in 2025. The Pacific charm offensive also included stops in Fiji and Solomon Islands the week prior. The strategy is clear: sign enough documents across enough islands and maybe nobody notices the region's security architecture is being negotiated in real time against a backdrop nobody in Canberra wants to name directly.",
+                    "source_url": "https:\/\/www.internationalaffairs.org.au\/australianoutlook\/10-july-2026-the-week-in-australian-foreign-affairs\/"
+                },
+                {
+                    "desk": "Australian Affairs Desk",
+                    "hr_headline": "RBA raises rates again because everything is going to plan",
+                    "copy": "The Reserve Bank has now raised the cash rate three times in 2026 to 4.35 percent, because inflation decided it wasn't done with us. Headline CPI has climbed back to between 4.2 and 4.6 percent \u2014 more than double the RBA's own target midpoint. The drivers are the usual suspects: fuel, housing, energy, and the Middle East conflict feeding directly into petrol and freight costs. Meanwhile, the government's cost-of-living response includes tax cuts of up to $268 from July 1 \u2014 roughly enough to cover one week of the gap between what you earn and what things cost. The Melbourne Institute gathered 120 experts to discuss the crisis. One noted Australia earns more from beer tax than from taxing its own natural gas exports. That's not a punchline. That's the structure.",
+                    "source_url": "https:\/\/hudsonfinancialplanning.com.au\/resources\/education-reports\/cost-of-living-and-inflation\/"
+                },
+                {
+                    "desk": "Australian Affairs Desk",
+                    "hr_headline": "Wages are growing. Living standards are not. Thank you for your patience",
+                    "copy": "Charles Sturt University researchers have reframed the Australian economic conversation from wage growth to wage survival \u2014 the observation that even where nominal wages are rising, purchasing power is going backwards. Inflation at 4.6 percent in March, driven by fuel, housing and electricity, means households are spending more to stand still. The government's five rounds of tax cuts since 2024 will eventually deliver around $2,500 a year to average earners. Meanwhile, Perth rents jumped 5.7 percent in a single quarter to a record $740 a week. The arithmetic is not complicated. The responses are designed to look like they are.",
+                    "source_url": "https:\/\/news.csu.edu.au\/opinion\/from-wage-growth-to-wage-survival-australias-cost-of-living-christmas-in-2026"
+                },
+                {
+                    "desk": "Tech and Power Desk",
+                    "hr_headline": "$412.7 billion in venture funding. Most of it went to about twelve companies",
+                    "copy": "US venture capital hit $412.7 billion in the first half of 2026 \u2014 nearly 30% more than all of last year \u2014 with AI companies absorbing 86% of every dollar. Rounds of $100 million or more accounted for 87.5% of deployment. Three firms \u2014 Andreessen Horowitz, Thrive Capital, and Founders Fund \u2014 gathered 48% of all fundraising dollars between them. The money is vast. The circle it flows through is not.",
+                    "source_url": "https:\/\/siliconangle.com\/2026\/07\/09\/pitchbook-us-venture-funding-hits-412-7b-first-half-ai-deals-dominate\/"
+                },
+                {
+                    "desk": "Tech and Power Desk",
+                    "hr_headline": "The EU simplified its AI Act. The deadlines got longer. The bans got sharper",
+                    "copy": "The EU Council gave final approval to its 'Digital Omnibus on AI', pushing back the toughest high-risk system obligations to December 2027 and August 2028 respectively. In exchange, it banned AI-generated non-consensual intimate imagery and CSAM by December 2026, and shortened the grace period for transparency on AI-generated content. The message: Europe will give industry more time to comply with the complicated bits, while drawing hard lines on the ones that were always obvious.",
+                    "source_url": "https:\/\/www.consilium.europa.eu\/en\/press\/press-releases\/2026\/06\/29\/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules\/"
+                },
+                {
+                    "desk": "Tech and Power Desk",
+                    "hr_headline": "Google lost its antitrust case, appealed, and is still Google",
+                    "copy": "Google filed its appeal on April 25, arguing that the DOJ's remedies \u2014 data-sharing mandates, syndication requirements, and a ban on exclusive distribution contracts \u2014 threaten user privacy and innovation. The DOJ described its package as the most aggressive imposed on a US tech company since the Microsoft consent decree. Morgan Stanley estimated mandatory choice screens alone could cost Google $15\u201325 billion in annual ad revenue. The company's defence, as ever, is that the market moves too fast for the court to catch it. The court's finding was that Google made sure it didn't move at all.",
+                    "source_url": "https:\/\/tech-insider.org\/google-antitrust-appeal-doj-search-monopoly-2026\/"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "People are leaving the algorithm for rooms with actual doors",
+                    "copy": "A growing wave of startups is building smaller, more personal social networks designed around tighter communities instead of engagement metrics. Bluesky has grown past 40 million users. Decentralised platforms like Mastodon let you own your own server. Apps like Corner curate real places, not sponsored content. The system being reclaimed from is the attention economy that turned friendship into content and connection into data. The reclaiming looks like choosing platforms where nobody's optimising your eyeball time.",
+                    "source_url": "https:\/\/techcrunch.com\/2026\/06\/06\/beyond-instagram-introducing-the-next-generation-of-social-apps\/"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "Half the workforce wants out but the door's expensive, so they're just standing near it",
+                    "copy": "According to LinkedIn's latest data, 52% of workers plan to job hunt in 2026. But most aren't actually leaving \u2014 they're 'job hugging,' staying put not out of loyalty but because everything else feels riskier. The employment machine has always relied on the gap between dissatisfaction and alternatives being just wide enough to keep people in their seats. The quiet reclaiming is that people have stopped pretending the seat is comfortable. That's not nothing.",
+                    "source_url": "https:\/\/www.forbes.com\/sites\/dougmelville\/2026\/03\/19\/as-50-of-workers-consider-switching-jobs-in-2026-these-4-corporate-culture-priorities-are-key\/"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "The herbal medicine market is projected to hit $1.4 trillion because people got tired of side effects",
+                    "copy": "The global complementary and alternative medicine market is expected to grow at 26.4% annually through 2033. Consumers are turning to herbal medicine, adaptogens, yoga, and naturopathy not because they read a blog post but because prolonged pharmaceutical use came with a bill their bodies couldn't pay. The system being reclaimed from is a healthcare model built on treating symptoms after they arrive rather than preventing them from showing up. The reclaiming is ordinary people reaching for turmeric before reaching for a prescription \u2014 and a trillion-dollar market forming around that quiet preference.",
+                    "source_url": "https:\/\/www.grandviewresearch.com\/industry-analysis\/complementary-alternative-medicine-market"
+                }
+            ],
+            "closing": "The arithmetic this week is not subtle. Billions flow toward weapons and AI models with remarkable speed, while the mechanisms meant to keep ordinary life affordable move at the pace of a parliamentary subcommittee. People are not waiting for the structure to notice them. They are finding smaller rooms, quieter platforms, and older remedies \u2014 not because those things are perfect, but because the alternative is standing still in a system that was never designed to carry them.",
+            "cta_line": "Still Grounded"
+        }
+    },
+    {
+        "id": "hr_6a49f07d5dfd55.71166085",
+        "desk": "runner",
+        "deskName": "Multi-Desk Edition",
+        "focus": "assembled",
+        "focusLabel": "assembled edition",
+        "date": "2026-07-05",
+        "time": "05:49",
+        "subject": "The bill arrives. The system shrugs.",
+        "newsletter": {
+            "subject": "The bill arrives. The system shrugs.",
+            "subject_b": "Everything costs more, works less, and calls it progress",
+            "preview": "Inflation stays for dinner, NATO passes the hat, AI fires the workers it can't replace, and everyone discovers the friction was load-bearing.",
+            "opening": "This week follows a pattern so consistent it might be structural: institutions ask for more while delivering less, systems remove the safeguards that were quietly doing the work, and the people inside the machinery start walking toward the exit. From Ankara to Canberra to Silicon Valley, the logic is the same \u2014 costs rise, buffers vanish, and someone frames the result as evolution.",
+            "stories": [
+                {
+                    "desk": "Australian Affairs Desk",
+                    "hr_headline": "Inflation was leaving, changed its mind, sat back down",
+                    "copy": "After briefly approaching the RBA's target band, headline CPI has re-accelerated to between 4.2 and 4.6 per cent. The RBA has raised the cash rate three times in 2026 to 4.35 per cent, and further rises remain possible. Fuel, housing, electricity and insurance are doing the heavy lifting. Meanwhile the government's cost-of-living response includes a tax cut of up to $268 from 1 July \u2014 roughly the price of one tank of petrol and two weeks of groceries if you eat sparingly and do not drive anywhere interesting.",
+                    "source_url": "https:\/\/hudsonfinancialplanning.com.au\/resources\/education-reports\/cost-of-living-and-inflation\/"
+                },
+                {
+                    "desk": "Australian Affairs Desk",
+                    "hr_headline": "Services Australia struggles with the one thing it exists to do",
+                    "copy": "A fresh look under the hood of Services Australia has revealed an agency that cannot effectively manage some of the most complex legislation in the country \u2014 the legislation it was specifically created to administer. Meanwhile, households relying on government payments are seeing the highest annual rises in living costs of any household type. The people most dependent on the system are paying the most while the system itself cannot figure out how to work.",
+                    "source_url": "https:\/\/www.crikey.com.au\/"
+                },
+                {
+                    "desk": "Australian Affairs Desk",
+                    "hr_headline": "KPMG apologises for the way it handled being caught",
+                    "copy": "KPMG Australia has admitted its treatment of a whistleblower who raised concerns about client documents being inappropriately shared internally 'fell short of the firm's expectations.' Three partners were sanctioned, an internal investigation failed to substantiate the claims, an external legal review backed the internal investigation, and it took the whistleblower escalating repeatedly to the Board before a second external investigation was appointed. Chairman Martin Sheppard offered an 'unreserved apology.' The firm has now engaged a specialist to review its 'speak up culture,' which is corporate for admitting nobody was listening.",
+                    "source_url": "https:\/\/kpmg.com\/au\/en\/media\/media-releases\/2026\/05\/investigation-into-whistleblower-allegations-29-may-2026.html"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "NATO asks members for five percent of GDP, calls it peace",
+                    "copy": "NATO's 32 heads of state are meeting in Ankara this week, where the big ask is now five percent of GDP on defence. Secretary General Mark Rutte has framed this as building a stronger Europe inside a stronger NATO \u2014 one that is, in his words, \"less dependent on the United States, but in which the United States remains firmly rooted.\" Meanwhile, the Pentagon has quietly briefed allies on substantial US force cuts across Europe \u2014 fighters, bombers, destroyers, drones, and the cancellation of an armoured brigade rotation to Poland. So Europe gets the bill and America gets the door. The alliance calls this evolution.",
+                    "source_url": "https:\/\/www.nato.int\/en\/news-and-events\/events\/2026\/07\/overview---2026-nato-summit-in-ankara-"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "The West sanctions Russia's shadow fleet again, for the twenty-first time",
+                    "copy": "The EU has extended its Russia sanctions for twelve months \u2014 the first time it has opted for a full year rather than the usual six-month renewal. The UK announced its largest-ever Russia sanctions package, targeting shadow fleet tankers, military procurement networks, and crypto channels used to evade prior rounds. The EU's proposed 21st sanctions package would add another 32 vessels on top of 632 already listed. At the same time, the UK quietly issued general trade licences allowing imports of diesel and jet fuel derived from Russian crude oil but processed in third countries. Sanctions are a system of carefully regulated disapproval, and business finds a way.",
+                    "source_url": "https:\/\/www.fieldfisher.com\/en\/services\/international-trade\/trade-sanctions-blog\/uk-eu-and-us-sanctions-on-russia"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "China and India remember Myanmar exists, send dignitaries",
+                    "copy": "Dueling state visits have revealed Myanmar re-emerging as an arena of geopolitical competition between Beijing and Delhi. The pattern is familiar \u2014 a country consumed by internal conflict becomes useful again when great powers need to demonstrate regional reach. The people of Myanmar, currently enduring a civil war that has displaced over two million, will be thrilled to learn they have been upgraded from humanitarian crisis to strategic interest.",
+                    "source_url": "https:\/\/www.geopoliticalmonitor.com\/"
+                },
+                {
+                    "desk": "Tech and Power Desk",
+                    "hr_headline": "AI replaces the workers, then fails to replace the workers",
+                    "copy": "Technology firms accounted for nearly a third of all US job cuts in the first half of 2026, with the sector announcing 139,156 roles eliminated \u2014 up 83% from the same period last year. AI was cited as the dominant restructuring force, even as a Gartner survey of 350 firms found companies that cut the deepest showed nearly identical financial returns to those that barely cut at all. The efficiency gains are, for now, aspirational. The layoffs are not.",
+                    "source_url": "https:\/\/www.hrdive.com\/news\/tech-layoffs-surge-83percent-h1-2026-challenger-ai-disruption\/824320\/"
+                },
+                {
+                    "desk": "Tech and Power Desk",
+                    "hr_headline": "The companies that made AI are now being unmade by it",
+                    "copy": "TechCrunch is keeping a running list of major companies citing AI as a stated factor in their 2026 layoffs. Amazon cut 16,000 corporate roles in January. Intuit eliminated 3,000. Coinbase is experimenting with 'one-person teams' combining engineering, design, and product into a single role managed by AI agents. Google, meanwhile, has quietly cut between 1,500 and 3,000 engineers through rolling reviews without ever announcing a number. The restructuring is continuous. The press release is optional.",
+                    "source_url": "https:\/\/techcrunch.com\/2026\/06\/22\/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai\/"
+                },
+                {
+                    "desk": "Tech and Power Desk",
+                    "hr_headline": "LLMs can now do the work of intelligence analysts, which is the problem",
+                    "copy": "MIT Technology Review reported that LLM agents could dramatically reduce the friction that has historically limited mass surveillance \u2014 the time, cost, and skill required to link scattered data into comprehensive individual profiles. Data brokers already sell location data, financial records, and web searches to government agencies. What changes with AI is scale: the capacity to construct detailed profiles of millions of people, not just priority targets. A bipartisan group of senators introduced a bill requiring warrants before purchasing data from brokers. The friction, it turns out, was the last privacy protection that worked.",
+                    "source_url": "https:\/\/www.technologyreview.com\/2026\/04\/21\/1135919\/ai-surveillance-privacy-llms-bulk-data\/"
+                },
+                {
+                    "desk": "Bitcoin Desk",
+                    "hr_headline": "Weak jobs report is somehow good news, again",
+                    "copy": "The U.S. economy added just 57,000 jobs in June, roughly half what analysts expected. Bitcoin promptly rallied above $62,000. The logic: soft employment data makes the Federal Reserve less likely to raise rates at its July 28-29 meeting, so assets that produce no yield become relatively more attractive. Your purchasing power declines, the labour market weakens, and the chart goes green. This is what passes for optimism under the Warsh Fed.",
+                    "source_url": "https:\/\/www.coindesk.com\/markets\/2026\/07\/03\/crypto-bulls-on-firmer-footing-as-u-s-rate-hike-risk-recedes"
+                },
+                {
+                    "desk": "Bitcoin Desk",
+                    "hr_headline": "IMF discovers that removing safety buffers removes safety buffers",
+                    "copy": "The IMF's Tobias Adrian warned that tokenisation \u2014 moving financial assets onto blockchain ledgers \u2014 eliminates the settlement delays that currently give regulators time to intervene during crises. 'Frictions disappear \u2014 but so do buffers,' he wrote. The institution that has spent decades managing the consequences of fast-moving capital now notices that making capital move faster might create consequences. The insight is correct. The irony is structural.",
+                    "source_url": "https:\/\/www.coindesk.com\/markets\/2026\/07\/03\/tokenization-could-make-finance-faster-but-also-more-susceptible-to-shocks-imf-says"
+                },
+                {
+                    "desk": "Bitcoin Desk",
+                    "hr_headline": "China's digital yuan starts paying interest, because surveillance wasn't incentive enough",
+                    "copy": "The People's Bank of China began paying interest on verified e-CNY wallets from January 1, breaking global CBDC consensus that digital central bank money should remain a zero-yield cash equivalent. The move reclassifies the digital yuan from digital cash toward something resembling a deposit \u2014 with deposit insurance included. It is the world's most advanced programmable money experiment, now with a yield attached. The 230 million wallets already open suggest the infrastructure is built. The question is what gets programmed next.",
+                    "source_url": "https:\/\/finance.yahoo.com\/news\/china-breaks-cbdc-orthodoxy-digital-050942170.html"
+                },
+                {
+                    "desk": "Culture and Media Desk",
+                    "hr_headline": "Streaming platforms now cost as much as cable, except you have to manage six apps yourself",
+                    "copy": "Analysts are gently suggesting that July 2026 \u2014 despite Netflix dropping Enola Holmes 3, the Heartstopper finale, and the entire Hunger Games catalogue \u2014 might actually be a good month to cancel a subscription or two. Combined monthly streaming bills across Netflix, Disney+, Hulu, Apple TV+ and HBO Max now rival or exceed the old cable packages they were supposed to liberate us from. The streaming economy's innovation, it turns out, was not eliminating the bundle but fragmenting it into six separate billing relationships and calling it consumer choice.",
+                    "source_url": "https:\/\/congress.net\/july-2026-brings-big-streaming-returns-but-experts-say-it-may-be-a-good-month-to-cut-back\/"
+                },
+                {
+                    "desk": "Culture and Media Desk",
+                    "hr_headline": "Study confirms what you already knew: influencers make misinformation worse, and brands keep paying them anyway",
+                    "copy": "A Cardiff Business School study published in Psychology & Marketing found that influencer-driven misinformation generates significantly more toxicity than the same content from regular users, because parasocial bonds mean followers rally behind inaccurate posts instead of questioning them. Brands invested a record $33 billion in influencer marketing in 2025 \u2014 an industry that was worth $1.7 billion in 2016 \u2014 while simultaneously creating the conditions for what researchers call 'collective, belief-driven antagonism.' The attention economy doesn't have an integrity problem. It has a business model.",
+                    "source_url": "https:\/\/phys.org\/news\/2026-03-social-media-toxicity-power-misinformation.html"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "The algorithm finally squeezed too hard and people let go",
+                    "copy": "Social media platforms were built on variable reward systems \u2014 the same psychological architecture as slot machines. Half of Americans reduced their use in 2025 according to an APA poll, and now in 2026 they're moving past detox into permanent disengagement. Therapists report clients aren't taking breaks anymore \u2014 they're setting boundaries, because as one put it, they've realised they're 'performing labor for an algorithm that gives them nothing in return.' Two weeks off produces measurable cognitive improvements rivalling traditional therapy. The system was designed to be hard to leave. Turns out it wasn't.",
+                    "source_url": "https:\/\/san.com\/cc\/in-2025-americans-detoxed-from-social-media-in-2026-theyre-quitting-altogether\/"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "83% of finance workers want out but stay because the market won't let them leave yet",
+                    "copy": "The finance industry built a talent model that assumed people stayed because they were loyal. BambooHR data reveals 83% of finance professionals want a career change, and two-thirds cite financial stability \u2014 not satisfaction \u2014 as their reason for staying. Tenured employees aren't engaged; they're stuck. When the market thaws and alternatives appear, the industry that manages everyone else's money may discover it can't retain the people who do the managing. The most satisfied employees are the newest ones, which tells you everything about the trajectory.",
+                    "source_url": "https:\/\/www.bamboohr.com\/resources\/data-at-work\/data-stories\/april-finance-2026"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "People aren't leaving jobs for better jobs. They're leaving jobs for actual lives.",
+                    "copy": "The 2026 resignation wave isn't a salary negotiation tactic. Workers across industries are quitting because they've reappraised what success means \u2014 and the corporate version doesn't survive the audit. Younger professionals want meaningful work, ethical leadership, and alignment with personal values. AI is accelerating the exit by making formerly stable roles feel obsolete, pushing people to reskill toward self-directed work. The creator economy is absorbing them: fitness coaches, mechanics, teachers, all building direct-to-audience businesses on their own terms. The employment machine keeps running. Fewer people are volunteering to stand inside it.",
+                    "source_url": "https:\/\/www.oneworldnews.com\/finance\/people-are-suddenly-quitting-jobs-in-2026\/"
+                }
+            ],
+            "closing": "The friction was never the problem. The friction was the architecture \u2014 the thing that gave regulators time, gave workers leverage, gave systems a reason to account for the people inside them. Remove it in the name of efficiency and what remains is faster, leaner, and answerable to no one in particular. The coffee is still hot. The morning is yours.",
+            "cta_line": "Still Grounded"
+        }
+    },
+    {
+        "id": "hr_6a3ef4fa0dcd64.01015951",
+        "desk": "runner",
+        "deskName": "Multi-Desk Edition",
+        "focus": "assembled",
+        "focusLabel": "assembled edition",
+        "date": "2026-06-26",
+        "time": "21:54",
+        "subject": "The rules changed. The scoreboards changed. The strait closed again. Everything is functioning as designed.",
+        "newsletter": {
+            "subject": "The rules changed. The scoreboards changed. The strait closed again. Everything is functioning as designed.",
+            "subject_b": "Subsidies end, straits close, machines get the capex, workers get the Slack notification",
+            "preview": "Australia discovers gravity, Iran discovers bad faith, and Disney discovers new maths.",
+            "opening": "This week, the machinery of modern life revealed its preferred operating mode: adjustment without acknowledgement. Subsidies that were never called subsidies are being withdrawn. Scoreboards that told the wrong story are being quietly retired. Deals signed at Versailles lasted about as long as deals signed at Versailles usually do. And across every sector \u2014 housing, energy, employment, media, money \u2014 the people running the systems keep changing the metrics while insisting the system is fine.",
+            "stories": [
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "Iran closes the strait again, three days after agreeing to open it",
+                    "copy": "On June 17, Trump and Iranian president Pezeshkian signed a memorandum of understanding at Versailles to end the war, which included reopening the Strait of Hormuz. Three days later, the IRGC declared it closed again, citing Israeli strikes on Lebanon as a breach of the deal. CENTCOM said 55 ships carrying 17 million barrels of oil passed through anyway. The IEA had already characterised the original closure as the largest supply disruption in the history of the global oil market, surpassing the 1973 OPEC embargo. So now the world's energy architecture rests on whether Israel will stop bombing through a ceasefire it agreed to, which historically is not what you would call a safe bet.",
+                    "source_url": "https:\/\/www.euronews.com\/2026\/06\/20\/iran-recloses-strait-of-hormuz-citing-israeli-strikes-on-lebanon"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "America tells Europe it is on its own now. Quietly, via Der Spiegel.",
+                    "copy": "In late May, the Pentagon quietly briefed senior NATO officials on plans to cut fighters, bombers, destroyers, submarines, tankers, and armed drones from what it would offer the alliance in a crisis. European diplomats were reportedly taken aback, having expected limited adjustments rather than across-the-board retrenchment. Analysts estimate compensating for the fighter reduction alone would require roughly 400 additional European combat aircraft. The June NATO force generation conference was meant to show how allies would fill the gap. The gap, it turns out, is structural, not seasonal.",
+                    "source_url": "https:\/\/www.globsec.org\/what-we-do\/commentaries\/hollowing-out-shield-us-strategic-defence-equipment-reductions-and"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "BRICS discovers internal disagreement is not a Western monopoly",
+                    "copy": "At the BRICS Foreign Ministers' meeting in New Delhi in May, heated exchanges between Iran and the UAE \u2014 both now BRICS members, both participants in the West Asia conflict \u2014 left the group unable to produce a joint statement. India, as chair, issued a solo chair statement instead. Putin, speaking at the St. Petersburg forum, claimed BRICS contributed 49 percent of global growth over five years to the G7's 18 percent. The numbers are doing heavy lifting for a bloc that cannot agree on a communiqu\u00e9 about a war involving two of its own members. Meanwhile, the BRICS de-dollarisation project continues apace, which is easy when the hardest part \u2014 agreeing on what to replace the dollar with \u2014 is the part nobody talks about.",
+                    "source_url": "https:\/\/thegeopolitics.com\/brics-cooperation-in-a-complex-economic-and-geopolitical-environment-opportunities-and-impediments\/"
+                },
+                {
+                    "desk": "Original Desk",
+                    "hr_headline": "Australia's property market discovers gravity, investors discover the Budget was serious",
+                    "copy": "For the first time since the start of Covid, Australia's auction clearance rate has fallen below 50 per cent. Sellers are pulling properties from auction and switching to private treaty, which is estate-agent language for 'nobody showed up with a paddle.' The timing is not coincidental \u2014 the Albanese government's 2026 Budget announced negative gearing on established properties would be restricted from 1 July 2027 for anything purchased after Budget night. The 50 per cent CGT discount is being replaced with cost-base indexation and a 30 per cent minimum tax on gains. For the 1.1 million Australians who were negatively gearing property, this is a generational shift in the rules. For the rest, it's the system slowly acknowledging it was a subsidy for people who already owned things.",
+                    "source_url": "https:\/\/www.sbs.com.au\/news"
+                },
+                {
+                    "desk": "Original Desk",
+                    "hr_headline": "The ABS measured what you already knew at the checkout",
+                    "copy": "The Australian Bureau of Statistics confirmed living costs for employee households rose 1.4 per cent in the March quarter alone, up from 0.2 per cent the quarter before. All banks passed on the RBA's February and March rate hikes in full to variable home loans, because of course they did. Across all household types, annual living costs rose between 2.6 and 5.2 per cent, with households relying on government payments hit hardest. The government's response is a $268 tax cut from 1 July and a $1,000 instant deduction you don't need receipts for. Rent in Sydney is $800 a week. The maths is not mathing.",
+                    "source_url": "https:\/\/www.abs.gov.au\/statistics\/economy\/price-indexes-and-inflation\/selected-living-cost-indexes-australia\/latest-release"
+                },
+                {
+                    "desk": "Tech and Power Desk",
+                    "hr_headline": "Companies fire workers, blame the machines, buy more machines",
+                    "copy": "As of mid-June, 183,966 workers have been displaced across 247 layoff events in 2026 \u2014 roughly 1,115 jobs lost per working day, nearly double the pace of 2025. About half of all cuts are attributed to AI. Meanwhile Meta, Amazon, Microsoft, and Alphabet have collectively committed $725 billion in capital expenditure this year, almost entirely on AI infrastructure. Even OpenAI's Sam Altman has acknowledged the phenomenon of 'AI washing' \u2014 blaming artificial intelligence for layoffs companies planned to make anyway. The machines get the capex. The humans get the Slack notification.",
+                    "source_url": "https:\/\/www.techtimes.com\/articles\/318466\/20260616\/tech-layoffs-hit-1115-day-2026-companies-cite-ai-cuts-fail-boost-returns.htm"
+                },
+                {
+                    "desk": "Tech and Power Desk",
+                    "hr_headline": "Surveillance capitalism now has an oil and gas division",
+                    "copy": "A Harvard Carr-Ryan Center study has mapped how surveillance capitalism is extending well beyond the tech sector. Firms in oil and gas, luxury goods, and mass consumer products are building internal capabilities to collect, analyse, and monetise personal data. The researchers found companies routinely re-identifying anonymised data by combining it with other sources, effectively bypassing privacy rules through technical means. Among the companies named: Nvidia, Salesforce, Snowflake, LiveRamp, and Palantir. The infrastructure is no longer Silicon Valley's alone. It's just the plumbing now.",
+                    "source_url": "https:\/\/www.hks.harvard.edu\/centers\/carr-ryan\/publications\/dark-horses-surveillance-capitalism-how-menagerie-new-actors-are"
+                },
+                {
+                    "desk": "Culture and Media Desk",
+                    "hr_headline": "Paramount swallows Warner Bros. for $110 billion because apparently one content firehose wasn't enough",
+                    "copy": "After a months-long bidding war between Netflix and Paramount Skydance over who gets to own Warner Bros. Discovery, Paramount walked away with the $110.9 billion prize. Netflix had initially bid $82.7 billion in December 2025, only for Paramount to outbid them at $31 per share. The deal is being framed as a 'scale play built around intellectual property,' which is corporate for 'we bought the rights to Batman and called it strategy.'",
+                    "source_url": "https:\/\/en.wikipedia.org\/wiki\/Proposed_acquisition_of_Warner_Bros._Discovery_by_Paramount_Skydance"
+                },
+                {
+                    "desk": "Culture and Media Desk",
+                    "hr_headline": "Disney stops counting its subscribers out loud, says the number doesn't matter anymore",
+                    "copy": "Disney has officially stopped reporting subscriber counts for Disney+, Hulu and ESPN+, calling the metrics 'less meaningful to evaluating the performance of our businesses.' This conveniently follows Netflix doing the same thing. When the number was going up, it was the only number that mattered. Now it's not the right metric. The attention economy's favourite trick: change the scoreboard when the score gets awkward.",
+                    "source_url": "https:\/\/variety.com\/2025\/tv\/news\/disney-stop-reporting-subscriber-numbers-disney-plus-hulu-espn-1236480413\/"
+                },
+                {
+                    "desk": "Bitcoin Desk",
+                    "hr_headline": "Congress bans the digital dollar that nobody was building, inside a housing bill nobody expected",
+                    "copy": "The U.S. Senate passed the 21st Century ROAD to Housing Act 85\u20135, and the House followed at 358\u201332. Tucked inside the housing legislation is a provision banning the Federal Reserve from issuing a central bank digital currency through December 2030. The ban covers any digital asset 'substantially similar' to a CBDC, while explicitly carving out private stablecoins. New Fed Chair Kevin Warsh has called a U.S. CBDC a 'bad policy choice,' and the White House agrees. So Congress legislated against something no institution was pursuing \u2014 which is Washington's way of saying the door is closed while making sure everyone notices the lock is temporary.",
+                    "source_url": "https:\/\/www.coindesk.com\/policy\/2026\/06\/22\/u-s-senate-passes-housing-bill-that-carries-four-year-ban-on-a-fed-cbdc"
+                },
+                {
+                    "desk": "Bitcoin Desk",
+                    "hr_headline": "China's digital yuan now pays interest. The rest of the world should be paying attention.",
+                    "copy": "On January 1, 2026, the People's Bank of China began paying interest on verified e-CNY wallets at demand deposit rates \u2014 a global first that reclassifies the digital yuan from digital cash into something closer to a deposit instrument. The PBOC also extended deposit insurance to digital yuan balances. With 230 million wallets and 16.7 trillion yuan in cumulative transactions, e-CNY is the largest CBDC programme on earth by every measure. While Washington bans its own digital dollar, Beijing is quietly building the monetary control infrastructure that CBDCs were always designed to enable. Two systems. Two approaches. Same direction of travel \u2014 just at different speeds and with different levels of candour about the destination.",
+                    "source_url": "https:\/\/finance.yahoo.com\/news\/china-breaks-cbdc-orthodoxy-digital-050942170.html"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "78% of workers have one foot out the door and the other on a banana peel",
+                    "copy": "FlexJobs surveyed over 4,000 US professionals and found 41% have recently quit or are thinking about it \u2014 up from 33% last cycle. Among those who left, the majority did so without another role lined up. Meanwhile, 92% of workers say life is too short to stay in jobs they're not passionate about, and 97% report higher engagement when work aligns with purpose. The employment machine built for loyalty and output is watching its workforce recalculate the equation in real time. The workers aren't angry. They're just doing the maths.",
+                    "source_url": "https:\/\/www.flexjobs.com\/blog\/post\/flexjobs-workplace-study"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "Man builds his own news pipeline because platforms kept optimising for outrage",
+                    "copy": "The algorithmic feed is, by design, a system that converts your attention into advertising revenue. One researcher got fed up with the signal-to-noise ratio on X and LinkedIn \u2014 platforms optimising for clickbait over substance \u2014 and built his own curated news pipeline using RSS and coding agents. He now decides when and what to read, instead of having a machine make that call for him. The revelation that this felt remarkable tells you everything about where the defaults landed.",
+                    "source_url": "https:\/\/medium.com\/@rajistics\/taming-the-algorithm-moving-from-algorithmic-feeds-to-curating-my-own-ai-news-fd5284c7c800"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "People leave the algorithm's house, build their own rooms",
+                    "copy": "A Luxembourgish company called Monnett launched with a single promise: no algorithm. You sign up, you see your friends. That's it. Meanwhile, Bluesky grew from 25 million to over 41 million users, and decentralised platforms like Mastodon and Pixelfed keep expanding \u2014 all built on the premise that you should own your feed. The system being reclaimed from: closed-source platforms where, as one researcher put it, 'algorithms have become our dictators.' The reclaiming is quieter, slower, and deliberately unfunded by engagement metrics.",
+                    "source_url": "https:\/\/www.euronews.com\/next\/2026\/04\/29\/are-there-alternatives-to-mainstream-social-media-platforms-euronews-tech-talks"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "Peru puts community therapy circles into public health. The system notices.",
+                    "copy": "Brazil's Integrative Community Therapy \u2014 simple circles where people share coping strategies and build support networks at near-zero cost \u2014 has been embedded in national health policy since 2017 and now operates in over 47 countries. Peru's Reforma de Vida programme sends multidisciplinary teams into workplaces to address chronic disease through food, movement, and purpose, structured around Andean cultural values. The pharmaceutical-industrial complex didn't build this. Communities did, then health systems caught up. The WHO's message is careful but clear: traditional medicine is not positioned as an alternative to formal systems, but as a way to strengthen them.",
+                    "source_url": "https:\/\/www.who.int\/news\/item\/25-05-2026-how-integrating-tradition-and-self-care-has-strengthened-public-health-in-the-americas"
+                }
+            ],
+            "closing": "Every system in this edition is telling the same story from a different angle: the gap between what institutions say and what they do is now wide enough to measure. Straits open and close in the same week. Subsidies get renamed as they're withdrawn. Scoreboards vanish when the numbers turn. Somewhere in the margin between the official version and the lived one, people are quietly building their own infrastructure \u2014 for news, for health, for money, for meaning. That's not a movement. It's just what happens when the defaults stop working.",
+            "cta_line": "Still Grounded"
+        }
+    },
+    {
+        "id": "hr_6a35cb22ed9d15.70925823",
+        "desk": "runner",
+        "deskName": "Multi-Desk Edition",
+        "focus": "assembled",
+        "focusLabel": "assembled edition",
+        "date": "2026-06-19",
+        "time": "23:05",
+        "subject": "The distance between what they provide and what existence costs",
+        "newsletter": {
+            "subject": "The distance between what they provide and what existence costs",
+            "subject_b": "$700 billion for data centres, $268 for you",
+            "preview": "The arithmetic of being alive in 2026, measured weekly, published politely, and broadly ignored.",
+            "opening": "This week, the gap between the numbers they announce and the numbers you live with has become difficult to ignore \u2014 though many will try. Governments offer tax cuts measured in grocery weeks, corporations redirect billions from headcount to hardware, and institutions everywhere continue to describe the situation in language carefully designed to sound like progress. The arithmetic keeps arriving. The responses keep not adding up.",
+            "stories": [
+                {
+                    "desk": "Original Desk",
+                    "hr_headline": "Anglicare calculates exactly how much being poor costs per week",
+                    "copy": "Anglicare's June 2026 Cost of Living Index found a single person on JobSeeker falls behind by $251 a week after paying for rent, food, and transport. A couple with two children on the same payment falls behind by $428. These are not projections or warnings. They are arithmetic \u2014 the distance between what the government provides and what existence costs, measured weekly, published politely, and broadly ignored.",
+                    "source_url": "https:\/\/www.anglicare.asn.au\/publications\/cost-of-living-index-income-support-2026\/"
+                },
+                {
+                    "desk": "Original Desk",
+                    "hr_headline": "The government announces a tax cut worth roughly one week of groceries per year",
+                    "copy": "From 1 July 2026, the tax rate on income between $18,201 and $45,000 drops from 16 to 15 per cent, delivering every Australian taxpayer a cut of up to $268 a year. The government is also introducing a $1,000 instant tax deduction and has recommended the Fair Work Commission award a real wage increase. Against grocery prices 25 to 35 per cent higher than 2021 levels and a cash rate at 4.35 per cent, $268 annually is the policy equivalent of holding a torch up to a flood.",
+                    "source_url": "https:\/\/budget.gov.au\/content\/02-cost-of-living.htm"
+                },
+                {
+                    "desk": "Original Desk",
+                    "hr_headline": "Nearly half of first home buyers regret the thing they were told would save them",
+                    "copy": "A Finder survey found 45 per cent of first home buyers who purchased in the past year regret their decision, with 26 per cent saying they overpaid and 14 per cent reporting they have no savings left after buying. Domain's 2026 report confirms Australia remains one of the most challenging housing markets in the developed world for first home buyers. The Great Australian Dream now comes with a specific emotional phase they forgot to mention in the brochure: remorse.",
+                    "source_url": "https:\/\/www.sbs.com.au\/news\/the-feed\/article\/after-buying-carey-started-feeling-regret-nearly-half-of-first-home-buyers-feel-the-same\/zegrl8lrq"
+                },
+                {
+                    "desk": "Tech and Power Desk",
+                    "hr_headline": "1,115 jobs a day, every day, because the algorithm said so",
+                    "copy": "As of mid-June, 247 layoff events have displaced nearly 184,000 workers across tech, finance, and healthcare \u2014 averaging 1,115 jobs lost per working day, nearly double last year's pace. The stated reason is almost always AI, though analysts note companies citing automation have every financial incentive to pick the most investor-friendly narrative. The mechanism is clean: name the machine, cut the person, watch the stock price.",
+                    "source_url": "https:\/\/www.techtimes.com\/articles\/318466\/20260616\/tech-layoffs-hit-1115-day-2026-companies-cite-ai-cuts-fail-boost-returns.htm"
+                },
+                {
+                    "desk": "Tech and Power Desk",
+                    "hr_headline": "Four companies pledge $700 billion on data centres. Their employees got Slack messages.",
+                    "copy": "Amazon, Microsoft, Alphabet, and Meta have committed a combined $700 billion in capital expenditure for 2026 \u2014 nearly double what they spent in 2025. Meta alone laid off 8,000 workers while redirecting 7,000 roles toward AI, and is spending over $100 billion on data centres this year. The defining feature is not the layoffs \u2014 it's their simultaneity with record financial performance.",
+                    "source_url": "https:\/\/www.techtimes.com\/articles\/317392\/20260529\/tech-layoffs-reach-142000-2026-profitable-companies-cut-jobs-fund-700b-ai-infrastructure.htm"
+                },
+                {
+                    "desk": "Tech and Power Desk",
+                    "hr_headline": "The FBI is buying your location data because asking would require a warrant",
+                    "copy": "In March 2026, FBI Director Kash Patel confirmed to Congress that the FBI purchases Americans' location histories from commercial data brokers to track citizens. Meanwhile, the federal government is accelerating AI-driven surveillance tools while simultaneously discouraging state-level regulation of AI \u2014 a combination that leaves no meaningful legal barrier between your phone and a federal database. The surveillance capitalism supply chain has found its most enthusiastic customer.",
+                    "source_url": "https:\/\/theconversation.com\/us-government-ramps-up-mass-surveillance-with-help-of-ai-tech-data-brokers-and-your-apps-and-devices-277440"
+                },
+                {
+                    "desk": "Tech and Power Desk",
+                    "hr_headline": "The EU would like you to label your deepfakes, please and thank you",
+                    "copy": "On 10 June 2026, the European AI Office released its finalised Code of Practice on Transparency of AI-Generated Content, requiring signatories to embed digitally-signed metadata, imperceptible watermarks, and standardised visual labels on AI-generated material. The code is voluntary, which in regulatory parlance means it will become the benchmark courts use to judge you when it isn't. Article 50's transparency obligations become legally binding in August 2026.",
+                    "source_url": "https:\/\/iptc.org\/news\/eu-ai-transparency-code-of-practice-june-2026\/"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "The US-Iran ceasefire is a 60-day agreement, which is a generous use of the word ceasefire",
+                    "copy": "The US and Iran reached what is being called a 60-day ceasefire agreement, during which negotiations are meant to continue. Active strikes and counter-strikes were occurring simultaneously with ceasefire negotiations, which is one way to build trust. The Trump administration reportedly linked peace terms to Abraham Accords recognition \u2014 reframing a war's end as a diplomatic upsell.",
+                    "source_url": "https:\/\/www.weforum.org\/stories\/2026\/06\/uncertainty-around-us-iran-ceasefire-and-other-geopolitical-stories-to-know-this-month\/"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "The IMF held its Spring Meetings and the global economy is, unsurprisingly, being tested again",
+                    "copy": "The IMF's April World Economic Outlook was titled 'Global Economy in the Shadow of War,' which is not the kind of subtitle that invites optimism. Energy market turmoil from the Middle East conflict is straining developing country debt burdens and raising the prospect of a new wave of defaults. The IMF and World Bank offered the usual toolkit \u2014 augmented credit facilities for Somalia, fiscal surplus mandates for Pakistan \u2014 because apparently the solution to a global shock is still belt-tightening at the periphery.",
+                    "source_url": "https:\/\/statt.com\/blog\/imf-and-world-bank-2026-spring-meetings-key-takeaways\/"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "A logistics corridor between Brazil and Africa that is not at all geopolitically neutral",
+                    "copy": "DP World is building a Brazil-Africa trade corridor that would reshape supply chains for food, energy and minerals across the South Atlantic. The project signals the steady extension of Gulf logistics control into regions that previously sat outside its operational footprint. It is described as far from geopolitically neutral, which is the polite way of saying it is geopolitics wearing a shipping manifest.",
+                    "source_url": "https:\/\/www.geopoliticalmonitor.com\/"
+                },
+                {
+                    "desk": "Bitcoin Desk",
+                    "hr_headline": "Saylor's AI-designed funding vehicle hits the floor, and then keeps going",
+                    "copy": "Strategy's STRC preferred stock \u2014 the instrument Michael Saylor designed with AI and used to fund the purchase of 846,842 bitcoin \u2014 hit a record low of $88.59 on Thursday, 11% below its $100 par. The company has already sold bitcoin for the first time since 2022 to cover dividends, and has paused new STRC issuance entirely. The man who said he would never sell is now selling, and the instrument designed to stay at par is designed to do nothing of the sort.",
+                    "source_url": "https:\/\/www.coindesk.com\/markets\/2026\/06\/18\/strategy-s-strc-preferred-stock-hits-a-record-low-below-par"
+                },
+                {
+                    "desk": "Bitcoin Desk",
+                    "hr_headline": "CME sues its own regulator because someone else got to list the fun derivatives",
+                    "copy": "The world's largest derivatives exchange filed a 42-page federal lawsuit against the CFTC after the regulator approved Kalshi to list Bitcoin perpetual futures \u2014 the first in the U.S. CME's argument is that perps are swaps under Dodd-Frank, not futures, which would require vastly higher capital requirements and effectively keep them offshore. The framing is investor protection. The mechanism is incumbency protection. Both things can be true.",
+                    "source_url": "https:\/\/bitcoinmagazine.com\/news\/cme-group-to-sue-cftc-over-bitcoin"
+                },
+                {
+                    "desk": "Bitcoin Desk",
+                    "hr_headline": "146 countries explore CBDCs, three have launched one, none have explained why",
+                    "copy": "The CBDC tracker now counts 146 countries and currency unions exploring digital sovereign money, covering 98% of global GDP. China's e-CNY has processed $2.3 trillion in transactions and became interest-bearing in January. The ECB is piloting in 2027 with a full rollout targeted for 2029. Central banks continue to describe these as 'digital cash' while building identity-linked, permissioned systems that share none of cash's defining properties.",
+                    "source_url": "https:\/\/coinlaw.io\/central-bank-digital-currency-statistics\/"
+                },
+                {
+                    "desk": "Culture and Media Desk",
+                    "hr_headline": "David Hockney, who made art instead of content, dies at 88",
+                    "copy": "David Hockney passed away peacefully at home in London on June 11, one month short of his 89th birthday. He came out as gay at 23 when it was still a criminal offence in England and spent the next six decades painting swimming pools, Yorkshire landscapes, and iPad drawings he sent to friends like letters. In a media economy that treats every death as engagement bait and every legacy as franchise potential, it's worth pausing to note that Hockney simply made things \u2014 stubbornly, prolifically, without a content strategy.",
+                    "source_url": "https:\/\/www.itv.com\/news\/2026-06-12\/british-artist-david-hockney-dies-aged-88"
+                },
+                {
+                    "desk": "Culture and Media Desk",
+                    "hr_headline": "Study confirms influencers amplify misinformation, brands invest $33 billion anyway",
+                    "copy": "A Cardiff Business School study published in Psychology & Marketing found that influencer-driven misinformation generates more toxic audience responses than misinformation from regular users, precisely because of the trust and parasocial intimacy influencers cultivate. Brands invested a record $33 billion in influencer marketing in 2025. The research calls it a 'growing paradox' \u2014 the same credibility that makes influencers effective salespeople makes them effective vectors for rubbish. The industry's response will almost certainly be to invest $34 billion next year.",
+                    "source_url": "https:\/\/phys.org\/news\/2026-03-social-media-toxicity-power-misinformation.html"
+                },
+                {
+                    "desk": "Culture and Media Desk",
+                    "hr_headline": "Users nostalgic for 2016 social media, conveniently forgetting what 2016 social media actually did",
+                    "copy": "A trending sentiment across platforms frames 2026 as a return to the energy of 2016 \u2014 driven by fatigue with AI-generated content and algorithmic sameness. Meanwhile, global time spent on social media has been declining since its 2022 peak. The nostalgia is real, the analysis is selective, and the platforms will simply absorb the backlash into a new product feature called 'authenticity mode' or something equally hollow. The attention economy doesn't fear your disillusionment. It monetises it.",
+                    "source_url": "https:\/\/iqfluence.io\/public\/blog\/social-trends"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "The detox was practice. Now they're just leaving.",
+                    "copy": "Social media platforms are built on variable reward systems \u2014 the same psychological architecture that underpins gambling. Notifications, likes, and algorithmic feeds train your brain to seek unpredictable rewards. Now, according to an American Psychiatric Association poll, about half of Americans cut back in 2025, and in 2026 they're moving beyond temporary detoxes to permanent disengagement. Research shows that just two weeks of reduced use produces measurable improvements in attention and emotional regulation. The system was designed to be frictionless so you'd never stop. Turns out people can, in fact, stop.",
+                    "source_url": "https:\/\/san.com\/cc\/in-2025-americans-detoxed-from-social-media-in-2026-theyre-quitting-altogether\/"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "83% of finance professionals want out but sure let's talk about engagement scores",
+                    "copy": "Fortune 500 companies are laying off tens of thousands while citing AI and restructuring. Meanwhile, 83% of finance professionals say they want a career change, and only 32% of US employees report being engaged at work. The resignation wave in 2026 isn't about salary \u2014 it reflects a deeper shift in how people define work, success, and personal freedom. Workers are leaving outdated roles for freelancing, entrepreneurship, and the creator economy, where a fitness coach or a mechanic can own their brand and their income. The employment machine keeps running. People are just stepping off while it's still moving.",
+                    "source_url": "https:\/\/www.oneworldnews.com\/finance\/people-are-suddenly-quitting-jobs-in-2026\/"
+                },
+                {
+                    "desk": "Reclaimed Desk",
+                    "hr_headline": "Smaller communities, actual humans, no algorithm required",
+                    "copy": "The platform economy trained us to believe community means scale \u2014 more followers, more reach, more engagement metrics that mean nothing to anyone who lives in your street. Now 39% of community builders are deliberately deprioritising growth, and 67% of members say they join or stay because of shared identity or values, not content volume. Creators are pulling their audiences off Facebook and Discord and onto branded platforms they own. It's not anti-technology. It's anti-extraction. Community, it turns out, works better when no one's selling your attention to an advertiser.",
+                    "source_url": "https:\/\/circle.so\/blog\/best-community-platforms"
+                }
+            ],
+            "closing": "Somewhere between the $251 weekly shortfall and the $700 billion capital pledge, there is a country \u2014 several countries, actually \u2014 full of people doing the maths the institutions refuse to publish in the same sentence. The ones stepping off platforms, leaving jobs that no longer make sense, and building smaller rooms with actual doors are not opting out. They are just done pretending the building is structurally sound.",
+            "cta_line": "Still Grounded"
+        }
+    },
+    {
+        "id": "hr_6a2f25a4652b24.87450002",
+        "desk": "original",
+        "deskName": "",
+        "focus": "",
+        "focusLabel": "",
+        "date": "2026-06-14",
+        "time": "22:05",
+        "subject": "The consequences arrived. Nobody opened the door",
+        "newsletter": {
+            "subject": "The consequences arrived. Nobody opened the door",
+            "subject_b": "Australia's political class is doing its best work yet (at self-destruction)",
+            "preview": "The budget is resilient. The opposition is in therapy. Your grocery bill didn't get the memo.",
+            "opening": "Another week where the machinery of Australian governance produced exactly the outcomes it was designed to produce, just not the ones anyone was promised. The budget landed with the weight of a document that knows inflation is back. The opposition continued its yearlong experiment in structural collapse. And households kept doing what they've been doing since 2022: absorbing the hit and adjusting downward.",
+            "stories": [
+                {
+                    "original_headline": "2026-27 Federal Budget: Big ambitions, mixed results",
+                    "hr_headline": "The government halved fuel excise and the RBA raised rates three times. The system is working perfectly",
+                    "copy": "The Albanese government's May budget cut fuel excise and launched a National Fuel Security Campaign encouraging Australians to simply use less fuel. Meanwhile, the RBA raised the cash rate three times in 2026 to 4.35 percent in response to re-accelerating inflation driven largely by the expiry of government electricity rebates. So the government giveth, the government taketh away, and then the Reserve Bank charges you interest on the difference. Inflation is forecast at 5 percent through to June quarter 2026, and economic growth is expected to slow to 1.75 percent. The budget is titled 'Resilience and Reform.' At least the first word is accurate \u2014 Australians have had a lot of practice.",
+                    "source_url": "https:\/\/www.commbank.com.au\/articles\/newsroom\/2026\/05\/2026-federal-budget-analysis-australian-economy.html"
+                },
+                {
+                    "original_headline": "Australia's opposition coalition reunites after split over hate laws",
+                    "hr_headline": "The Liberal-National Coalition split twice, reunited, spilled a leader, and installed another. The opposition is fine",
+                    "copy": "Since losing the 2025 election in a landslide, the Liberal-National Coalition has split twice, reunited under a solidarity agreement, endured a Nationals leadership spill motion by Colin Boyce, then watched Angus Taylor topple Sussan Ley for the Liberal leadership in February 2026. The Coalition's primary vote has fallen to 18 percent, below One Nation at 28 percent. This is what happens when a 60-year political partnership discovers it agrees on almost nothing: nuclear energy, immigration, hate speech laws, and whether the other party should exist. The electoral reality, as The Diplomat noted, is that they cannot win government apart. Which makes the constant divorcing all the more theatrical.",
+                    "source_url": "https:\/\/www.aol.com\/articles\/australias-opposition-coalition-reunites-split-021408084.html"
+                },
+                {
+                    "original_headline": "'Impossible choices': The data that proves living costs are rising for Australians",
+                    "hr_headline": "Living costs rose for every household type. The government launched a campaign about using less fuel",
+                    "copy": "ABS data showed living costs rose for all household types in the year to December 2025, with annual increases ranging from 2.3 to 4.2 percent, driven by housing and food costs. Electricity prices are up 25.4 percent year-on-year after government rebates expired. Grocery prices sit 25 to 35 percent higher than 2021 levels and will not return to where they were. The government's response includes a $2 billion Local Infrastructure Fund to support up to 65,000 homes over a decade, extending the ban on foreign buyers purchasing established homes until 2029, and back-to-back increases in Commonwealth Rent Assistance. These are real measures. They are also measures that will take years to produce visible results for anyone currently choosing between the two boxes of cereal.",
+                    "source_url": "https:\/\/www.sbs.com.au\/news\/article\/impossible-choices-the-data-that-proves-living-costs-are-rising-for-australians\/smm4voks8"
+                },
+                {
+                    "original_headline": "Australians are more politically disconnected today than at any time in the modern era",
+                    "hr_headline": "Australians stopped watching. The show continued without them",
+                    "copy": "Distrust in government is high. The nation is, as one analysis put it, economically stable but psychologically cautious. There is a growing expectation that governments must address the structural problems that have emerged over the past two decades \u2014 housing affordability, energy security, and the cost of living. The expectation is growing. The structural problems are also growing. Only one of those trends appears to have any political consequence, and it is not the one that affects whether you can afford rent.",
+                    "source_url": "https:\/\/thetimes.au\/australia-and-the-world\/39340-australia-in-2026-a-nation-navigating-economic-pressure-and-global-uncertainty"
+                }
+            ],
+            "closing": "The budget says resilience. The opposition says unity. The RBA says 4.35 percent. The supermarket aisle says $9.50 for cheese. One of these is not a communications strategy. The rest of us are just here, making coffee, paying the new price for it, and getting on with the week.",
+            "cta_line": "Get Some Coffee"
+        }
+    },
+    {
+        "id": "hr_6a2f23c95105e5.81077705",
+        "desk": "runner",
+        "deskName": "Multi-Desk Edition",
+        "focus": "assembled",
+        "focusLabel": "assembled edition",
+        "date": "2026-06-14",
+        "time": "21:57",
+        "subject": "The old architecture is still standing. Nobody is inside it.",
+        "newsletter": {
+            "subject": "The old architecture is still standing. Nobody is inside it.",
+            "subject_b": "Institutions everywhere. Trust nowhere.",
+            "preview": "When the system works exactly as designed, just not for anyone who designed it.",
+            "opening": "Everywhere you look, the scaffolding is still up but the building has moved. Parties that assumed permanence are discovering arithmetic. Wars that assumed victory are discovering paperwork. Trade systems that assumed openness are discovering locks. The structures remain. The legitimacy has quietly relocated.",
+            "stories": [
+                {
+                    "desk": "Original Desk",
+                    "hr_headline": "One Nation is now Australia's most popular party, which is a sentence that exists now",
+                    "copy": "According to Roy Morgan polling from early June, One Nation has surged into first place on primary vote, sitting above both Labor at 27.5% and the Coalition at 23%. The Liberal Party, which underwent a leadership spill in February that replaced Sussan Ley with Angus Taylor, has watched its vote halve since 2022 while Pauline Hanson's outfit picked up the pieces - including winning the Farrer by-election in May, the first time a One Nation candidate has been directly elected to the House of Representatives. The major parties built a system that assumed they would always be the only two options. That assumption now has a primary vote of 23%.",
+                    "source_url": "https:\/\/www.roymorgan.com\/findings\/10246-federal-voting-intention-june-9-2026"
+                },
+                {
+                    "desk": "Original Desk",
+                    "hr_headline": "The Coalition is polling at 12 seats, which is technically still a party",
+                    "copy": "A Redbridge MRP model now projects the Coalition winning just 12 seats in the House of Representatives, compared to One Nation's 53. Twelve seats. That is not a political party, that is a book club with parliamentary privilege. The Liberals spent decades as a broad church and have managed to renovate it into a garden shed. Meanwhile, Angus Taylor leads an opposition that is now, by the numbers, the third-largest political force in the country behind a party founded on a fish and chip shop grievance in 1997.",
+                    "source_url": "https:\/\/theconversation.com\/topics\/australian-politics-32"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "A hundred-day war gets a signing ceremony and a list of caveats",
+                    "copy": "The US-Iran war hit its 100th day this week, and a deal is reportedly set to be signed in Geneva today. The Trump administration appears to have shelved its demand for immediate denuclearisation, kicking it to a later date in order to get ink on paper. What remains is a memorandum of understanding with disputed terms, domestic opposition on both sides, and a ceasefire that was being violated by active strikes right up until the diplomatic breakthrough was announced. The Strait of Hormuz, the sanctions architecture, the Abraham Accords linkage \u2014 none of these are resolved. They are merely reclassified as future problems.",
+                    "source_url": "https:\/\/www.opforjournal.com\/p\/weekly-significant-activity-report-b19"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "The IMF named its report 'In the Shadow of War' and still projected resilient growth",
+                    "copy": "The IMF titled its April 2026 World Economic Outlook 'Global Economy in the Shadow of War' \u2014 a rare moment of editorial honesty from an institution that usually prefers euphemism. The Middle East and North Africa face a cumulative growth revision of nearly three percentage points. Meanwhile, the World Bank warns the 2020s are on track to be the weakest decade for global growth since the 1960s, while noting the economy appears 'resilient to policy uncertainty.' The word for an economy that absorbs shocks without improving lives is not resilient. It is captured.",
+                    "source_url": "https:\/\/www.imf.org\/en\/publications\/weo"
+                },
+                {
+                    "desk": "Geopolitical Desk",
+                    "hr_headline": "The EU built a trade wall and insists it is not a sanctions instrument",
+                    "copy": "The EU's Industrial Autonomy Act, unveiled in March 2026, introduces procurement preferences and foreign investment conditions targeting countries holding over 40 percent of global manufacturing capacity in strategic sectors. Everyone knows this means China. Beijing knows this means China. China has warned of countermeasures. The EU insists the IAA is not formally a sanctions instrument, which is technically accurate in the same way that a locked door is not formally a wall. The WTO-based trading order continues to exist in the way that a theatre set exists \u2014 convincing from one angle, hollow from behind.",
+                    "source_url": "https:\/\/www.steptoe.com\/en\/news-publications\/stepwise-risk-outlook\/sanctions-update-may-4-2026.html"
+                }
+            ],
+            "closing": "The common thread this week is not chaos. It is the quiet moment after the rules stopped applying but before anyone agreed on new ones. The old playbooks are still being read aloud. The rooms are just emptier now.",
+            "cta_line": "Still Grounded"
+        }
+    }
+]

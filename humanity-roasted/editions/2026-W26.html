@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The distance between what they provide and what existence costs — Humanity, Roasted</title>
+
+<meta name="description" content="The arithmetic of being alive in 2026, measured weekly, published politely, and broadly ignored.">
+
+<style>
+
+@font-face{font-family:"Playfair Display";font-weight:900;font-style:normal;font-display:swap;src:url("/fonts/PlayfairDisplay-Black.woff2") format("woff2");}
+
+@font-face{font-family:"Barlow Condensed";font-weight:600;font-style:normal;font-display:swap;src:url("/fonts/BarlowCondensed-SemiBold.woff2") format("woff2");}
+
+@font-face{font-family:"Barlow Condensed";font-weight:700;font-style:normal;font-display:swap;src:url("/fonts/BarlowCondensed-Bold.woff2") format("woff2");}
+
+@font-face{font-family:"Source Serif 4";font-weight:400;font-style:normal;font-display:swap;src:url("/fonts/SourceSerif4-Regular.woff2") format("woff2");}
+
+@font-face{font-family:"Inter";font-weight:400;font-style:normal;font-display:swap;src:url("/fonts/Inter-Regular.woff2") format("woff2");}
+
+@font-face{font-family:"Inter";font-weight:500;font-style:normal;font-display:swap;src:url("/fonts/Inter-Medium.woff2") format("woff2");}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{background:#1C1A17;color:#F5F0E8;font-family:"Source Serif 4",Georgia,serif;}
+
+a{color:inherit;text-decoration:none;}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;border-bottom:1px solid rgba(245,240,232,0.1);}
+
+.nav-logo{font-family:"Playfair Display",serif;font-weight:900;font-size:18px;letter-spacing:0.02em;color:#F5F0E8;}
+
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+
+.nav-links a{font-family:"Inter",sans-serif;font-size:13px;font-weight:500;letter-spacing:0.04em;color:rgba(245,240,232,0.7);transition:color 0.2s;}
+.nav-links a[aria-label="Home"]{font-size:1.4rem;line-height:1;}
+
+.nav-links a:hover{color:#F5F0E8;}
+
+.nav-cta{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;background:#C4530A;color:#F5F0E8;padding:9px 20px;border-radius:2px;}
+
+.nav-cta:hover{background:#d4601a;color:#F5F0E8;}
+
+.edition-header{max-width:720px;margin:0 auto;padding:72px 40px 48px;border-bottom:1px solid rgba(245,240,232,0.1);}
+
+.edition-eyebrow{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:20px;}
+
+.edition-subject{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(28px,4vw,42px);line-height:1.15;color:#F5F0E8;margin-bottom:20px;}
+
+.edition-meta{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:0.08em;color:rgba(245,240,232,0.4);text-transform:uppercase;margin-bottom:32px;}
+
+.edition-opening{font-family:"Source Serif 4",Georgia,serif;font-size:18px;line-height:1.8;color:rgba(245,240,232,0.85);}
+
+.stories{max-width:720px;margin:0 auto;padding:0 40px;}
+
+.story{padding:48px 0;border-bottom:1px solid rgba(245,240,232,0.1);}
+
+.story:last-child{border-bottom:none;}
+
+.story-desk{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:14px;}
+
+.story-hed{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(20px,3vw,28px);line-height:1.2;color:#F5F0E8;margin-bottom:16px;}
+
+.story-copy{font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.85;color:rgba(245,240,232,0.8);margin-bottom:14px;}
+
+.story-source a{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:0.06em;color:#C4530A;text-decoration:none;}
+
+.story-source a:hover{text-decoration:underline;}
+
+.edition-closing{max-width:720px;margin:0 auto;padding:48px 40px 72px;border-top:1px solid rgba(245,240,232,0.1);}
+
+.closing-label{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:16px;}
+
+.closing-text{font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.85;color:rgba(245,240,232,0.8);margin-bottom:32px;}
+
+.cta-btn{display:inline-block;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;background:#C4530A;color:#F5F0E8;padding:14px 36px;border-radius:2px;}
+
+footer{border-top:1px solid rgba(245,240,232,0.1);padding:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+
+.footer-brand{font-family:"Playfair Display",serif;font-weight:900;font-size:14px;color:#F5F0E8;}
+
+.footer-sub{font-family:"Inter",sans-serif;font-size:11px;color:rgba(245,240,232,0.35);margin-top:4px;letter-spacing:0.04em;}
+
+.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;}
+
+.footer-links a{font-family:"Inter",sans-serif;font-size:12px;color:rgba(245,240,232,0.5);letter-spacing:0.04em;}
+
+.footer-links a:hover{color:#F5F0E8;}
+
+@media(max-width:600px){nav{padding:0 20px;}.nav-links{gap:16px;}.edition-header,.stories,.edition-closing{padding-left:20px;padding-right:20px;}footer{padding:32px 20px;flex-direction:column;align-items:flex-start;}}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+  <a href="https://humanityroasted.com" class="nav-logo">Humanity, Roasted</a>
+
+  <ul class="nav-links">
+
+    <li><a href="/humanity-roasted/" aria-label="Home">⌂</a></li>
+
+    <li><a href="/humanity-roasted/about/">About</a></li>
+
+    <li><a href="/humanity-roasted/newsletter/">The Newsletter</a></li>
+
+    <li><a href="/humanity-roasted/coffee/">The Coffee</a></li>
+
+    <li><a href="/humanity-roasted/newsletter/#join" class="nav-cta">Join the Dispatch</a></li>
+
+  </ul>
+
+</nav>
+
+<header class="edition-header">
+
+  <p class="edition-eyebrow">The Still Grounded Dispatch &nbsp;·&nbsp; 2026-W26</p>
+
+  <h1 class="edition-subject">The distance between what they provide and what existence costs</h1>
+
+  <p class="edition-meta">Saturday 20 June 2026</p>
+
+  <p class="edition-opening">This week, the gap between the numbers they announce and the numbers you live with has become difficult to ignore — though many will try. Governments offer tax cuts measured in grocery weeks, corporations redirect billions from headcount to hardware, and institutions everywhere continue to describe the situation in language carefully designed to sound like progress. The arithmetic keeps arriving. The responses keep not adding up.</p>
+
+</header>
+
+<main class="stories">
+
+<article class="story"><p class="story-desk">Original Desk</p><h2 class="story-hed">Anglicare calculates exactly how much being poor costs per week</h2><p class="story-copy">Anglicare's June 2026 Cost of Living Index found a single person on JobSeeker falls behind by $251 a week after paying for rent, food, and transport. A couple with two children on the same payment falls behind by $428. These are not projections or warnings. They are arithmetic — the distance between what the government provides and what existence costs, measured weekly, published politely, and broadly ignored.</p><p class="story-source"><a href="https://www.anglicare.asn.au/publications/cost-of-living-index-income-support-2026/" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Original Desk</p><h2 class="story-hed">The government announces a tax cut worth roughly one week of groceries per year</h2><p class="story-copy">From 1 July 2026, the tax rate on income between $18,201 and $45,000 drops from 16 to 15 per cent, delivering every Australian taxpayer a cut of up to $268 a year. The government is also introducing a $1,000 instant tax deduction and has recommended the Fair Work Commission award a real wage increase. Against grocery prices 25 to 35 per cent higher than 2021 levels and a cash rate at 4.35 per cent, $268 annually is the policy equivalent of holding a torch up to a flood.</p><p class="story-source"><a href="https://budget.gov.au/content/02-cost-of-living.htm" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Original Desk</p><h2 class="story-hed">Nearly half of first home buyers regret the thing they were told would save them</h2><p class="story-copy">A Finder survey found 45 per cent of first home buyers who purchased in the past year regret their decision, with 26 per cent saying they overpaid and 14 per cent reporting they have no savings left after buying. Domain's 2026 report confirms Australia remains one of the most challenging housing markets in the developed world for first home buyers. The Great Australian Dream now comes with a specific emotional phase they forgot to mention in the brochure: remorse.</p><p class="story-source"><a href="https://www.sbs.com.au/news/the-feed/article/after-buying-carey-started-feeling-regret-nearly-half-of-first-home-buyers-feel-the-same/zegrl8lrq" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Tech and Power Desk</p><h2 class="story-hed">1,115 jobs a day, every day, because the algorithm said so</h2><p class="story-copy">As of mid-June, 247 layoff events have displaced nearly 184,000 workers across tech, finance, and healthcare — averaging 1,115 jobs lost per working day, nearly double last year's pace. The stated reason is almost always AI, though analysts note companies citing automation have every financial incentive to pick the most investor-friendly narrative. The mechanism is clean: name the machine, cut the person, watch the stock price.</p><p class="story-source"><a href="https://www.techtimes.com/articles/318466/20260616/tech-layoffs-hit-1115-day-2026-companies-cite-ai-cuts-fail-boost-returns.htm" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Tech and Power Desk</p><h2 class="story-hed">Four companies pledge $700 billion on data centres. Their employees got Slack messages.</h2><p class="story-copy">Amazon, Microsoft, Alphabet, and Meta have committed a combined $700 billion in capital expenditure for 2026 — nearly double what they spent in 2025. Meta alone laid off 8,000 workers while redirecting 7,000 roles toward AI, and is spending over $100 billion on data centres this year. The defining feature is not the layoffs — it's their simultaneity with record financial performance.</p><p class="story-source"><a href="https://www.techtimes.com/articles/317392/20260529/tech-layoffs-reach-142000-2026-profitable-companies-cut-jobs-fund-700b-ai-infrastructure.htm" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Tech and Power Desk</p><h2 class="story-hed">The FBI is buying your location data because asking would require a warrant</h2><p class="story-copy">In March 2026, FBI Director Kash Patel confirmed to Congress that the FBI purchases Americans' location histories from commercial data brokers to track citizens. Meanwhile, the federal government is accelerating AI-driven surveillance tools while simultaneously discouraging state-level regulation of AI — a combination that leaves no meaningful legal barrier between your phone and a federal database. The surveillance capitalism supply chain has found its most enthusiastic customer.</p><p class="story-source"><a href="https://theconversation.com/us-government-ramps-up-mass-surveillance-with-help-of-ai-tech-data-brokers-and-your-apps-and-devices-277440" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Tech and Power Desk</p><h2 class="story-hed">The EU would like you to label your deepfakes, please and thank you</h2><p class="story-copy">On 10 June 2026, the European AI Office released its finalised Code of Practice on Transparency of AI-Generated Content, requiring signatories to embed digitally-signed metadata, imperceptible watermarks, and standardised visual labels on AI-generated material. The code is voluntary, which in regulatory parlance means it will become the benchmark courts use to judge you when it isn't. Article 50's transparency obligations become legally binding in August 2026.</p><p class="story-source"><a href="https://iptc.org/news/eu-ai-transparency-code-of-practice-june-2026/" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Geopolitical Desk</p><h2 class="story-hed">The US-Iran ceasefire is a 60-day agreement, which is a generous use of the word ceasefire</h2><p class="story-copy">The US and Iran reached what is being called a 60-day ceasefire agreement, during which negotiations are meant to continue. Active strikes and counter-strikes were occurring simultaneously with ceasefire negotiations, which is one way to build trust. The Trump administration reportedly linked peace terms to Abraham Accords recognition — reframing a war's end as a diplomatic upsell.</p><p class="story-source"><a href="https://www.weforum.org/stories/2026/06/uncertainty-around-us-iran-ceasefire-and-other-geopolitical-stories-to-know-this-month/" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Geopolitical Desk</p><h2 class="story-hed">The IMF held its Spring Meetings and the global economy is, unsurprisingly, being tested again</h2><p class="story-copy">The IMF's April World Economic Outlook was titled 'Global Economy in the Shadow of War,' which is not the kind of subtitle that invites optimism. Energy market turmoil from the Middle East conflict is straining developing country debt burdens and raising the prospect of a new wave of defaults. The IMF and World Bank offered the usual toolkit — augmented credit facilities for Somalia, fiscal surplus mandates for Pakistan — because apparently the solution to a global shock is still belt-tightening at the periphery.</p><p class="story-source"><a href="https://statt.com/blog/imf-and-world-bank-2026-spring-meetings-key-takeaways/" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Geopolitical Desk</p><h2 class="story-hed">A logistics corridor between Brazil and Africa that is not at all geopolitically neutral</h2><p class="story-copy">DP World is building a Brazil-Africa trade corridor that would reshape supply chains for food, energy and minerals across the South Atlantic. The project signals the steady extension of Gulf logistics control into regions that previously sat outside its operational footprint. It is described as far from geopolitically neutral, which is the polite way of saying it is geopolitics wearing a shipping manifest.</p><p class="story-source"><a href="https://www.geopoliticalmonitor.com/" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Bitcoin Desk</p><h2 class="story-hed">Saylor's AI-designed funding vehicle hits the floor, and then keeps going</h2><p class="story-copy">Strategy's STRC preferred stock — the instrument Michael Saylor designed with AI and used to fund the purchase of 846,842 bitcoin — hit a record low of $88.59 on Thursday, 11% below its $100 par. The company has already sold bitcoin for the first time since 2022 to cover dividends, and has paused new STRC issuance entirely. The man who said he would never sell is now selling, and the instrument designed to stay at par is designed to do nothing of the sort.</p><p class="story-source"><a href="https://www.coindesk.com/markets/2026/06/18/strategy-s-strc-preferred-stock-hits-a-record-low-below-par" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Bitcoin Desk</p><h2 class="story-hed">CME sues its own regulator because someone else got to list the fun derivatives</h2><p class="story-copy">The world's largest derivatives exchange filed a 42-page federal lawsuit against the CFTC after the regulator approved Kalshi to list Bitcoin perpetual futures — the first in the U.S. CME's argument is that perps are swaps under Dodd-Frank, not futures, which would require vastly higher capital requirements and effectively keep them offshore. The framing is investor protection. The mechanism is incumbency protection. Both things can be true.</p><p class="story-source"><a href="https://bitcoinmagazine.com/news/cme-group-to-sue-cftc-over-bitcoin" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Bitcoin Desk</p><h2 class="story-hed">146 countries explore CBDCs, three have launched one, none have explained why</h2><p class="story-copy">The CBDC tracker now counts 146 countries and currency unions exploring digital sovereign money, covering 98% of global GDP. China's e-CNY has processed $2.3 trillion in transactions and became interest-bearing in January. The ECB is piloting in 2027 with a full rollout targeted for 2029. Central banks continue to describe these as 'digital cash' while building identity-linked, permissioned systems that share none of cash's defining properties.</p><p class="story-source"><a href="https://coinlaw.io/central-bank-digital-currency-statistics/" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Culture and Media Desk</p><h2 class="story-hed">David Hockney, who made art instead of content, dies at 88</h2><p class="story-copy">David Hockney passed away peacefully at home in London on June 11, one month short of his 89th birthday. He came out as gay at 23 when it was still a criminal offence in England and spent the next six decades painting swimming pools, Yorkshire landscapes, and iPad drawings he sent to friends like letters. In a media economy that treats every death as engagement bait and every legacy as franchise potential, it's worth pausing to note that Hockney simply made things — stubbornly, prolifically, without a content strategy.</p><p class="story-source"><a href="https://www.itv.com/news/2026-06-12/british-artist-david-hockney-dies-aged-88" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Culture and Media Desk</p><h2 class="story-hed">Study confirms influencers amplify misinformation, brands invest $33 billion anyway</h2><p class="story-copy">A Cardiff Business School study published in Psychology & Marketing found that influencer-driven misinformation generates more toxic audience responses than misinformation from regular users, precisely because of the trust and parasocial intimacy influencers cultivate. Brands invested a record $33 billion in influencer marketing in 2025. The research calls it a 'growing paradox' — the same credibility that makes influencers effective salespeople makes them effective vectors for rubbish. The industry's response will almost certainly be to invest $34 billion next year.</p><p class="story-source"><a href="https://phys.org/news/2026-03-social-media-toxicity-power-misinformation.html" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Culture and Media Desk</p><h2 class="story-hed">Users nostalgic for 2016 social media, conveniently forgetting what 2016 social media actually did</h2><p class="story-copy">A trending sentiment across platforms frames 2026 as a return to the energy of 2016 — driven by fatigue with AI-generated content and algorithmic sameness. Meanwhile, global time spent on social media has been declining since its 2022 peak. The nostalgia is real, the analysis is selective, and the platforms will simply absorb the backlash into a new product feature called 'authenticity mode' or something equally hollow. The attention economy doesn't fear your disillusionment. It monetises it.</p><p class="story-source"><a href="https://iqfluence.io/public/blog/social-trends" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Reclaimed Desk</p><h2 class="story-hed">The detox was practice. Now they're just leaving.</h2><p class="story-copy">Social media platforms are built on variable reward systems — the same psychological architecture that underpins gambling. Notifications, likes, and algorithmic feeds train your brain to seek unpredictable rewards. Now, according to an American Psychiatric Association poll, about half of Americans cut back in 2025, and in 2026 they're moving beyond temporary detoxes to permanent disengagement. Research shows that just two weeks of reduced use produces measurable improvements in attention and emotional regulation. The system was designed to be frictionless so you'd never stop. Turns out people can, in fact, stop.</p><p class="story-source"><a href="https://san.com/cc/in-2025-americans-detoxed-from-social-media-in-2026-theyre-quitting-altogether/" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Reclaimed Desk</p><h2 class="story-hed">83% of finance professionals want out but sure let's talk about engagement scores</h2><p class="story-copy">Fortune 500 companies are laying off tens of thousands while citing AI and restructuring. Meanwhile, 83% of finance professionals say they want a career change, and only 32% of US employees report being engaged at work. The resignation wave in 2026 isn't about salary — it reflects a deeper shift in how people define work, success, and personal freedom. Workers are leaving outdated roles for freelancing, entrepreneurship, and the creator economy, where a fitness coach or a mechanic can own their brand and their income. The employment machine keeps running. People are just stepping off while it's still moving.</p><p class="story-source"><a href="https://www.oneworldnews.com/finance/people-are-suddenly-quitting-jobs-in-2026/" target="_blank" rel="noopener">Read source &rarr;</a></p></article><article class="story"><p class="story-desk">Reclaimed Desk</p><h2 class="story-hed">Smaller communities, actual humans, no algorithm required</h2><p class="story-copy">The platform economy trained us to believe community means scale — more followers, more reach, more engagement metrics that mean nothing to anyone who lives in your street. Now 39% of community builders are deliberately deprioritising growth, and 67% of members say they join or stay because of shared identity or values, not content volume. Creators are pulling their audiences off Facebook and Discord and onto branded platforms they own. It's not anti-technology. It's anti-extraction. Community, it turns out, works better when no one's selling your attention to an advertiser.</p><p class="story-source"><a href="https://circle.so/blog/best-community-platforms" target="_blank" rel="noopener">Read source &rarr;</a></p></article>
+
+</main>
+
+<section class="edition-closing">
+
+  <p class="closing-label">Still Grounded</p>
+
+  <p class="closing-text">Somewhere between the $251 weekly shortfall and the $700 billion capital pledge, there is a country — several countries, actually — full of people doing the maths the institutions refuse to publish in the same sentence. The ones stepping off platforms, leaving jobs that no longer make sense, and building smaller rooms with actual doors are not opting out. They are just done pretending the building is structurally sound.</p>
+
+  <a href="https://store.humanityroasted.com" class="cta-btn">Still Grounded</a>
+
+</section>
+
+<footer>
+
+  <div><div class="footer-brand">Humanity, Roasted</div><div class="footer-sub">A Reclaimed Media publication &nbsp;·&nbsp; humanityroasted.com</div></div>
+
+  <ul class="footer-links">
+
+    <li><a href="/humanity-roasted/newsletter/">Newsletter</a></li>
+
+    <li><a href="/humanity-roasted/coffee/">Coffee</a></li>
+
+    <li><a href="/humanity-roasted/about/">About</a></li>
+
+    <li><a href="https://store.humanityroasted.com">Store</a></li>
+
+    <li><a href="https://instagram.com/humanity_roasted">Instagram</a></li>
+
+  </ul>
+
+</footer>
+
+</body>
+
+</html>

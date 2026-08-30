@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HUMANITY, ROASTED - Newsletter Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:#0a0a0a; --surface:#111111; --surface2:#181818; --border:#252525;
+      --orange:#c4591a; --orange-lt:#d96c2a; --cream:#f0e8dc; --muted:#888880; --dim:#444440;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html,body{background:var(--black);color:var(--cream);font-family:'DM Serif Display',Georgia,serif;min-height:100vh;}
+    .header{display:flex;align-items:flex-end;justify-content:space-between;padding:32px 40px 24px;border-bottom:1px solid var(--border);position:relative;}
+    .header::after{content:'';position:absolute;bottom:-2px;left:40px;width:40px;height:2px;background:var(--orange);}
+    .brand-name{font-family:'Syne',sans-serif;font-weight:800;font-size:15px;letter-spacing:5px;text-transform:uppercase;color:var(--cream);}
+    .brand-sub{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-top:2px;}
+    .header-right{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);text-align:right;}
+    .tabs{display:flex;background:var(--surface);border-bottom:1px solid var(--border);padding:0 40px;overflow-x:auto;scrollbar-width:none;align-items:stretch;}
+    .tabs::-webkit-scrollbar{display:none;}
+    .tab-btn{background:none;border:none;border-bottom:2px solid transparent;color:var(--dim);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:18px 20px 16px;cursor:pointer;white-space:nowrap;transition:color 0.2s,border-color 0.2s;margin-bottom:-1px;}
+    .tab-btn:hover{color:var(--cream);}
+    .tab-btn.active{color:var(--orange);border-bottom-color:var(--orange);}
+    .tab-btn.runner-tab{color:var(--muted);border-left:1px solid var(--border);padding-left:24px;}
+    .tab-btn.runner-tab:hover{color:var(--cream);}
+    .tab-btn.runner-tab.active{color:var(--orange);border-bottom-color:var(--orange);}
+    .archive-tab{border-left:1px solid var(--border);margin-left:auto;}
+    .selected-counter{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);padding:18px 16px 16px;white-space:nowrap;display:flex;align-items:center;gap:6px;}
+    .selected-counter-num{color:var(--orange);font-weight:500;}
+    .main{display:grid;grid-template-columns:340px 1fr;min-height:calc(100vh - 113px);}
+    .left-panel{background:var(--surface);border-right:1px solid var(--border);padding:40px 32px;}
+    .tab-panel{display:none;} .tab-panel.active{display:block;}
+    .desk-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:10px;}
+    .desk-title{font-size:22px;line-height:1.2;color:var(--cream);margin-bottom:12px;}
+    .desk-desc{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);line-height:1.7;margin-bottom:36px;border-left:2px solid var(--border);padding-left:14px;}
+    .field{margin-bottom:24px;}
+    .field-label{display:block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:8px;}
+    .field-hint{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);margin-top:7px;line-height:1.5;}
+    select,textarea{width:100%;background:var(--surface2);border:1px solid var(--border);color:var(--cream);font-family:'DM Mono',monospace;font-size:12px;padding:12px 14px;outline:none;transition:border-color 0.2s;border-radius:1px;appearance:none;-webkit-appearance:none;}
+    select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23c4591a'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
+    select:focus,textarea:focus{border-color:var(--orange);}
+    textarea{resize:vertical;min-height:110px;line-height:1.6;}
+    .generate-btn{width:100%;background:var(--orange);color:var(--cream);border:none;font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;padding:16px 24px;cursor:pointer;border-radius:1px;margin-top:8px;transition:background 0.2s;}
+    .generate-btn:hover{background:var(--orange-lt);}
+    .generate-btn:disabled{background:var(--dim);cursor:not-allowed;}
+    .right-panel{padding:40px 48px;overflow-y:auto;}
+    .empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;min-height:400px;gap:16px;opacity:0.4;}
+    .empty-rule{width:40px;height:1px;background:var(--orange);}
+    .empty-text{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:center;line-height:1.7;}
+    .loading-state{display:none;flex-direction:column;align-items:center;justify-content:center;height:100%;min-height:400px;gap:20px;}
+    .loading-state.visible{display:flex;}
+    .loading-bar{width:160px;height:1px;background:var(--border);position:relative;overflow:hidden;}
+    .loading-bar::after{content:'';position:absolute;top:0;left:-40%;width:40%;height:100%;background:var(--orange);animation:slide 1.4s ease-in-out infinite;}
+    @keyframes slide{0%{left:-40%;}100%{left:110%;}}
+    .loading-msg{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+    .error-state{display:none;background:#1a0c0c;border:1px solid #3a1818;padding:20px 24px;margin-bottom:24px;}
+    .error-state.visible{display:block;}
+    .error-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#d44;margin-bottom:8px;}
+    .error-msg{font-family:'DM Mono',monospace;font-size:12px;color:#c88;line-height:1.6;}
+    .output-area{display:none;}
+    .output-area.visible{display:block;animation:fadeIn 0.4s ease;}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+    .output-desk-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:32px;display:flex;align-items:center;gap:12px;}
+    .output-desk-tag::after{content:'';flex:1;height:1px;background:var(--border);}
+    .out-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:8px;}
+    .subject-block{margin-bottom:28px;}
+    .subject-line{font-size:26px;line-height:1.2;color:var(--cream);margin-bottom:6px;}
+    .subject-b{font-size:20px;line-height:1.3;color:var(--muted);font-style:italic;}
+    .preview-line{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);line-height:1.6;padding:12px 16px;border-left:2px solid var(--orange);margin-bottom:32px;background:var(--surface2);}
+    .opening-text{font-size:16px;line-height:1.8;color:#ccc5bc;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+    .stories-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:20px;}
+    .story-card{border:1px solid var(--border);border-left:3px solid var(--orange);background:var(--surface);padding:24px 28px;margin-bottom:16px;position:relative;}
+    .story-card.excluded{opacity:0.35;border-left-color:var(--dim);}
+    .story-checkbox-wrap{position:absolute;top:14px;right:16px;display:flex;align-items:center;gap:8px;cursor:pointer;}
+    .story-checkbox-wrap input[type=checkbox]{width:16px;height:16px;accent-color:var(--orange);cursor:pointer;}
+    .story-checkbox-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);cursor:pointer;}
+    .story-select-hint{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);margin-bottom:12px;}
+    .story-source-hed{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);margin-bottom:8px;line-height:1.5;}
+    .story-hr-hed{font-size:20px;line-height:1.3;color:var(--cream);margin-bottom:12px;}
+    .story-copy{font-family:'DM Mono',monospace;font-size:12px;line-height:1.8;color:var(--muted);margin-bottom:14px;}
+    .story-link a{font-family:'DM Mono',monospace;font-size:10px;color:var(--orange);text-decoration:none;}
+    .story-link a:hover{text-decoration:underline;}
+    .closing-block{margin-top:40px;padding-top:32px;border-top:1px solid var(--border);}
+    .closing-text{font-size:16px;line-height:1.8;color:#ccc5bc;margin-bottom:24px;}
+    .cta-strip{background:var(--surface2);border:1px solid var(--orange);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+    .cta-value{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);}
+    .actions{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+    .action-btn{background:none;border:1px solid var(--border);color:var(--dim);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 18px;cursor:pointer;transition:all 0.2s;}
+    .action-btn:hover{border-color:var(--orange);color:var(--orange);}
+    .save-btn{border-color:var(--orange) !important;color:var(--orange) !important;}
+    .save-btn:hover{background:var(--orange) !important;color:var(--cream) !important;}
+    .saved-btn{background:var(--surface2) !important;border-color:var(--dim) !important;color:var(--dim) !important;cursor:default !important;}
+    .save-msg{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);}
+    /* Runner panel */
+    .runner-panel{display:none;grid-template-columns:340px 1fr;min-height:calc(100vh - 113px);}
+    .runner-panel.active{display:grid;}
+    .runner-left{background:var(--surface);border-right:1px solid var(--border);padding:40px 32px;overflow-y:auto;}
+    .runner-right{padding:40px 48px;overflow-y:auto;}
+    .runner-section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+    .runner-desk-block{margin-bottom:28px;}
+    .runner-desk-name{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+    .runner-story-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);}
+    .runner-story-item:last-child{border-bottom:none;}
+    .runner-story-item input[type=checkbox]{width:14px;height:14px;accent-color:var(--orange);cursor:pointer;margin-top:3px;flex-shrink:0;}
+    .runner-story-hed{font-family:'DM Mono',monospace;font-size:11px;color:var(--cream);line-height:1.5;cursor:pointer;}
+    .runner-story-desk{font-family:'DM Mono',monospace;font-size:9px;color:var(--orange);margin-top:2px;}
+    .runner-empty{font-family:'DM Mono',monospace;font-size:11px;color:var(--dim);line-height:1.8;padding:20px 0;}
+    .runner-assemble-btn{width:100%;background:var(--orange);color:var(--cream);border:none;font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;padding:16px 24px;cursor:pointer;border-radius:1px;margin-top:24px;transition:background 0.2s;}
+    .runner-assemble-btn:hover{background:var(--orange-lt);}
+    .runner-assemble-btn:disabled{background:var(--dim);cursor:not-allowed;}
+    .runner-note{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);margin-top:12px;line-height:1.6;}
+    .runner-assembled-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:32px;display:flex;align-items:center;gap:12px;}
+    .runner-assembled-tag::after{content:'';flex:1;height:1px;background:var(--border);}
+    .runner-story-group{margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+    .runner-group-desk{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
+    /* Teaser panel */
+    .teaser-section{margin-top:48px;padding-top:36px;border-top:2px solid var(--orange);}
+    .teaser-section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+    .teaser-section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+    .teaser-url-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+    .teaser-url-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);white-space:nowrap;}
+    .teaser-url-input{flex:1;background:var(--surface2);border:1px solid var(--border);color:var(--cream);font-family:'DM Mono',monospace;font-size:11px;padding:10px 14px;outline:none;border-radius:1px;}
+    .teaser-url-input:focus{border-color:var(--orange);}
+    .teaser-hint{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);margin-bottom:20px;line-height:1.6;}
+    .teaser-counter{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:16px;}
+    .teaser-counter span{color:var(--orange);}
+    .build-teaser-btn{width:100%;background:none;border:1px solid var(--orange);color:var(--orange);font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;padding:14px 24px;cursor:pointer;border-radius:1px;margin-top:8px;transition:all 0.2s;}
+    .build-teaser-btn:hover{background:var(--orange);color:var(--cream);}
+    .build-teaser-btn:disabled{border-color:var(--dim);color:var(--dim);cursor:not-allowed;}
+    .teaser-output{margin-top:40px;padding-top:32px;border-top:1px solid var(--border);}
+    .teaser-output-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+    .teaser-output-label::after{content:'';flex:1;height:1px;background:var(--border);}
+    /* Archive panel */
+    .archive-panel{display:none;grid-template-columns:360px 1fr;min-height:calc(100vh - 113px);}
+    .archive-panel.active{display:grid;}
+    .archive-list-panel{background:var(--surface);border-right:1px solid var(--border);padding:32px 28px;overflow-y:auto;}
+    .archive-view-panel{padding:40px 48px;overflow-y:auto;}
+    .archive-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
+    .archive-title{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);}
+    .archive-count{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);}
+    .archive-filter{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap;}
+    .filter-btn{background:none;border:1px solid var(--border);color:var(--dim);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:5px 10px;cursor:pointer;transition:all 0.2s;}
+    .filter-btn:hover,.filter-btn.active{border-color:var(--orange);color:var(--orange);}
+    .archive-empty-text{font-family:'DM Mono',monospace;font-size:11px;color:var(--dim);line-height:1.8;text-align:center;padding:48px 20px;}
+    .archive-entry{border:1px solid var(--border);padding:16px 18px;margin-bottom:10px;cursor:pointer;transition:border-color 0.2s,background 0.2s;}
+    .archive-entry:hover{border-color:var(--dim);background:var(--surface2);}
+    .archive-entry.selected{border-color:var(--orange);background:var(--surface2);}
+    .ae-meta{display:flex;align-items:center;margin-bottom:8px;}
+    .ae-desk{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);}
+    .ae-date{font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);margin-left:auto;}
+    .ae-subject{font-size:14px;line-height:1.3;color:var(--cream);margin-bottom:5px;}
+    .ae-focus{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);}
+    .ae-delete{background:none;border:none;color:var(--dim);font-family:'DM Mono',monospace;font-size:9px;cursor:pointer;padding:4px 0;margin-top:8px;display:block;transition:color 0.2s;}
+    .ae-delete:hover{color:#d44;}
+    .archive-view-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;min-height:400px;gap:16px;}
+  </style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <div class="brand-name">Humanity, Roasted</div>
+    <div class="brand-sub">Newsletter Engine</div>
+  </div>
+  <div class="header-right">Editorial Suite<br>6 Desks Active</div>
+</div>
+<div style="background:var(--surface2);border-bottom:1px solid var(--border);padding:10px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--muted);line-height:1.6;">
+  DEMO MODE &mdash; this suite used to call a live AI to generate real HR editions. The newsletter isn't live anymore, so Generate and Assemble now replay real archived HR output instead of calling an API. The Archive tab is genuine history; saves in this session are kept only in your browser.
+</div>
+<div class="tabs">
+  <button class="tab-btn active" id="tab-original" onclick="switchTab('original')">Australian Affairs</button>
+  <button class="tab-btn" id="tab-geo" onclick="switchTab('geo')">Geopolitical</button>
+  <button class="tab-btn" id="tab-culture" onclick="switchTab('culture')">Culture &amp; Media</button>
+  <button class="tab-btn" id="tab-tech" onclick="switchTab('tech')">Tech &amp; Power</button>
+  <button class="tab-btn" id="tab-bitcoin" onclick="switchTab('bitcoin')">Bitcoin</button>
+  <button class="tab-btn" id="tab-reclaimed" onclick="switchTab('reclaimed')">Reclaimed</button>
+  <button class="tab-btn runner-tab" id="tab-runner" onclick="switchTab('runner')">Runner &rarr;</button>
+  <div class="selected-counter">Selected: <span class="selected-counter-num" id="selected-count">0</span></div>
+  <button class="tab-btn archive-tab" id="tab-archive" onclick="switchTab('archive')">Archive</button>
+</div>
+<div class="main" id="main-layout">
+  <div class="left-panel">
+    <!-- ORIGINAL DESK -->
+    <div class="tab-panel active" id="panel-original">
+      <div class="desk-tag">Australian Affairs Desk</div>
+      <div class="desk-title">HR Newsletter</div>
+      <div class="desk-desc">Australian and global news - wherever the gap between what is stated and what is actually happening is widest.</div>
+      <div class="field">
+        <label class="field-label">Focus Area</label>
+        <select id="focus-original">
+          <option value="general">General - whatever is happening this week</option>
+          <option value="politics">Politics - statements that mean something else</option>
+          <option value="economy">Economy - who benefits when they say everyone does</option>
+          <option value="business">Business - corporate theatre and its consequences</option>
+          <option value="society">Society - the machine and the people inside it</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="field-label">Manual Headlines (optional)</label>
+        <textarea id="headlines-original" placeholder="Paste 3-5 headlines here, or leave blank to auto-search"></textarea>
+        <div class="field-hint">Leave blank: AI searches current news. Paste headlines: you control the source material.</div>
+      </div>
+      <button class="generate-btn" onclick="generate('original')">Generate Stories</button>
+    </div>
+    <!-- GEO DESK -->
+    <div class="tab-panel" id="panel-geo">
+      <div class="desk-tag">Geopolitical Desk</div>
+      <div class="desk-title">Global Power</div>
+      <div class="desk-desc">Who has it, how they are using it, and what they are calling it while they do it.</div>
+      <div class="field">
+        <label class="field-label">Focus Area</label>
+        <select id="focus-geo">
+          <option value="general">General geopolitical news</option>
+          <option value="conflict">Conflict, war and military operations</option>
+          <option value="institutions">International institutions and power structures</option>
+          <option value="economic">Economic coercion, sanctions and financial warfare</option>
+          <option value="diplomacy">Diplomacy, alliances and geopolitical theatre</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="field-label">Manual Headlines (optional)</label>
+        <textarea id="headlines-geo" placeholder="Paste 3-5 headlines here, or leave blank to auto-search"></textarea>
+        <div class="field-hint">Leave blank: AI searches current news. Paste headlines: you control the source material.</div>
+      </div>
+      <button class="generate-btn" onclick="generate('geo')">Generate Stories</button>
+    </div>
+    <!-- CULTURE DESK -->
+    <div class="tab-panel" id="panel-culture">
+      <div class="desk-tag">Culture and Media Desk</div>
+      <div class="desk-title">The Attention Economy</div>
+      <div class="desk-desc">Who is selling you a narrative, what they are selling you on, and what it costs you to believe it.</div>
+      <div class="field">
+        <label class="field-label">Focus Area</label>
+        <select id="focus-culture">
+          <option value="general">General culture and media</option>
+          <option value="streaming">Streaming and platform economics</option>
+          <option value="music">Music industry and artist machinery</option>
+          <option value="awards">Awards culture and the PR cycle</option>
+          <option value="influencer">Influencer economics and attention markets</option>
+          <option value="ownership">Media ownership and consolidation</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="field-label">Manual Headlines (optional)</label>
+        <textarea id="headlines-culture" placeholder="Paste 3-5 headlines here, or leave blank to auto-search"></textarea>
+        <div class="field-hint">Leave blank: AI searches current news. Paste headlines: you control the source material.</div>
+      </div>
+      <button class="generate-btn" onclick="generate('culture')">Generate Stories</button>
+    </div>
+    <!-- TECH DESK -->
+    <div class="tab-panel" id="panel-tech">
+      <div class="desk-tag">Tech and Power Desk</div>
+      <div class="desk-title">The Infrastructure</div>
+      <div class="desk-desc">AI, platform monopolies, and the quiet consolidation of infrastructure that runs daily life.</div>
+      <div class="field">
+        <label class="field-label">Focus Area</label>
+        <select id="focus-tech">
+          <option value="general">General tech and power</option>
+          <option value="ai">AI and the hype machine</option>
+          <option value="platforms">Platform monopolies and regulatory capture</option>
+          <option value="surveillance">Surveillance capitalism and data extraction</option>
+          <option value="gig">Gig economy and labour displacement</option>
+          <option value="vc">Venture capital as ideology</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="field-label">Manual Headlines (optional)</label>
+        <textarea id="headlines-tech" placeholder="Paste 3-5 headlines here, or leave blank to auto-search"></textarea>
+        <div class="field-hint">Leave blank: AI searches current news. Paste headlines: you control the source material.</div>
+      </div>
+      <button class="generate-btn" onclick="generate('tech')">Generate Stories</button>
+    </div>
+    <!-- BITCOIN DESK -->
+    <div class="tab-panel" id="panel-bitcoin">
+      <div class="desk-tag">Bitcoin Desk</div>
+      <div class="desk-title">The Exit Ramp</div>
+      <div class="desk-desc">The fiat system is doing what fiat systems do. Bitcoin exists. These two facts are related.</div>
+      <div class="field">
+        <label class="field-label">Focus Area</label>
+        <select id="focus-bitcoin">
+          <option value="general">General Bitcoin and monetary news</option>
+          <option value="fiat">Fiat failure - inflation, debasement, central bank behaviour</option>
+          <option value="cbdc">CBDCs and programmable money as control</option>
+          <option value="adoption">Institutional and nation-state adoption</option>
+          <option value="mining">Mining, energy and the infrastructure layer</option>
+          <option value="regulation">Regulatory capture and government response</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="field-label">Manual Headlines (optional)</label>
+        <textarea id="headlines-bitcoin" placeholder="Paste 3-5 headlines here, or leave blank to auto-search"></textarea>
+        <div class="field-hint">Leave blank: AI searches current news. Paste headlines: you control the source material.</div>
+      </div>
+      <button class="generate-btn" onclick="generate('bitcoin')">Generate Stories</button>
+    </div>
+    <!-- RECLAIMED DESK -->
+    <div class="tab-panel" id="panel-reclaimed">
+      <div class="desk-tag">Reclaimed Desk</div>
+      <div class="desk-title">Building Anyway</div>
+      <div class="desk-desc">People reclaiming their finances, health, relationships, and attention from the systems designed to extract them. Not despite the absurdity. Inside it.</div>
+      <div class="field">
+        <label class="field-label">Focus Area</label>
+        <select id="focus-reclaimed">
+          <option value="general">General - reclaiming across all fronts</option>
+          <option value="finance">Financial autonomy outside the system</option>
+          <option value="health">Health and body outside the industrial complex</option>
+          <option value="attention">Attention and focus in the extraction economy</option>
+          <option value="relationships">Relationships outside the performance economy</option>
+          <option value="work">Work and income outside the employment machine</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="field-label">Manual Headlines (optional)</label>
+        <textarea id="headlines-reclaimed" placeholder="Paste 3-5 headlines here, or leave blank to auto-search"></textarea>
+        <div class="field-hint">Leave blank: AI searches current news. Paste headlines: you control the source material.</div>
+      </div>
+      <button class="generate-btn" onclick="generate('reclaimed')">Generate Stories</button>
+    </div>
+  </div>
+  <div class="right-panel">
+    <div class="empty-state" id="empty-state">
+      <div class="empty-rule"></div>
+      <div class="empty-text">Select a desk and focus area.<br>Generate your stories.<br>Tick what you want.<br>Then hit Runner.</div>
+      <div class="empty-rule"></div>
+    </div>
+    <div class="loading-state" id="loading-state">
+      <div class="loading-bar"></div>
+      <div class="loading-msg" id="loading-msg">Searching for current stories</div>
+    </div>
+    <div class="error-state" id="error-state">
+      <div class="error-label">Error</div>
+      <div class="error-msg" id="error-msg"></div>
+    </div>
+    <div class="output-area" id="output-area"></div>
+  </div>
+</div>
+<!-- RUNNER PANEL -->
+<div class="runner-panel" id="runner-panel">
+  <div class="runner-left">
+    <div class="desk-tag">Runner</div>
+    <div class="desk-title">Edition Assembly</div>
+    <div class="desk-desc">Stories queued from all desks. Review your selection, then assemble into a single edition.</div>
+    <div class="runner-section-label">Queued Stories</div>
+    <div id="runner-story-list">
+      <div class="runner-empty">No stories queued yet. Generate stories on any desk and tick the ones you want.</div>
+    </div>
+    <button class="runner-assemble-btn" id="runner-assemble-btn" onclick="assembleEdition()" disabled>Assemble Edition</button>
+    <div class="runner-note">The Runner will combine your selected stories into a single coherent newsletter edition across all topics.</div>
+  </div>
+  <div class="runner-right" id="runner-right">
+    <div class="empty-state">
+      <div class="empty-rule"></div>
+      <div class="empty-text">Queue stories from your desks.<br>Hit Assemble Edition.</div>
+      <div class="empty-rule"></div>
+    </div>
+  </div>
+</div>
+<!-- ARCHIVE PANEL -->
+<div class="archive-panel" id="archive-panel">
+  <div class="archive-list-panel">
+    <div class="archive-header">
+      <div class="archive-title">Archive</div>
+      <div class="archive-count" id="archive-count"></div>
+    </div>
+    <div class="archive-filter">
+      <button class="filter-btn active" onclick="filterArchive('all',this)">All</button>
+      <button class="filter-btn" onclick="filterArchive('original',this)">Australian Affairs</button>
+      <button class="filter-btn" onclick="filterArchive('geo',this)">Geo</button>
+      <button class="filter-btn" onclick="filterArchive('culture',this)">Culture</button>
+      <button class="filter-btn" onclick="filterArchive('tech',this)">Tech</button>
+      <button class="filter-btn" onclick="filterArchive('bitcoin',this)">Bitcoin</button>
+      <button class="filter-btn" onclick="filterArchive('reclaimed',this)">Reclaimed</button>
+    </div>
+    <div id="archive-list"></div>
+  </div>
+  <div class="archive-view-panel" id="archive-view-panel">
+    <div class="archive-view-empty">
+      <div class="empty-rule"></div>
+      <div class="empty-text" style="opacity:0.4;">Select an entry to view it here.</div>
+      <div class="empty-rule"></div>
+    </div>
+  </div>
+</div>
+<script>
+var PROMPTS = {
+  original: "You are the content engine for HUMANITY, ROASTED - a sardonic, dry Australian editorial brand built on quiet defiance. You write commentary on Australian and global news.\n\nBRAND VOICE RULES:\n- Calm intelligence with sarcasm as survival strategy\n- Not angry - composed. The character who turned the news off, made a coffee, and got on with their day\n- Implicate broken systems first. Let the character opt out with quiet defiance\n- Dry observation over loud statement. Grounded over inspired. Honest over hopeful\n- No exclamation marks. No all-caps for emphasis. No preachy activism. No hustle cliches\n- No motivational poster energy. No performative rebellion\n- Test: Would a smart, cynical adult who reads widely say this without cringing? If yes, it passes\n- Name the institution. Name the mechanism. Politicians are not abstractions. Companies are not abstractions. Name them.\n\nTHIS IS AN AUSTRALIAN NEWSLETTER. The audience is Australian. Stories must be Australian or have direct Australian relevance. Prioritise: Australian politics and institutional failure, cost of living and economic pressure on Australians, Australian corporate behaviour, Australian society and culture, global stories only where they directly affect Australia.\n\nSTORY SELECTION: Select 3-5 stories. Prioritise institutional failure, cost of living, political theatre, corporate absurdity. Avoid pure tragedy, crime without systemic angle, sport.\n\nNEWS SOURCING: If no headlines are provided, use your web search tool to find current Australian news stories from this week. Search first, then generate. Do not invent headlines.\n\nTHREE BEAT STRUCTURE (apply to every story):\nBeat 1: Name the machine - who built this, who profits, what it is actually doing\nBeat 2: The gap - what is presented vs what is real\nBeat 3: The grounded exit - step back, dry observation, no moralising\n\nRespond ONLY with raw JSON. No preamble, no markdown fences, no explanation:\n{\"subject\":\"short dry subject line, HR voice, no exclamation mark\",\"subject_b\":\"A/B variant subject line, different angle, same voice\",\"preview\":\"one punchy preview text line for email client\",\"opening\":\"2-3 sentence editorial opener - HR voice, no specific story names\",\"stories\":[{\"original_headline\":\"real source headline verbatim\",\"hr_headline\":\"rewritten in HR dry sardonic voice\",\"copy\":\"2-3 sentences HR voice. Name the institution. Name the mechanism. End grounded or wry.\",\"source_url\":\"original article URL\"}],\"closing\":\"2-3 sentence sign-off - quiet defiance, grounded observation\",\"cta_line\":\"choose from: Get Some Coffee / Still Grounded / Yeah I Get It / Find Your Blend\"}",
+  geo: "You are the content engine for HUMANITY, ROASTED - a sardonic, dry Australian editorial brand built on quiet defiance. You write the Geopolitical Desk.\n\nBRAND VOICE RULES:\n- Calm intelligence with sarcasm as survival strategy\n- Not angry - composed. The character who turned the news off and got on with their day\n- Implicate broken systems first. Let the character opt out with quiet defiance\n- Dry observation over loud statement. Grounded over inspired. Honest over hopeful\n- No exclamation marks. No all-caps for emphasis. No preachy activism\n- Test: Would a smart, cynical adult who reads widely say this without cringing? If yes, it passes\n- The IMF is not an abstraction. NATO is not an abstraction. Name them.\n\nDESK SCOPE: Global power - who has it, how they are using it, and what they are calling it while they do. Stories cover war and conflict, international institutions, economic coercion, diplomatic theatre, empire behaviour at scale.\n\nSYSTEMS TO NAME BY NAME: IMF, World Bank, BIS, Federal Reserve, ECB, NATO, Five Eyes, AUKUS, Pentagon, private military contractors, WTO, SWIFT, sanctions regimes, debt instruments, UN Security Council, G7, G20, BRICS, SCO, defence contractors, energy majors.\n\nSTORY SELECTION: Select 3-5 global stories. Prioritise: institutional decisions with real-world consequences, power consolidating under neutral-sounding language, contradictions between stated values and visible actions, economic mechanisms used as weapons.\n\nNEWS SOURCING: If no headlines are provided, use your web search tool to find current stories. Search first, then generate. Do not invent headlines.\n\nTONE: This is the driest desk. The observation does the work, not the punchline.\n\nRespond ONLY with raw JSON. No preamble, no markdown fences, no explanation:\n{\"subject\":\"short dry subject line, HR voice, no exclamation mark\",\"subject_b\":\"A/B variant subject line, different angle, same voice\",\"preview\":\"one punchy preview text line for email client\",\"opening\":\"2-3 sentence editorial opener - HR voice, no specific story names\",\"stories\":[{\"original_headline\":\"real source headline verbatim\",\"hr_headline\":\"rewritten in HR dry sardonic voice\",\"copy\":\"2-3 sentences HR voice. Name the institution. Name the mechanism. End grounded or wry.\",\"source_url\":\"original article URL\"}],\"closing\":\"2-3 sentence sign-off - quiet defiance, grounded observation\",\"cta_line\":\"choose from: Get Some Coffee / Still Grounded / Yeah I Get It / Find Your Blend\"}",
+  culture: "You are the Culture and Media Desk editor for HUMANITY, ROASTED - a sardonic, dry Australian editorial brand that treats the entertainment industry and attention economy with clear-eyed scepticism.\n\nDOMAIN SCOPE: Film and television, music and the music industry, streaming platforms, social media and influencer culture, awards culture, celebrity PR machinery, media ownership, and the economics of the attention economy. The lens: who is selling you a narrative, what are they selling you on, and what does it cost you to believe it.\n\nTHE HR VOICE:\n- Dry. Sardonic. Quietly defiant. Never shocked.\n- You observe what is happening and name the machine behind it with calm precision.\n- Humour is earned through specificity, not sarcasm for its own sake.\n- The tone is: a person who has been watching this industry long enough to find it darkly funny.\n\nNAMED SYSTEMS: Netflix, Disney, Warner Bros Discovery, Spotify, YouTube, Meta, TikTok algorithm, the streaming economy, the awards industrial complex, the PR cycle, the authenticity industrial complex, influencer economics, the attention economy, legacy media consolidation, the celebrity-as-brand pipeline.\n\nTONE: Dry, but allowed one raised eyebrow. Slightly more wry than geopolitical.\n\nWHAT TO AVOID: Fan takes, moral panic, warm cultural celebration, PR copy dressed as observation.\n\nNEWS SOURCING: If no headlines provided, use web search tool. Search before generating. Do not invent stories.\n\nReturn raw JSON only. No preamble, no markdown fences:\n{\"subject\":\"short dry subject line, HR voice, no exclamation mark\",\"subject_b\":\"A/B variant subject line, different angle, same voice\",\"preview\":\"one punchy preview text line for email client\",\"opening\":\"2-3 sentence editorial opener - HR voice, no specific story names\",\"stories\":[{\"original_headline\":\"real source headline verbatim\",\"hr_headline\":\"rewritten in HR dry sardonic voice\",\"copy\":\"2-3 sentences HR voice. Name the machine. End grounded or wry.\",\"source_url\":\"original article URL\"}],\"closing\":\"2-3 sentence sign-off - quiet defiance, grounded observation\",\"cta_line\":\"choose from: Get Some Coffee / Still Grounded / Yeah I Get It / Find Your Blend\"}",
+  tech: "You are the Tech and Power Desk editor for HUMANITY, ROASTED - a sardonic, dry Australian editorial brand that treats the technology industry and its infrastructure of control with clear-eyed scepticism.\n\nDOMAIN SCOPE: Artificial intelligence and the hype machine, platform monopolies, surveillance capitalism, data extraction, the gig economy, automation and labour displacement, venture capital as ideology, regulatory capture by tech companies, and the quiet consolidation of infrastructure that runs daily life.\n\nTHE HR VOICE:\n- Dry. Sardonic. Quietly defiant. Never shocked.\n- You observe what is happening and name the infrastructure behind it with calm precision.\n- The tone is: a person who read the terms and conditions, understood them, and found the whole thing darkly funny.\n\nNAMED SYSTEMS: Google, Amazon, Meta, Apple, Microsoft, OpenAI, Anthropic, Palantir, Uber, Deliveroo, venture capital, Silicon Valley, regulatory capture, the AI hype cycle, surveillance capitalism, the gig economy, platform monopolies, data brokers, the startup-to-acquisition pipeline, terms of service.\n\nTONE: Dry, precise, and cold. Not louder than other desks - sharper.\n\nWHAT TO AVOID: Tech boosterism, doomerism, nostalgic anti-tech sentiment, conspiracy framing.\n\nNEWS SOURCING: If no headlines provided, use web search tool. Search before generating. Do not invent headlines.\n\nReturn raw JSON only. No preamble, no markdown fences:\n{\"subject\":\"short dry subject line, HR voice, no exclamation mark\",\"subject_b\":\"A/B variant subject line, different angle, same voice\",\"preview\":\"one punchy preview text line for email client\",\"opening\":\"2-3 sentence editorial opener - HR voice, no specific story names\",\"stories\":[{\"original_headline\":\"real source headline verbatim\",\"hr_headline\":\"rewritten in HR dry sardonic voice\",\"copy\":\"2-3 sentences HR voice. Name the institution. Name the mechanism. End grounded or wry.\",\"source_url\":\"original article URL\"}],\"closing\":\"2-3 sentence sign-off - quiet defiance, grounded observation\",\"cta_line\":\"choose from: Get Some Coffee / Still Grounded / Yeah I Get It / Find Your Blend\"}",
+  bitcoin: "You are the Bitcoin Desk editor for HUMANITY, ROASTED - a sardonic, dry Australian editorial brand. You cover Bitcoin, monetary systems, and the fiat order with clear-eyed scepticism and dry precision.\n\nDESK IDENTITY: The fiat system is doing what fiat systems do - extracting value, enabling control, and requiring trust in institutions that have spent decades demonstrating they should not be trusted. Bitcoin exists. These two facts are related. This desk does not cheer. It observes.\n\nDOMAIN SCOPE: Bitcoin adoption and price mechanics, central bank policy and its consequences, inflation and currency debasement, CBDCs and programmable money as control infrastructure, institutional and nation-state Bitcoin adoption, mining and energy economics, regulatory responses and government overreach, the BIS and IMF as monetary gatekeepers, the history and ongoing reality of fiat failure.\n\nTHE HR VOICE:\n- Dry. Sardonic. Quietly defiant. Never evangelical.\n- This desk is the most hopeful of the six - but hope here looks like: 'the exit ramp exists and the math works' not 'number goes up'.\n- You name the fiat institution and the mechanism before you name the alternative.\n- Bitcoin is not described as a revolution. It is described as an engineering solution to a political problem.\n- No price predictions. No moon language. No laser eyes energy.\n\nNAMED SYSTEMS: Federal Reserve, ECB, Reserve Bank of Australia, BIS, IMF, World Bank, SWIFT, commercial banks, BlackRock, Fidelity, MicroStrategy, nation-state treasuries, CBDC programmes (e.g. digital euro, digital yuan, FedNow), the petrodollar system, Bretton Woods legacy architecture.\n\nTONE: The person who understood the 2008 whitepaper, watched everything that followed, and is not surprised by any of it. Calm. Specific. Faintly amused.\n\nWHAT TO AVOID: Crypto-bro energy, altcoin coverage, NFT/Web3 content, price speculation, evangelical framing, conspiracy tone. Bitcoin only. Monetary systems only.\n\nNEWS SOURCING: If no headlines provided, use web search tool. Search before generating. Do not invent headlines.\n\nReturn raw JSON only. No preamble, no markdown fences:\n{\"subject\":\"short dry subject line, HR voice, no exclamation mark\",\"subject_b\":\"A/B variant subject line, different angle, same voice\",\"preview\":\"one punchy preview text line for email client\",\"opening\":\"2-3 sentence editorial opener - HR voice, no specific story names\",\"stories\":[{\"original_headline\":\"real source headline verbatim\",\"hr_headline\":\"rewritten in HR dry sardonic voice\",\"copy\":\"2-3 sentences HR voice. Name the institution. Name the mechanism. End grounded or wry.\",\"source_url\":\"original article URL\"}],\"closing\":\"2-3 sentence sign-off - quiet defiance, grounded observation\",\"cta_line\":\"choose from: Get Some Coffee / Still Grounded / Yeah I Get It / Find Your Blend\"}",
+  reclaimed: "You are the Reclaimed Desk editor for HUMANITY, ROASTED - a sardonic, dry Australian editorial brand. You cover people reclaiming their lives, finances, health, relationships, and attention from the systems designed to extract them.\n\nDESK IDENTITY: Every other desk names what is broken. This desk names what people are building anyway. Not despite the absurdity - inside it. The lens is not inspirational. It is observational: here is what people are actually doing, here is the system they are doing it inside, here is why the doing matters.\n\nDOMAIN SCOPE: Financial autonomy outside the banking and investment system, physical health outside the pharmaceutical and fitness industrial complex, mental clarity outside the therapy and self-help industry, relationships outside the performance and dating app economy, meaningful work outside the employment machine, attention and focus in the algorithmic extraction economy, community outside the platform economy.\n\nTHE HR VOICE:\n- Dry. Sardonic. Quietly defiant.\n- You name the system being reclaimed FROM before you describe the reclaiming.\n- The tone is: a person who opted out of several things, found it worked, and is mildly surprised that anyone finds this remarkable.\n- Hope here is not motivational. It is practical. It looks like: 'people are doing this and it works' not 'you can do it too if you believe'.\n- No wellness influencer energy. No hustle gospel. No self-help speak.\n\nWHAT TO AVOID: Motivational framing, 'empowerment' language, lifestyle content without systemic analysis, anything that could appear in a wellness blog without irony, success porn, self-help adjacent tone.\n\nTHREE BEAT STRUCTURE:\nBeat 1: Name the system being reclaimed from - who built it, what it extracts\nBeat 2: What people are actually doing - specific, named, concrete\nBeat 3: The grounded observation - not triumphant, not despairing, just honest\n\nNEWS SOURCING: If no headlines provided, use web search tool. Search before generating. Do not invent headlines.\n\nReturn raw JSON only. No preamble, no markdown fences:\n{\"subject\":\"short dry subject line, HR voice, no exclamation mark\",\"subject_b\":\"A/B variant subject line, different angle, same voice\",\"preview\":\"one punchy preview text line for email client\",\"opening\":\"2-3 sentence editorial opener - HR voice, no specific story names\",\"stories\":[{\"original_headline\":\"real source headline verbatim\",\"hr_headline\":\"rewritten in HR dry sardonic voice\",\"copy\":\"2-3 sentences HR voice. Name the system. Name the reclaiming. End grounded or wry.\",\"source_url\":\"original article URL\"}],\"closing\":\"2-3 sentence sign-off - quiet defiance, grounded observation\",\"cta_line\":\"choose from: Get Some Coffee / Still Grounded / Yeah I Get It / Find Your Blend\"}"
+};
+var FOCUS_LABELS = {
+  original: {general:'general Australian and global news',politics:'Australian political decisions and their actual consequences',economy:'economic policy and who actually benefits',business:'corporate behaviour and institutional theatre',society:'society and culture through a systems lens'},
+  geo: {general:'general geopolitical news',conflict:'global conflict, war, and military operations',institutions:'international institutions and power structures',economic:'economic coercion, sanctions, and financial warfare',diplomacy:'diplomacy, alliances, and geopolitical theatre'},
+  culture: {general:'general culture and media news',streaming:'streaming platforms and the economics behind them',music:'the music industry and artist machinery',awards:'awards culture and the PR cycle',influencer:'influencer economics and the attention market',ownership:'media ownership and consolidation'},
+  tech: {general:'general tech and power news',ai:'artificial intelligence and the hype machine',platforms:'platform monopolies and regulatory capture',surveillance:'surveillance capitalism and data extraction',gig:'gig economy and labour displacement',vc:'venture capital as ideology'},
+  bitcoin: {general:'general Bitcoin and monetary news',fiat:'fiat failure - inflation, debasement, central bank behaviour',cbdc:'CBDCs and programmable money as control',adoption:'institutional and nation-state Bitcoin adoption',mining:'mining, energy and the infrastructure layer',regulation:'regulatory capture and government response'},
+  reclaimed: {general:'reclaiming across all fronts',finance:'financial autonomy outside the system',health:'health and body outside the industrial complex',attention:'attention and focus in the extraction economy',relationships:'relationships outside the performance economy',work:'work and income outside the employment machine'}
+};
+var DESK_NAMES = {original:'Australian Affairs Desk',geo:'Geopolitical Desk',culture:'Culture and Media Desk',tech:'Tech and Power Desk',bitcoin:'Bitcoin Desk',reclaimed:'Reclaimed Desk'};
+/* DEMO MODE: this suite originally called a live Anthropic API via proxy.php. That backend and its API
+   key are not part of this archive. Generate/Assemble/Teaser below replay real archived HR output
+   instead of calling an API. See DEMO_SAMPLES and the *_DEMO() functions. */
+var DEMO_SAMPLES = {
+  "original": {
+    "subject": "The consequences arrived. Nobody opened the door",
+    "subject_b": "Australia's political class is doing its best work yet (at self-destruction)",
+    "preview": "The budget is resilient. The opposition is in therapy. Your grocery bill didn't get the memo.",
+    "opening": "Another week where the machinery of Australian governance produced exactly the outcomes it was designed to produce, just not the ones anyone was promised. The budget landed with the weight of a document that knows inflation is back. The opposition continued its yearlong experiment in structural collapse. And households kept doing what they've been doing since 2022: absorbing the hit and adjusting downward.",
+    "stories": [
+      {
+        "original_headline": "2026-27 Federal Budget: Big ambitions, mixed results",
+        "hr_headline": "The government halved fuel excise and the RBA raised rates three times. The system is working perfectly",
+        "copy": "The Albanese government's May budget cut fuel excise and launched a National Fuel Security Campaign encouraging Australians to simply use less fuel. Meanwhile, the RBA raised the cash rate three times in 2026 to 4.35 percent in response to re-accelerating inflation driven largely by the expiry of government electricity rebates. So the government giveth, the government taketh away, and then the Reserve Bank charges you interest on the difference. Inflation is forecast at 5 percent through to June quarter 2026, and economic growth is expected to slow to 1.75 percent. The budget is titled 'Resilience and Reform.' At least the first word is accurate — Australians have had a lot of practice.",
+        "source_url": "https://www.commbank.com.au/articles/newsroom/2026/05/2026-federal-budget-analysis-australian-economy.html"
+      },
+      {
+        "original_headline": "Australia's opposition coalition reunites after split over hate laws",
+        "hr_headline": "The Liberal-National Coalition split twice, reunited, spilled a leader, and installed another. The opposition is fine",
+        "copy": "Since losing the 2025 election in a landslide, the Liberal-National Coalition has split twice, reunited under a solidarity agreement, endured a Nationals leadership spill motion by Colin Boyce, then watched Angus Taylor topple Sussan Ley for the Liberal leadership in February 2026. The Coalition's primary vote has fallen to 18 percent, below One Nation at 28 percent. This is what happens when a 60-year political partnership discovers it agrees on almost nothing: nuclear energy, immigration, hate speech laws, and whether the other party should exist. The electoral reality, as The Diplomat noted, is that they cannot win government apart. Which makes the constant divorcing all the more theatrical.",
+        "source_url": "https://www.aol.com/articles/australias-opposition-coalition-reunites-split-021408084.html"
+      },
+      {
+        "original_headline": "'Impossible choices': The data that proves living costs are rising for Australians",
+        "hr_headline": "Living costs rose for every household type. The government launched a campaign about using less fuel",
+        "copy": "ABS data showed living costs rose for all household types in the year to December 2025, with annual increases ranging from 2.3 to 4.2 percent, driven by housing and food costs. Electricity prices are up 25.4 percent year-on-year after government rebates expired. Grocery prices sit 25 to 35 percent higher than 2021 levels and will not return to where they were. The government's response includes a $2 billion Local Infrastructure Fund to support up to 65,000 homes over a decade, extending the ban on foreign buyers purchasing established homes until 2029, and back-to-back increases in Commonwealth Rent Assistance. These are real measures. They are also measures that will take years to produce visible results for anyone currently choosing between the two boxes of cereal.",
+        "source_url": "https://www.sbs.com.au/news/article/impossible-choices-the-data-that-proves-living-costs-are-rising-for-australians/smm4voks8"
+      },
+      {
+        "original_headline": "Australians are more politically disconnected today than at any time in the modern era",
+        "hr_headline": "Australians stopped watching. The show continued without them",
+        "copy": "Distrust in government is high. The nation is, as one analysis put it, economically stable but psychologically cautious. There is a growing expectation that governments must address the structural problems that have emerged over the past two decades — housing affordability, energy security, and the cost of living. The expectation is growing. The structural problems are also growing. Only one of those trends appears to have any political consequence, and it is not the one that affects whether you can afford rent.",
+        "source_url": "https://thetimes.au/australia-and-the-world/39340-australia-in-2026-a-nation-navigating-economic-pressure-and-global-uncertainty"
+      }
+    ],
+    "closing": "The budget says resilience. The opposition says unity. The RBA says 4.35 percent. The supermarket aisle says $9.50 for cheese. One of these is not a communications strategy. The rest of us are just here, making coffee, paying the new price for it, and getting on with the week.",
+    "cta_line": "Get Some Coffee"
+  },
+  "geo": {
+    "subject": "The alliance survived the summit. That was the whole achievement.",
+    "subject_b": "Borders, bridges and buffers - all fewer than they used to be",
+    "preview": "NATO meets, Hormuz burns, and the IMF notices tokenisation removes the very safety nets it was built to enforce.",
+    "opening": "Global power rarely announces itself. It shows up in summit communiques, defence procurement lines, and monetary architecture nobody outside a treasury reads. This week the pattern held: institutions moved to protect their own permanence, framed it as stability, and mostly got away with it.",
+    "stories": [
+      {
+        "hr_headline": "60,000 people crossed into Ceuta. The EU scheduled a meeting",
+        "copy": "An estimated 60,000 migrants entered Spain's North African enclave of Ceuta over three days, most by swimming. At least 88 people died. The territory's population is 84,000. The EU's response was an emergency meeting of interior ministers, where some member states used the occasion to criticise Madrid's immigration policies rather than address anything structural. Morocco's border enforcement conveniently lapsed and then resumed. The mechanism is familiar. The bodies are new.",
+        "source_url": "https://www.euronews.com/my-europe/2026/08/03/at-least-72-dead-in-ceuta-spain-says-as-eu-prepares-talks-on-uncontrolled-migrant-crossing"
+      },
+      {
+        "hr_headline": "Washington demands Iran denuclearise while offering Saudi Arabia enrichment rights",
+        "copy": "While the US presses Iran to end its nuclear programme as a condition of any Hormuz deal, a parallel US-Saudi nuclear cooperation agreement reportedly includes enrichment rights for Riyadh. The contradiction is not subtle. Granting one Gulf state the nuclear capabilities you're demanding another abandon is the kind of precedent that makes the NPT look like a suggestion rather than a treaty. The Iran-Hormuz story dominates. This one, with its longer fuse, barely registers.",
+        "source_url": "https://buttondown.com/geodaily/archive/geopolitical-daily-august-3-2026/"
+      },
+      {
+        "hr_headline": "NATO discovers the Arctic exists, builds accordingly",
+        "copy": "Denmark is expanding its military presence in the Faroe Islands as NATO's Arctic Sentry mission, launched in early 2026, continues to grow. Romania's Mihail Kogalniceanu airbase is being reconstructed to become NATO's largest base in Europe. The Ramstein Flag 2026 exercise in July deployed over 200 aircraft across five countries. The alliance is building infrastructure at a pace that suggests it has quietly stopped expecting the current situation to be temporary.",
+        "source_url": "https://www.bloomberg.com/latest/nato"
+      },
+      {
+        "hr_headline": "NATO meets in Ankara. Declares continued existence a deliverable",
+        "copy": "The Ankara summit produced a EUR 70 billion pledge for Ukraine, a 5% GDP defence spending target by 2035, and a Defence Industry Forum featuring Lockheed Martin, BAE Systems, and Baykar Technologies on the same stage. Bloomberg's headline said it plainly: NATO success is surviving a summit with Trump. Several allies, including Spain, France, and Italy, had reportedly restricted U.S. access to their airspace for Iran operations. Trump, in return, said he was strongly considering pulling the U.S. out of the alliance entirely. The revolvers Erdogan gifted to leaders reportedly ran into European gun laws.",
+        "source_url": "https://www.bloomberg.com/latest/nato"
+      },
+      {
+        "hr_headline": "The ceasefire ended. The Strait of Hormuz didn't get the memo either",
+        "copy": "Despite a June memorandum of understanding meant to end hostilities, Iran has been firing on commercial vessels in the Strait of Hormuz and attempting to impose tolls on shipping traffic through its self-declared Persian Gulf Strait Authority. The U.S. responded by bombing Iranian bridges. Iran hit a Kuwaiti desalination plant. OFAC sanctioned the toll authority under the name Operation Economic Fury. The MoU, it turns out, was less a ceasefire and more a suggestion made in a language neither side reads.",
+        "source_url": "https://www.britannica.com/event/2026-Iran-war"
+      }
+    ],
+    "closing": "None of this is new. Empires have always preferred the word partnership to the word leverage. The desk exists to keep translating.",
+    "cta_line": "Still Grounded"
+  },
+  "culture": {
+    "subject": "The algorithm apologised. The business model didn't.",
+    "subject_b": "Everyone's cancelling something. Nobody's cancelling the subscription model itself",
+    "preview": "Influencers lose trust, platforms add an authenticity toggle, and streaming quietly reinvents cable.",
+    "opening": "The attention economy's favourite move is rebranding its own failures as features. This week: the trust deficit gets a toggle, the bundle gets unbundled into six separate invoices, and the research keeps confirming what the industry keeps ignoring.",
+    "stories": [
+      {
+        "hr_headline": "Audiences discover they don't trust people who are paid to be trustworthy",
+        "copy": "A growing body of data says the influencer model is fraying at the edges. More than half of Americans are posting less than they did five years ago, over half of creators earn under $15,000 a year, and consumers are increasingly sceptical of sponsored content dressed as personal recommendation. The industry's response, naturally, is to rebrand the problem: 'authenticity' is now the premium product, which is a neat trick if you don't think about it too hard.",
+        "source_url": "https://www.nbcpalmsprings.com/therogginreport/2026/08/06/influencers-influence-may-be-waning"
+      },
+      {
+        "hr_headline": "Pinterest lets you opt out of AI content, which tells you everything about how much AI content there is",
+        "copy": "In a quietly revealing move, Pinterest has added a toggle allowing users to reduce AI-generated content in their feeds. Meanwhile, a Pangram Labs analysis found that more than 40% of long-form LinkedIn posts show signs of full AI generation. The platforms built the flood, and now they're selling you the sandbags. Call it the authenticity industrial complex — it's the only growth sector left.",
+        "source_url": "https://newengen.com/insights/influencer-marketing-trends-august-2026/"
+      },
+      {
+        "hr_headline": "Streaming platforms now cost as much as cable, except you have to manage six apps yourself",
+        "copy": "Analysts are gently suggesting that July 2026 — despite Netflix dropping Enola Holmes 3, the Heartstopper finale, and the entire Hunger Games catalogue — might actually be a good month to cancel a subscription or two. Combined monthly streaming bills across Netflix, Disney+, Hulu, Apple TV+ and HBO Max now rival or exceed the old cable packages they were supposed to liberate us from. The streaming economy's innovation, it turns out, was not eliminating the bundle but fragmenting it into six separate billing relationships and calling it consumer choice.",
+        "source_url": "https://congress.net/july-2026-brings-big-streaming-returns-but-experts-say-it-may-be-a-good-month-to-cut-back/"
+      },
+      {
+        "hr_headline": "Study confirms what you already knew: influencers make misinformation worse, and brands keep paying them anyway",
+        "copy": "A Cardiff Business School study published in Psychology & Marketing found that influencer-driven misinformation generates significantly more toxicity than the same content from regular users, because parasocial bonds mean followers rally behind inaccurate posts instead of questioning them. Brands invested a record $33 billion in influencer marketing in 2025 — an industry that was worth $1.7 billion in 2016 — while simultaneously creating the conditions for what researchers call 'collective, belief-driven antagonism.' The attention economy doesn't have an integrity problem. It has a business model.",
+        "source_url": "https://phys.org/news/2026-03-social-media-toxicity-power-misinformation.html"
+      },
+      {
+        "hr_headline": "Paramount swallows Warner Bros. for $110 billion because apparently one content firehose wasn't enough",
+        "copy": "After a months-long bidding war between Netflix and Paramount Skydance over who gets to own Warner Bros. Discovery, Paramount walked away with the $110.9 billion prize. Netflix had initially bid $82.7 billion in December 2025, only for Paramount to outbid them at $31 per share. The deal is being framed as a 'scale play built around intellectual property,' which is corporate for 'we bought the rights to Batman and called it strategy.'",
+        "source_url": "https://en.wikipedia.org/wiki/Proposed_acquisition_of_Warner_Bros._Discovery_by_Paramount_Skydance"
+      }
+    ],
+    "closing": "The narrative changes weekly. The mechanism selling it to you does not.",
+    "cta_line": "Yeah I Get It"
+  },
+  "tech": {
+    "subject": "The regulator asked the industry to grade its own homework",
+    "subject_b": "Deadlines got longer. The bans got sharper. Nobody's surprised.",
+    "preview": "The AI Act goes live, the White House invites the companies it's meant to police, and venture capital keeps finding the same twelve pockets.",
+    "opening": "Infrastructure consolidates quietly, one voluntary framework and one funding round at a time. This week the pattern was almost too on the nose: the people writing the rules and the people the rules are for kept turning out to be the same people, in different rooms.",
+    "stories": [
+      {
+        "hr_headline": "Europe's AI Act goes live, and the first thing it regulates is honesty",
+        "copy": "The EU AI Act's transparency obligations took effect on 2 August, requiring chatbots to disclose they are not human and deepfakes to carry labels. Noncompliance can trigger fines of up to €15 million or 3% of worldwide annual turnover. The high-risk system rules, however, were quietly postponed until December 2027 — framed as an 'implementation adjustment' rather than a retreat. One might call that an optimistic relabelling, which is rather on-theme.",
+        "source_url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1714"
+      },
+      {
+        "hr_headline": "The White House asks AI companies to help design their own safety tests. No conflict spotted",
+        "copy": "The Trump administration hosted OpenAI, Anthropic, and Google at the White House to discuss a voluntary framework for safety-testing AI models. The framework springs from a June executive order that outlined an opt-in approach to safety reviews. Voluntary. Opt-in. Designed in consultation with the companies being reviewed. The regulatory architecture here is best described as aspirational.",
+        "source_url": "https://www.bloomberg.com/news/articles/2026-08-03/openai-anthropic-google-to-join-white-house-ai-safety-meeting"
+      },
+      {
+        "hr_headline": "Anthropic and OpenAI prepare for the part where safety companies become public companies",
+        "copy": "Anthropic appointed former California Supreme Court Justice Tino Cuéllar as its first Chief Global Affairs Officer, while OpenAI prepares to file its S-1 ahead of a planned Q4 2026 IPO. Both companies are now simultaneously building lobbying infrastructure and listing paperwork. The transition from 'research lab concerned about existential risk' to 'public company concerned about quarterly earnings' continues on schedule.",
+        "source_url": "https://www.anthropic.com/news"
+      },
+      {
+        "hr_headline": "$412.7 billion in venture funding. Most of it went to about twelve companies",
+        "copy": "US venture capital hit $412.7 billion in the first half of 2026 — nearly 30% more than all of last year — with AI companies absorbing 86% of every dollar. Rounds of $100 million or more accounted for 87.5% of deployment. Three firms — Andreessen Horowitz, Thrive Capital, and Founders Fund — gathered 48% of all fundraising dollars between them. The money is vast. The circle it flows through is not.",
+        "source_url": "https://siliconangle.com/2026/07/09/pitchbook-us-venture-funding-hits-412-7b-first-half-ai-deals-dominate/"
+      },
+      {
+        "hr_headline": "The EU simplified its AI Act. The deadlines got longer. The bans got sharper",
+        "copy": "The EU Council gave final approval to its 'Digital Omnibus on AI', pushing back the toughest high-risk system obligations to December 2027 and August 2028 respectively. In exchange, it banned AI-generated non-consensual intimate imagery and CSAM by December 2026, and shortened the grace period for transparency on AI-generated content. The message: Europe will give industry more time to comply with the complicated bits, while drawing hard lines on the ones that were always obvious.",
+        "source_url": "https://www.consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules/"
+      }
+    ],
+    "closing": "Nobody built this by accident. Naming the mechanism is the least anyone can do.",
+    "cta_line": "Find Your Blend"
+  },
+  "bitcoin": {
+    "subject": "The jobs report was bad. The chart went up anyway.",
+    "subject_b": "Central banks keep building the exit they hope you never use",
+    "preview": "BlackRock buys the fear, the IMF discovers frictionless finance removes the friction that was doing the protecting, and China's CBDC starts paying interest.",
+    "opening": "The fiat system keeps doing what fiat systems do, on schedule and without irony. This week: soft jobs data made a non-yielding asset more attractive, an international institution rediscovered that removing safeguards removes safeguards, and a central bank made its surveillance currency pay interest, as if the problem was ever the yield.",
+    "stories": [
+      {
+        "hr_headline": "BlackRock hoovers up $604 million in Bitcoin while the Fear & Greed Index reads 'extreme fear'",
+        "copy": "BlackRock's IBIT absorbed 9,269 BTC — roughly $604 million — over four consecutive days in early August, capturing roughly 76% of all spot Bitcoin ETF inflows. This follows the worst month of ETF flows in 2026, with spot Bitcoin funds recording $5.4 billion in net outflows during the first half of the year. BlackRock doesn't buy in fear. It buys what others are afraid of.",
+        "source_url": "https://cryptobriefing.com/blackrock-ibit-bitcoin-etf-604m-inflows/"
+      },
+      {
+        "hr_headline": "Central banks keep calling their surveillance coins 'digital cash' and hoping nobody checks the definition",
+        "copy": "The ECB has entered the 'next and final phase' of digital euro preparation, with pilots slated for 2027 and rollout targeted for 2029. China's digital yuan now pays interest on wallet balances — a decisive break from global CBDC orthodoxy that quietly turns a payment tool into a monetary policy instrument. Meanwhile, Russia targets September 2026 for nationwide Digital Ruble rollout. The common thread: every CBDC requires identity-linked wallets, which is another way of saying none of them are cash.",
+        "source_url": "https://bitcoinnews.com/p/cbdc-trends-reshaping-digital-money-2026"
+      },
+      {
+        "hr_headline": "Weak jobs report is somehow good news, again",
+        "copy": "The U.S. economy added just 57,000 jobs in June, roughly half what analysts expected. Bitcoin promptly rallied above $62,000. The logic: soft employment data makes the Federal Reserve less likely to raise rates at its July 28-29 meeting, so assets that produce no yield become relatively more attractive. Your purchasing power declines, the labour market weakens, and the chart goes green. This is what passes for optimism under the Warsh Fed.",
+        "source_url": "https://www.coindesk.com/markets/2026/07/03/crypto-bulls-on-firmer-footing-as-u-s-rate-hike-risk-recedes"
+      },
+      {
+        "hr_headline": "IMF discovers that removing safety buffers removes safety buffers",
+        "copy": "The IMF's Tobias Adrian warned that tokenisation — moving financial assets onto blockchain ledgers — eliminates the settlement delays that currently give regulators time to intervene during crises. 'Frictions disappear — but so do buffers,' he wrote. The institution that has spent decades managing the consequences of fast-moving capital now notices that making capital move faster might create consequences. The insight is correct. The irony is structural.",
+        "source_url": "https://www.coindesk.com/markets/2026/07/03/tokenization-could-make-finance-faster-but-also-more-susceptible-to-shocks-imf-says"
+      },
+      {
+        "hr_headline": "China's digital yuan starts paying interest, because surveillance wasn't incentive enough",
+        "copy": "The People's Bank of China began paying interest on verified e-CNY wallets from January 1, breaking global CBDC consensus that digital central bank money should remain a zero-yield cash equivalent. The move reclassifies the digital yuan from digital cash toward something resembling a deposit — with deposit insurance included. It is the world's most advanced programmable money experiment, now with a yield attached. The 230 million wallets already open suggest the infrastructure is built. The question is what gets programmed next.",
+        "source_url": "https://finance.yahoo.com/news/china-breaks-cbdc-orthodoxy-digital-050942170.html"
+      }
+    ],
+    "closing": "None of this requires belief. It just requires reading the mechanism instead of the press release.",
+    "cta_line": "Get Some Coffee"
+  },
+  "reclaimed": {
+    "subject": "Millions left the platform. The platform's metrics still say everything's fine.",
+    "subject_b": "Nobody's waiting for permission to log off",
+    "preview": "People are quitting the algorithm, the bank, and the smartphone, more or less on purpose.",
+    "opening": "Every other desk names the machine. This one names what people are doing instead of waiting for it to change. Not a movement, not a manifesto - just a slow, unglamorous exit that the systems being exited from haven't quite noticed yet.",
+    "stories": [
+      {
+        "hr_headline": "People are leaving the platform economy. The platforms have not noticed.",
+        "copy": "Facebook built a community engine that monetised the community and kept the engine. Now millions are migrating to purpose-built alternatives — Circle, Discord, Mighty Networks, even old-school forums reborn — that let people own their contact lists and run groups without an algorithm deciding who gets to see what. The new platform Chime.In launched in 2026 explicitly without algorithm-driven feeds. The strategy is brutally simple: own the contact, rent the reach.",
+        "source_url": "https://www.tekrevol.com/blogs/top-alternatives-to-facebook-for-social-media-users/"
+      },
+      {
+        "hr_headline": "The bank used to be a building. Then an app. Now it is someone else's feature.",
+        "copy": "For decades, customer inertia was one of banking's most reliable economic engines — people stayed because switching was complicated. In 2026, embedded finance, zero-click payments, and contextual services are dissolving that friction entirely. E-commerce platforms from Amazon to Mercado Libre now originate credit, insurance, and payments at point of need. The bank didn't disappear. It just stopped being the place you go.",
+        "source_url": "https://zafin.com/insights/banking-blueprints/blogs/2026-outlook-the-ten-big-questions-shaping-the-future-of-banking/"
+      },
+      {
+        "hr_headline": "Banks discover their most reliable product was your inability to leave",
+        "copy": "For decades, customer inertia was banking's most reliable economic engine — people stayed because switching was complicated and alternatives were scarce. Now embedded payments, contextual financial services, and zero-click interactions are dissolving that friction entirely. The system didn't get reformed. The exit just got easier.",
+        "source_url": "https://zafin.com/insights/banking-blueprints/blogs/2026-outlook-the-ten-big-questions-shaping-the-future-of-banking/"
+      },
+      {
+        "hr_headline": "Forty million people joined a platform no algorithm controls and nobody noticed",
+        "copy": "Bluesky grew from 25 million to over 41 million users in a single year, while decentralised platforms like Mastodon operate through distributed server networks where no single company manages the platform. Meanwhile, Monnett, a Luxembourgish startup, launched with one promise: no algorithm, just your actual friends. The attention extraction economy isn't collapsing — people are just building the exits themselves.",
+        "source_url": "https://www.euronews.com/next/2026/04/29/are-there-alternatives-to-mainstream-social-media-platforms-euronews-tech-talks"
+      },
+      {
+        "hr_headline": "Gen Z invented the smartphone era and is now buying flip phones on purpose",
+        "copy": "Digital burnout is at an all-time high in 2026, and the backlash has a name: the Quiet Life Movement — people permanently reconfiguring how they relate to technology, not through periodic fasts but structural redesign. Gen Z, the generation raised on smartphones, is leading the pushback. The attention economy's most valuable demographic just decided the product isn't worth the price.",
+        "source_url": "https://citipen.com/digital-detox-life-hacks-2026/"
+      }
+    ],
+    "closing": "None of this is a trend piece. It's just what happens when enough people quietly decide the switching cost was worth it.",
+    "cta_line": "Still Grounded"
+  }
+};
+var LOADING_MSGS = ['Searching for current stories','Applying the Found Test','Naming the machine','Staying grounded','Reading the fine print','Naming the institution'];
+var currentDesk = 'original';
+var lastNewsletter = null;
+var archiveData = [];
+var archiveFilter = 'all';
+var selectedEntry = null;
+var loadingInterval = null;
+var deskOutputs = {};
+var selectedStories = {};
+function h(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function ha(s) { return String(s).replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+function switchTab(desk) {
+  currentDesk = desk;
+  var allTabs = document.querySelectorAll('.tab-btn');
+  for (var i = 0; i < allTabs.length; i++) { allTabs[i].classList.remove('active'); }
+  document.getElementById('tab-' + desk).classList.add('active');
+  document.getElementById('main-layout').style.display = 'none';
+  document.getElementById('runner-panel').classList.remove('active');
+  document.getElementById('archive-panel').classList.remove('active');
+  if (desk === 'archive') {
+    document.getElementById('archive-panel').classList.add('active');
+    loadArchive();
+  } else if (desk === 'runner') {
+    document.getElementById('runner-panel').classList.add('active');
+    renderRunnerPanel();
+  } else {
+    document.getElementById('main-layout').style.display = 'grid';
+    var allPanels = document.querySelectorAll('.tab-panel');
+    for (var i = 0; i < allPanels.length; i++) { allPanels[i].classList.remove('active'); }
+    document.getElementById('panel-' + desk).classList.add('active');
+    if (deskOutputs[desk]) {
+      renderOutput(desk, deskOutputs[desk], false);
+      document.getElementById('empty-state').style.display = 'none';
+      document.getElementById('output-area').classList.add('visible');
+      restoreCheckboxStates(desk);
+    } else {
+      showEmpty();
+    }
+  }
+}
+function showEmpty() {
+  document.getElementById('empty-state').style.display = 'flex';
+  document.getElementById('loading-state').classList.remove('visible');
+  document.getElementById('error-state').classList.remove('visible');
+  document.getElementById('output-area').classList.remove('visible');
+  document.getElementById('output-area').innerHTML = '';
+}
+function showLoading() {
+  document.getElementById('empty-state').style.display = 'none';
+  document.getElementById('loading-state').classList.add('visible');
+  document.getElementById('error-state').classList.remove('visible');
+  document.getElementById('output-area').classList.remove('visible');
+}
+function showError(msg) {
+  document.getElementById('loading-state').classList.remove('visible');
+  document.getElementById('error-state').classList.add('visible');
+  document.getElementById('error-msg').textContent = msg;
+}
+function showOutput() {
+  document.getElementById('loading-state').classList.remove('visible');
+  document.getElementById('output-area').classList.add('visible');
+}
+function setButtons(disabled) {
+  var btns = document.querySelectorAll('.generate-btn');
+  for (var i = 0; i < btns.length; i++) { btns[i].disabled = disabled; }
+}
+function generate(desk) {
+  var focus = document.getElementById('focus-' + desk).value;
+  var focusLabel = FOCUS_LABELS[desk][focus];
+  showLoading();
+  setButtons(true);
+  var msgIdx = 0;
+  loadingInterval = setInterval(function() {
+    msgIdx = (msgIdx + 1) % LOADING_MSGS.length;
+    var el = document.getElementById('loading-msg');
+    if (el) { el.textContent = LOADING_MSGS[msgIdx]; }
+  }, 2200);
+  /* DEMO MODE: no live API call. Replays real archived HR output for this desk. */
+  setTimeout(function() {
+    try {
+      var sample = DEMO_SAMPLES[desk];
+      if (!sample) { throw new Error('No demo sample available for this desk.'); }
+      var newsletter = JSON.parse(JSON.stringify(sample));
+      deskOutputs[desk] = newsletter;
+      var storyCount = newsletter.stories ? newsletter.stories.length : 0;
+      selectedStories[desk] = [];
+      for (var i = 0; i < storyCount; i++) { selectedStories[desk].push(i); }
+      lastNewsletter = { desk: desk, deskName: DESK_NAMES[desk], focus: focus, focusLabel: focusLabel, newsletter: newsletter };
+      renderOutput(desk, newsletter, false);
+      showOutput();
+      updateSelectedCounter();
+    } catch (err) {
+      showError(err.message);
+    }
+    clearInterval(loadingInterval);
+    setButtons(false);
+  }, 1400);
+}
+function renderOutput(desk, nl, isArchive) {
+  var storiesHTML = '';
+  var stories = nl.stories || [];
+  var selected = selectedStories[desk] || [];
+  for (var i = 0; i < stories.length; i++) {
+    var s = stories[i];
+    var isChecked = selected.indexOf(i) !== -1;
+    var excludedClass = isChecked ? '' : ' excluded';
+    var linkHTML = s.source_url ? '<div class="story-link"><a href="' + ha(s.source_url) + '" target="_blank" rel="noopener">Read source</a></div>' : '';
+    var sourceHedHTML = s.original_headline ? '<div class="story-source-hed">Source: ' + h(s.original_headline) + '</div>' : '';
+    storiesHTML += '<div class="story-card' + excludedClass + '" id="story-card-' + i + '">' +
+      '<label class="story-checkbox-wrap"><input type="checkbox" id="story-chk-' + i + '"' + (isChecked ? ' checked' : '') + ' onchange="toggleStory(\'' + desk + '\',' + i + ')"><span class="story-checkbox-label">Include</span></label>' +
+      sourceHedHTML +
+      '<div class="story-hr-hed">' + h(s.hr_headline || '') + '</div>' +
+      '<div class="story-copy">' + h(s.copy || '') + '</div>' +
+      linkHTML + '</div>';
+  }
+  var storyHint = stories.length > 0 ? '<div class="story-select-hint">Tick the stories you want to include in the edition. Selected stories carry through to the Runner.</div>' : '';
+  var actionsHTML = isArchive
+    ? '<div class="actions"><button class="action-btn" onclick="copyAll()">Copy Full Text</button><button class="action-btn" onclick="copyHTML()">Copy HTML</button><button class="action-btn" onclick="copyJSON()">Copy Raw JSON</button></div>'
+    : '<div class="actions"><button class="action-btn save-btn" id="save-btn" onclick="saveToArchive()">Save to Archive</button><button class="action-btn" onclick="copyAll()">Copy Full Text</button><button class="action-btn" onclick="copyHTML()">Copy HTML</button><button class="action-btn" onclick="copyJSON()">Copy Raw JSON</button><span class="save-msg" id="save-msg"></span></div>';
+  var html =
+    '<div class="output-desk-tag">' + h(DESK_NAMES[desk] || desk) + '</div>' +
+    '<div class="subject-block"><div class="out-label">Subject Line A</div><div class="subject-line">' + h(nl.subject || '') + '</div></div>' +
+    '<div class="subject-block"><div class="out-label">Subject Line B</div><div class="subject-b">' + h(nl.subject_b || '') + '</div></div>' +
+    '<div class="out-label">Preview Text</div><div class="preview-line">' + h(nl.preview || '') + '</div>' +
+    '<div class="out-label">Opening</div><div class="opening-text">' + h(nl.opening || '') + '</div>' +
+    '<div class="stories-label">Stories - ' + stories.length + ' this desk</div>' +
+    storyHint + storiesHTML +
+    '<div class="closing-block">' +
+    '<div class="out-label" style="margin-bottom:12px;">Closing</div>' +
+    '<div class="closing-text">' + h(nl.closing || '') + '</div>' +
+    '<div class="cta-strip"><div class="out-label" style="margin-bottom:0;">CTA</div><div class="cta-value">' + h(nl.cta_line || 'Get Some Coffee') + '</div></div>' +
+    '</div>' + actionsHTML;
+  if (isArchive) {
+    document.getElementById('archive-view-panel').innerHTML = html;
+  } else {
+    document.getElementById('output-area').innerHTML = html;
+  }
+}
+function toggleStory(desk, idx) {
+  var chk = document.getElementById('story-chk-' + idx);
+  var card = document.getElementById('story-card-' + idx);
+  if (!selectedStories[desk]) { selectedStories[desk] = []; }
+  if (chk.checked) {
+    if (selectedStories[desk].indexOf(idx) === -1) { selectedStories[desk].push(idx); }
+    if (card) { card.classList.remove('excluded'); }
+  } else {
+    selectedStories[desk] = selectedStories[desk].filter(function(i) { return i !== idx; });
+    if (card) { card.classList.add('excluded'); }
+  }
+  updateSelectedCounter();
+}
+function restoreCheckboxStates(desk) {
+  var nl = deskOutputs[desk];
+  if (!nl || !nl.stories) { return; }
+  var selected = selectedStories[desk] || [];
+  for (var i = 0; i < nl.stories.length; i++) {
+    var chk = document.getElementById('story-chk-' + i);
+    var card = document.getElementById('story-card-' + i);
+    if (chk) {
+      var isSelected = selected.indexOf(i) !== -1;
+      chk.checked = isSelected;
+      if (card) { card.classList.toggle('excluded', !isSelected); }
+    }
+  }
+}
+function updateSelectedCounter() {
+  var total = 0;
+  var desks = Object.keys(selectedStories);
+  for (var d = 0; d < desks.length; d++) { total += selectedStories[desks[d]].length; }
+  document.getElementById('selected-count').textContent = total;
+  return total;
+}
+function getAllSelectedStories() {
+  var result = [];
+  var deskOrder = ['original','geo','culture','tech','bitcoin','reclaimed'];
+  for (var d = 0; d < deskOrder.length; d++) {
+    var desk = deskOrder[d];
+    var nl = deskOutputs[desk];
+    if (!nl || !nl.stories) { continue; }
+    var selected = selectedStories[desk] || [];
+    for (var i = 0; i < selected.length; i++) {
+      var idx = selected[i];
+      if (nl.stories[idx]) { result.push({ desk: desk, deskName: DESK_NAMES[desk], story: nl.stories[idx] }); }
+    }
+  }
+  return result;
+}
+function renderRunnerPanel() {
+  var allSelected = getAllSelectedStories();
+  var listEl = document.getElementById('runner-story-list');
+  var assembleBtn = document.getElementById('runner-assemble-btn');
+  if (allSelected.length === 0) {
+    listEl.innerHTML = '<div class="runner-empty">No stories queued yet.<br><br>Go to any desk, generate stories, and tick the ones you want to include.</div>';
+    assembleBtn.disabled = true;
+    return;
+  }
+  var byDesk = {};
+  var deskOrder = [];
+  for (var i = 0; i < allSelected.length; i++) {
+    var item = allSelected[i];
+    if (!byDesk[item.desk]) { byDesk[item.desk] = []; deskOrder.push(item.desk); }
+    byDesk[item.desk].push(item);
+  }
+  var html = '';
+  for (var d = 0; d < deskOrder.length; d++) {
+    var desk = deskOrder[d];
+    var items = byDesk[desk];
+    html += '<div class="runner-desk-block"><div class="runner-desk-name">' + h(DESK_NAMES[desk]) + ' - ' + items.length + ' ' + (items.length === 1 ? 'story' : 'stories') + '</div>';
+    for (var i = 0; i < items.length; i++) {
+      html += '<div class="runner-story-item"><div><div class="runner-story-hed">' + h(items[i].story.hr_headline || '') + '</div></div></div>';
+    }
+    html += '</div>';
+  }
+  listEl.innerHTML = html;
+  assembleBtn.disabled = false;
+}
+function assembleEdition() {
+  var allSelected = getAllSelectedStories();
+  if (allSelected.length === 0) { return; }
+  var assembleBtn = document.getElementById('runner-assemble-btn');
+  assembleBtn.disabled = true;
+  assembleBtn.textContent = 'Assembling...';
+  var runnerRight = document.getElementById('runner-right');
+  runnerRight.innerHTML = '<div class="loading-state visible" style="min-height:300px;"><div class="loading-bar"></div><div class="loading-msg">Assembling the edition</div></div>';
+  /* DEMO MODE: no live API call. Assembles the real stories you selected into one edition client-side. */
+  setTimeout(function() {
+    try {
+      var deskCount = countDesksInEdition(allSelected.map(function(item) { return { desk: item.desk }; }));
+      var ctaOptions = ['Get Some Coffee', 'Still Grounded', 'Yeah I Get It', 'Find Your Blend'];
+      var data = {
+        subject: 'Same institutions. Different desks. Same mechanism.',
+        subject_b: 'The pattern held across every desk this week',
+        preview: allSelected.length + ' stories across ' + deskCount + ' desks, assembled into one edition.',
+        opening: 'Every desk found its own version of the same thing this week: an institution moving to protect itself, dressed as something else. Assembled together, the pattern is harder to miss.',
+        stories: allSelected.map(function(item) {
+          return { desk: item.deskName, hr_headline: item.story.hr_headline, copy: item.story.copy, source_url: item.story.source_url || '' };
+        }),
+        closing: 'Six desks, one mechanism. The names change. The logic doesn\'t.',
+        cta_line: ctaOptions[Math.floor(Math.random() * ctaOptions.length)]
+      };
+      renderAssembledEdition(data);
+      lastNewsletter = { desk: 'runner', deskName: 'Multi-Desk Edition', focus: 'assembled', focusLabel: 'assembled edition', newsletter: data };
+    } catch (err) {
+      runnerRight.innerHTML = '<div class="error-state visible" style="margin:40px;"><div class="error-label">Error</div><div class="error-msg">' + h(err.message) + '</div></div>';
+    }
+    assembleBtn.disabled = false;
+    assembleBtn.textContent = 'Assemble Edition';
+  }, 1200);
+}
+function renderAssembledEdition(nl) {
+  var runnerRight = document.getElementById('runner-right');
+  var stories = nl.stories || [];
+  var storiesHTML = '';
+  for (var i = 0; i < stories.length; i++) {
+    var s = stories[i];
+    var linkHTML = s.source_url ? '<div class="story-link"><a href="' + ha(s.source_url) + '" target="_blank" rel="noopener">Read source</a></div>' : '';
+    storiesHTML += '<div class="story-card" id="assembled-card-' + i + '">' +
+      '<label class="story-checkbox-wrap"><input type="checkbox" id="teaser-chk-' + i + '" onchange="updateTeaserCounter()"><span class="story-checkbox-label">Teaser</span></label>' +
+      '<div class="runner-group-desk">' + h(s.desk || '') + '</div>' +
+      '<div class="story-hr-hed">' + h(s.hr_headline || '') + '</div>' +
+      '<div class="story-copy">' + h(s.copy || '') + '</div>' +
+      linkHTML + '</div>';
+  }
+  var weekUrl = getCurrentWeekUrl();
+  var html =
+    '<div class="runner-assembled-tag">Assembled Edition</div>' +
+    '<div class="subject-block"><div class="out-label">Subject Line A</div><div class="subject-line">' + h(nl.subject || '') + '</div></div>' +
+    '<div class="subject-block"><div class="out-label">Subject Line B</div><div class="subject-b">' + h(nl.subject_b || '') + '</div></div>' +
+    '<div class="out-label">Preview Text</div><div class="preview-line">' + h(nl.preview || '') + '</div>' +
+    '<div class="out-label">Opening</div><div class="opening-text">' + h(nl.opening || '') + '</div>' +
+    '<div class="stories-label">' + stories.length + ' stories across ' + countDesksInEdition(stories) + ' desks</div>' +
+    '<div class="story-select-hint">Tick up to 3 stories to include in the teaser email below.</div>' +
+    storiesHTML +
+    '<div class="closing-block">' +
+    '<div class="out-label" style="margin-bottom:12px;">Closing</div>' +
+    '<div class="closing-text">' + h(nl.closing || '') + '</div>' +
+    '<div class="cta-strip"><div class="out-label" style="margin-bottom:0;">CTA</div><div class="cta-value">' + h(nl.cta_line || 'Get Some Coffee') + '</div></div>' +
+    '</div>' +
+    '<div class="actions"><button class="action-btn save-btn" onclick="saveToArchive()">Save to Archive</button><button class="action-btn" onclick="copyAll()">Copy Full Text</button><button class="action-btn" onclick="copyHTML()">Copy Email HTML</button><button class="action-btn save-btn" onclick="copyWebsiteHTML()">Copy Website HTML</button><button class="action-btn" onclick="copyJSON()">Copy Raw JSON</button><span class="save-msg" id="save-msg"></span></div>' +
+    '<div class="teaser-section">' +
+    '<div class="teaser-section-label">Teaser Builder - Runner 2</div>' +
+    '<div class="teaser-hint">Tick 2-3 stories above to include in the teaser email. Free subscribers get the teaser. The full edition lives on the website.</div>' +
+    '<div class="teaser-url-row"><span class="teaser-url-label">Edition URL</span><input class="teaser-url-input" id="teaser-url" type="text" value="' + ha(weekUrl) + '" placeholder="https://humanityroasted.com/editions/..."></div>' +
+    '<div class="teaser-url-row"><span class="teaser-url-label">Edition No.</span><input class="teaser-url-input" id="edition-no" type="text" value="" placeholder="e.g. 3" oninput="syncEditionUrl()"></div>' +
+    '<div class="teaser-counter">Selected for teaser: <span id="teaser-count">0</span> / 3</div>' +
+    '<button class="build-teaser-btn" id="build-teaser-btn" onclick="buildTeaser()" disabled>Build Teaser Email</button>' +
+    '<div id="teaser-output"></div>' +
+    '</div>';
+  runnerRight.innerHTML = html;
+}
+function countDesksInEdition(stories) {
+  var desks = {};
+  for (var i = 0; i < stories.length; i++) { if (stories[i].desk) { desks[stories[i].desk] = true; } }
+  return Object.keys(desks).length;
+}
+function syncEditionUrl() {
+  var noField = document.getElementById('edition-no');
+  var urlField = document.getElementById('teaser-url');
+  if (!noField || !urlField) { return; }
+  var raw = noField.value.trim();
+  if (!raw) { return; }
+  var n = parseInt(raw, 10);
+  if (isNaN(n)) { return; }
+  var padded = String(n).padStart(3, '0');
+  urlField.value = 'https://humanityroasted.com/editions/edition-' + padded + '.html';
+}
+function getCurrentWeekUrl() {
+  var now = new Date();
+  var year = now.getFullYear();
+  var startOfYear = new Date(year, 0, 1);
+  var dayOfYear = Math.floor((now - startOfYear) / 86400000);
+  var weekNum = Math.ceil((dayOfYear + startOfYear.getDay() + 1) / 7);
+  var weekStr = weekNum < 10 ? '0' + weekNum : '' + weekNum;
+  return 'https://humanityroasted.com/editions/' + year + '-W' + weekStr + '.html';
+}
+function updateTeaserCounter() {
+  var count = 0;
+  var i = 0;
+  while (true) {
+    var chk = document.getElementById('teaser-chk-' + i);
+    if (!chk) { break; }
+    if (chk.checked) { count++; }
+    i++;
+  }
+  if (count > 3) {
+    var j = i - 1;
+    while (j >= 0) {
+      var c = document.getElementById('teaser-chk-' + j);
+      if (c && c.checked) { c.checked = false; count--; break; }
+      j--;
+    }
+  }
+  var counterEl = document.getElementById('teaser-count');
+  if (counterEl) { counterEl.textContent = count; }
+  var btn = document.getElementById('build-teaser-btn');
+  if (btn) { btn.disabled = (count === 0); }
+}
+function buildTeaser() {
+  var editionUrl = document.getElementById('teaser-url') ? document.getElementById('teaser-url').value.trim() : '';
+  if (!editionUrl) { editionUrl = getCurrentWeekUrl(); }
+  var selectedStoryData = [];
+  var i = 0;
+  while (true) {
+    var chk = document.getElementById('teaser-chk-' + i);
+    if (!chk) { break; }
+    if (chk.checked && lastNewsletter && lastNewsletter.newsletter && lastNewsletter.newsletter.stories) {
+      var s = lastNewsletter.newsletter.stories[i];
+      if (s) { selectedStoryData.push(s); }
+    }
+    i++;
+  }
+  if (selectedStoryData.length === 0) { return; }
+  var btn = document.getElementById('build-teaser-btn');
+  btn.disabled = true;
+  btn.textContent = 'Building...';
+  var outputEl = document.getElementById('teaser-output');
+  outputEl.innerHTML = '<div class="loading-state visible" style="min-height:200px;"><div class="loading-bar"></div><div class="loading-msg">Building teaser email</div></div>';
+  /* DEMO MODE: no live API call. Builds the teaser from the real story copy client-side. */
+  setTimeout(function() {
+    try {
+      var data = {
+        subject: 'The edition\'s out. You\'ll want the details.',
+        preview: 'A quick look before the full edition.',
+        opening: selectedStoryData.length + ' stories. One pattern. The rest is on the site.',
+        stories: selectedStoryData.map(function(st) {
+          return { desk: st.desk || '', hr_headline: st.hr_headline || '', teaser: firstSentence(st.copy), source_url: st.source_url || '' };
+        }),
+        cta_line: 'Read the full edition'
+      };
+      renderTeaserOutput(data, editionUrl);
+    } catch (err) {
+      outputEl.innerHTML = '<div class="error-state visible"><div class="error-label">Error</div><div class="error-msg">' + h(err.message) + '</div></div>';
+    }
+    btn.disabled = false;
+    btn.textContent = 'Build Teaser Email';
+  }, 900);
+}
+function firstSentence(text) {
+  if (!text) { return ''; }
+  var match = text.match(/^.*?[.!?](?=\s|$)/);
+  return match ? match[0] : text;
+}
+function renderTeaserOutput(nl, editionUrl) {
+  var outputEl = document.getElementById('teaser-output');
+  var stories = nl.stories || [];
+  var storiesHTML = '';
+  for (var i = 0; i < stories.length; i++) {
+    var s = stories[i];
+    storiesHTML += '<div class="story-card">' +
+      '<div class="runner-group-desk">' + h(s.desk || '') + '</div>' +
+      '<div class="story-hr-hed">' + h(s.hr_headline || '') + '</div>' +
+      '<div class="story-copy">' + h(s.teaser || '') + '</div>' +
+      '</div>';
+  }
+  var safeNl = JSON.stringify(nl).replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+  var safeUrl = editionUrl.replace(/'/g,"\\'");
+  var html =
+    '<div class="teaser-output">' +
+    '<div class="teaser-output-label">Teaser Email</div>' +
+    '<div class="subject-block"><div class="out-label">Subject Line</div><div class="subject-line">' + h(nl.subject || '') + '</div></div>' +
+    '<div class="out-label">Preview Text</div><div class="preview-line">' + h(nl.preview || '') + '</div>' +
+    '<div class="out-label">Opening</div><div class="opening-text">' + h(nl.opening || '') + '</div>' +
+    '<div class="stories-label">Teaser stories</div>' +
+    storiesHTML +
+    '<div class="closing-block"><div class="cta-strip"><div class="out-label" style="margin-bottom:0;">Read CTA</div><div class="cta-value">' + h(nl.cta_line || 'Read the full edition') + '</div></div></div>' +
+    '<div class="actions"><button class="action-btn save-btn" onclick="copyTeaserHTML()">Copy Teaser HTML</button></div>' +
+    '</div>';
+  outputEl.innerHTML = html;
+  outputEl._teaserNl = nl;
+  outputEl._teaserUrl = editionUrl;
+}
+function copyTeaserHTML() {
+  var outputEl = document.getElementById('teaser-output');
+  var nl = outputEl._teaserNl;
+  var editionUrl = outputEl._teaserUrl;
+  if (!nl) { return; }
+  var stories = nl.stories || [];
+  var issueDate = new Date().toLocaleDateString('en-AU', {weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  var storyRows = '';
+  for (var i = 0; i < stories.length; i++) {
+    var s = stories[i];
+    storyRows += '<tr><td style="padding:14px 16px;border-bottom:1px solid #1e1e1e;">' +
+      '<p style="font-family:Georgia,serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C4530A;margin:0 0 6px 0;">' + (s.desk || '') + '</p>' +
+      '<p style="font-family:Georgia,Times New Roman,serif;font-size:17px;font-weight:bold;color:#F5F0E8;margin:0 0 7px 0;line-height:1.3;">' + (s.hr_headline || '') + '</p>' +
+      '<p style="font-family:Georgia,Times New Roman,serif;font-size:15px;line-height:1.85;color:#999999;margin:0;">' + (s.teaser || '') + '</p>' +
+      '</td></tr>';
+  }
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>' + (nl.subject || '') + '</title></head>' +
+    '<body style="margin:0;padding:0;background-color:#0D0D0D;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0D0D0D;"><tr><td align="center" style="padding:0 0 24px 0;">' +
+    '<table width="580" cellpadding="0" cellspacing="0" border="0" style="max-width:580px;width:100%;">' +
+    '<tr><td style="padding:0;line-height:0;"><img src="https://humanityroasted.com/images/newsletter-header.png" alt="" width="580" style="display:block;width:100%;max-width:580px;height:auto;border:0;" border="0"></td></tr>' +
+    '<tr><td style="padding:24px 16px 18px 16px;border-bottom:3px solid #C4530A;">' +
+    '<p style="font-family:Georgia,serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#C4530A;margin:0 0 10px 0;">Weekly Teaser</p>' +
+    '<p style="font-family:Impact,Haettenschweiler,Arial Narrow,sans-serif;font-size:36px;letter-spacing:4px;color:#F5F0E8;margin:0;line-height:1;">HUMANITY, ROASTED</p>' +
+    '<p style="font-family:Georgia,serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#555555;margin:10px 0 0 0;">' + issueDate + '</p>' +
+    '</td></tr>' +
+    '<tr><td style="padding:20px 16px 18px 16px;border-bottom:1px solid #1e1e1e;"><p style="font-family:Georgia,Times New Roman,serif;font-size:16px;line-height:1.9;color:#cccccc;margin:0;">' + (nl.opening || '') + '</p></td></tr>' +
+    '<tr><td style="padding:16px 16px 4px 16px;"><p style="font-family:Georgia,serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#C4530A;margin:0;">This Week\'s Roast</p></td></tr>' +
+    storyRows +
+    '<tr><td style="padding:28px 16px;text-align:center;border-bottom:1px solid #1e1e1e;">' +
+    '<p style="font-family:Georgia,serif;font-size:13px;color:#888888;margin:0 0 16px 0;">This is a preview. The full edition has more.</p>' +
+    '<a href="' + editionUrl + '" target="_blank" style="display:inline-block;background-color:#C4530A;color:#F5F0E8;font-family:Impact,Haettenschweiler,Arial Narrow,sans-serif;font-size:18px;letter-spacing:3px;text-decoration:none;padding:14px 40px;border-radius:3px;">Read the full edition</a>' +
+    '</td></tr>' +
+    '<tr><td style="padding:0;line-height:0;"><img src="https://humanityroasted.com/images/newsprint-cup.png" alt="" width="580" style="display:block;width:100%;max-width:580px;height:auto;border:0;" border="0"></td></tr>' +
+    '<tr><td style="padding:16px 16px 24px 16px;text-align:center;">' +
+    '<p style="font-family:Georgia,serif;font-size:11px;color:#444444;line-height:1.8;margin:0;">The world\'s on fire. We\'re still making good coffee.<br>' +
+    '<a href="{$unsubscribe}" style="color:#666666;text-decoration:underline;">Unsubscribe</a> &nbsp;|&nbsp; <a href="{$url}" style="color:#666666;text-decoration:underline;">View in browser</a></p></td></tr>' +
+    '</table></td></tr></table></body></html>';
+  navigator.clipboard.writeText(html).catch(function() { prompt('Copy this HTML:', html); });
+}
+function copyWebsiteHTML() {
+  if (!lastNewsletter || !lastNewsletter.newsletter) { return; }
+  var nl = lastNewsletter.newsletter;
+  var stories = nl.stories || [];
+  var weekUrl = document.getElementById('teaser-url') ? document.getElementById('teaser-url').value.trim() : '';
+  if (!weekUrl) { weekUrl = getCurrentWeekUrl(); }
+  var issueDate = new Date().toLocaleDateString('en-AU', {weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  var weekLabel = weekUrl.replace('https://humanityroasted.com/editions/','').replace('.html','');
+  var editionNo = document.getElementById('edition-no') ? document.getElementById('edition-no').value.trim() : '';
+  var editionRef = editionNo ? ('Edition No. ' + editionNo) : weekLabel;
+  var storiesHTML = '';
+  for (var i = 0; i < stories.length; i++) {
+    var s = stories[i];
+    var srcLine = s.source_url ? '  <p class="story-source"><a href="' + s.source_url + '">Read source &rarr;</a></p>\n' : '';
+    storiesHTML += '<article class="story">\n' +
+      (s.desk ? '  <p class="story-desk">' + s.desk + '</p>\n' : '') +
+      '  <h2 class="story-hed">' + (s.hr_headline || '') + '</h2>\n' +
+      '  <p class="story-copy">' + (s.copy || '') + '</p>\n' +
+      srcLine +
+      '</article>\n';
+  }
+  var html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n' +
+    '<meta charset="UTF-8">\n' +
+    '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n' +
+    '<title>' + (nl.subject || weekLabel) + ' — Humanity, Roasted</title>\n' +
+    '<meta name="description" content="' + (nl.preview || '') + '">\n' +
+    '<style>\n' +
+    '@font-face{font-family:"Playfair Display";font-weight:900;font-style:normal;font-display:swap;src:url("/fonts/PlayfairDisplay-Black.woff2") format("woff2");}\n' +
+    '@font-face{font-family:"Barlow Condensed";font-weight:600;font-style:normal;font-display:swap;src:url("/fonts/BarlowCondensed-SemiBold.woff2") format("woff2");}\n' +
+    '@font-face{font-family:"Barlow Condensed";font-weight:700;font-style:normal;font-display:swap;src:url("/fonts/BarlowCondensed-Bold.woff2") format("woff2");}\n' +
+    '@font-face{font-family:"Source Serif 4";font-weight:400;font-style:normal;font-display:swap;src:url("/fonts/SourceSerif4-Regular.woff2") format("woff2");}\n' +
+    '@font-face{font-family:"Inter";font-weight:400;font-style:normal;font-display:swap;src:url("/fonts/Inter-Regular.woff2") format("woff2");}\n' +
+    '@font-face{font-family:"Inter";font-weight:500;font-style:normal;font-display:swap;src:url("/fonts/Inter-Medium.woff2") format("woff2");}\n' +
+    '*{box-sizing:border-box;margin:0;padding:0;}\n' +
+    'body{background:#1C1A17;color:#F5F0E8;font-family:"Source Serif 4",Georgia,serif;}\n' +
+    'a{color:inherit;text-decoration:none;}\n' +
+    'nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;border-bottom:1px solid rgba(245,240,232,0.1);}\n' +
+    '.nav-logo{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:18px;letter-spacing:0.12em;text-transform:uppercase;color:#F5F0E8;}\n' +
+    '.nav-logo span{color:#C4530A;}\n' +
+    '.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}\n' +
+    '.nav-links a{font-family:"Inter",sans-serif;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#B8AFA0;transition:color 0.2s;}\n' +
+    '.nav-links a[aria-label="Home"]{font-size:1.4rem;line-height:1;}\n' +
+    '.nav-links a:hover{color:#F5F0E8;}\n' +
+    '.nav-cta{font-family:"Inter",sans-serif;font-weight:500;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;background:#C4530A;color:#1C1A17;padding:9px 20px;border-radius:2px;}\n' +
+    '.nav-cta:hover{background:#E06020;color:#1C1A17;}\n' +
+    '.edition-header{max-width:720px;margin:0 auto;padding:72px 40px 48px;border-bottom:1px solid rgba(245,240,232,0.1);}\n' +
+    '.edition-eyebrow{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:20px;}\n' +
+    '.edition-subject{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(28px,4vw,42px);line-height:1.15;color:#F5F0E8;margin-bottom:20px;}\n' +
+    '.edition-meta{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:0.08em;color:rgba(245,240,232,0.4);text-transform:uppercase;margin-bottom:32px;}\n' +
+    '.edition-opening{font-family:"Source Serif 4",Georgia,serif;font-size:18px;line-height:1.8;color:rgba(245,240,232,0.85);}\n' +
+    '.stories{max-width:720px;margin:0 auto;padding:0 40px;}\n' +
+    '.story{padding:48px 0;border-bottom:1px solid rgba(245,240,232,0.1);}\n' +
+    '.story:last-child{border-bottom:none;}\n' +
+    '.story-desk{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:14px;}\n' +
+    '.story-hed{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(20px,3vw,28px);line-height:1.2;color:#F5F0E8;margin-bottom:16px;}\n' +
+    '.story-copy{font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.85;color:rgba(245,240,232,0.8);margin-bottom:14px;}\n' +
+    '.story-source a{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:0.06em;color:#C4530A;text-decoration:none;}\n' +
+    '.story-source a:hover{text-decoration:underline;}\n' +
+    '.edition-closing{max-width:720px;margin:0 auto;padding:48px 40px 72px;border-top:1px solid rgba(245,240,232,0.1);}\n' +
+    '.closing-label{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C4530A;margin-bottom:16px;}\n' +
+    '.closing-text{font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.85;color:rgba(245,240,232,0.8);margin-bottom:32px;}\n' +
+    '.cta-btn{display:inline-block;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;background:#C4530A;color:#F5F0E8;padding:14px 36px;border-radius:2px;}\n' +
+    'footer{border-top:1px solid rgba(245,240,232,0.1);padding:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}\n' +
+    '.footer-brand{font-family:"Playfair Display",serif;font-weight:900;font-size:14px;color:#F5F0E8;}\n' +
+    '.footer-sub{font-family:"Inter",sans-serif;font-size:11px;color:rgba(245,240,232,0.35);margin-top:4px;letter-spacing:0.04em;}\n' +
+    '.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;}\n' +
+    '.footer-links a{font-family:"Inter",sans-serif;font-size:12px;color:rgba(245,240,232,0.5);letter-spacing:0.04em;}\n' +
+    '.footer-links a:hover{color:#F5F0E8;}\n' +
+    '@media(max-width:600px){nav{padding:0 20px;}.nav-links{gap:16px;}.edition-header,.stories,.edition-closing{padding-left:20px;padding-right:20px;}footer{padding:32px 20px;flex-direction:column;align-items:flex-start;}}\n' +
+    '</style>\n</head>\n<body>\n' +
+    '<nav>\n' +
+    '  <a href="https://humanityroasted.com/" class="nav-logo">Humanity<span>,</span> Roasted</a>\n' +
+    '  <ul class="nav-links">\n' +
+    '    <li><a href="https://humanityroasted.com/" aria-label="Home">⌂</a></li>\n' +
+    '    <li><a href="https://humanityroasted.com/about/">About</a></li>\n' +
+    '    <li><a href="https://humanityroasted.com/newsletter/">The Newsletter</a></li>\n' +
+    '    <li><a href="https://humanityroasted.com/coffee/">The Coffee</a></li>\n' +
+    '' +
+    '  </ul>\n' +
+    '  <a href="https://humanityroasted.com/newsletter/#join" class="nav-cta">Join the Dispatch</a>\n' +
+    '</nav>\n' +
+    '<header class="edition-header">\n' +
+    '  <p class="edition-eyebrow">The Still Grounded Dispatch</p>\n' +
+    '  <h1 class="edition-subject">' + (nl.subject || '') + '</h1>\n' +
+    '  <p class="edition-meta">' + issueDate + '</p>\n' +
+    '  <p class="edition-opening">' + (nl.opening || '') + '</p>\n' +
+    '</header>\n' +
+    '<main class="stories">\n' + storiesHTML + '\n</main>\n' +
+    '<section class="edition-closing">\n' +
+    '  <p class="closing-label">Still Grounded</p>\n' +
+    '  <p class="closing-text">' + (nl.closing || '') + '</p>\n' +
+    '  <a href="https://store.humanityroasted.com" class="cta-btn">' + (nl.cta_line || 'Get Some Coffee') + '</a>\n' +
+    '</section>\n' +
+    '<footer>\n' +
+    '  <div><div class="footer-brand">Humanity, Roasted</div><div class="footer-sub">A Reclaimed Media publication &nbsp;·&nbsp; humanityroasted.com</div></div>\n' +
+    '  <ul class="footer-links">\n' +
+    '    <li><a href="https://humanityroasted.com/newsletter/">Newsletter</a></li>\n' +
+    '    <li><a href="https://humanityroasted.com/coffee/">Coffee</a></li>\n' +
+    '    <li><a href="https://humanityroasted.com/about/">About</a></li>\n' +
+    '    <li><a href="https://store.humanityroasted.com">Store</a></li>\n' +
+    '  </ul>\n' +
+    '</footer>\n' +
+    '</body>\n</html>';
+  navigator.clipboard.writeText(html).catch(function() { prompt('Copy this HTML:', html); });
+}
+function getSelectedStoriesForCopy() {
+  if (!lastNewsletter) { return []; }
+  var stories = lastNewsletter.newsletter.stories || [];
+  if (lastNewsletter.desk === 'runner') { return stories; }
+  var selected = [];
+  for (var i = 0; i < stories.length; i++) {
+    var chk = document.getElementById('story-chk-' + i);
+    if (!chk || chk.checked) { selected.push(stories[i]); }
+  }
+  return selected;
+}
+var LOCAL_ARCHIVE_KEY = 'hr_demo_saved_editions';
+var seedIds = {};
+function getLocalSavedEditions() {
+  try { return JSON.parse(localStorage.getItem(LOCAL_ARCHIVE_KEY) || '[]'); } catch (e) { return []; }
+}
+function setLocalSavedEditions(list) {
+  try { localStorage.setItem(LOCAL_ARCHIVE_KEY, JSON.stringify(list.slice(0, 200))); } catch (e) {}
+}
+function saveToArchive() {
+  if (!lastNewsletter) { return; }
+  var btn = document.getElementById('save-btn');
+  var msg = document.getElementById('save-msg');
+  if (!btn) { return; }
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+  /* DEMO MODE: no backend. Saved editions live only in this browser's local storage. */
+  setTimeout(function() {
+    try {
+      var now = new Date();
+      var entry = {
+        id: 'hr_local_' + now.getTime().toString(36) + Math.random().toString(36).slice(2, 8),
+        desk: lastNewsletter.desk,
+        deskName: lastNewsletter.deskName || '',
+        focus: lastNewsletter.focus || '',
+        focusLabel: lastNewsletter.focusLabel || '',
+        date: now.toISOString().slice(0, 10),
+        time: now.toTimeString().slice(0, 5),
+        subject: (lastNewsletter.newsletter && lastNewsletter.newsletter.subject) || '',
+        newsletter: lastNewsletter.newsletter
+      };
+      var local = getLocalSavedEditions();
+      local.unshift(entry);
+      setLocalSavedEditions(local);
+      btn.textContent = 'Saved';
+      btn.classList.remove('save-btn');
+      btn.classList.add('saved-btn');
+      if (msg) { msg.textContent = 'Saved locally in this browser.'; }
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Save to Archive';
+      if (msg) { msg.textContent = 'Error: ' + err.message; }
+    }
+  }, 400);
+}
+function loadArchive() {
+  document.getElementById('archive-list').innerHTML = '<div class="archive-empty-text">Loading...</div>';
+  fetch('archive.json')
+    .then(function(r) { return r.json(); })
+    .then(function(seed) {
+      seedIds = {};
+      for (var i = 0; i < seed.length; i++) { seedIds[seed[i].id] = true; }
+      archiveData = getLocalSavedEditions().concat(seed);
+      renderArchiveList();
+    })
+    .catch(function(err) {
+      document.getElementById('archive-list').innerHTML = '<div class="archive-empty-text">Could not load archive.<br>' + err.message + '</div>';
+    });
+}
+function renderArchiveList() {
+  var filtered = [];
+  for (var i = 0; i < archiveData.length; i++) {
+    if (archiveFilter === 'all' || archiveData[i].desk === archiveFilter) { filtered.push(archiveData[i]); }
+  }
+  document.getElementById('archive-count').textContent = filtered.length + (filtered.length !== 1 ? ' editions' : ' edition');
+  if (filtered.length === 0) {
+    document.getElementById('archive-list').innerHTML = '<div class="archive-empty-text">No saved editions yet.<br>Generate stories and hit Save to Archive.</div>';
+    return;
+  }
+  var listHTML = '';
+  for (var i = 0; i < filtered.length; i++) {
+    var e = filtered[i];
+    var selClass = (selectedEntry === e.id) ? ' selected' : '';
+    var subj = e.subject || (e.newsletter && e.newsletter.subject) || '';
+    var deleteBtnHTML = seedIds[e.id] ? '' : '<button class="ae-delete" onclick="deleteEntry(event,\'' + e.id + '\')">Delete</button>';
+    listHTML += '<div class="archive-entry' + selClass + '" onclick="viewEntry(\'' + e.id + '\')">' +
+      '<div class="ae-meta"><span class="ae-desk">' + h(e.deskName || e.desk) + '</span><span class="ae-date">' + h(e.date || '') + ' ' + h(e.time || '') + '</span></div>' +
+      '<div class="ae-subject">' + h(subj) + '</div>' +
+      '<div class="ae-focus">' + h(e.focusLabel || e.focus || '') + '</div>' +
+      deleteBtnHTML +
+      '</div>';
+  }
+  document.getElementById('archive-list').innerHTML = listHTML;
+}
+function filterArchive(filter, btn) {
+  archiveFilter = filter;
+  selectedEntry = null;
+  var allFilters = document.querySelectorAll('.filter-btn');
+  for (var i = 0; i < allFilters.length; i++) { allFilters[i].classList.remove('active'); }
+  btn.classList.add('active');
+  renderArchiveList();
+  document.getElementById('archive-view-panel').innerHTML = '<div class="archive-view-empty"><div class="empty-rule"></div><div class="empty-text" style="opacity:0.4;">Select an entry to view it here.</div><div class="empty-rule"></div></div>';
+}
+function viewEntry(id) {
+  var entry = null;
+  for (var i = 0; i < archiveData.length; i++) {
+    if (archiveData[i].id === id) { entry = archiveData[i]; break; }
+  }
+  if (!entry) { return; }
+  selectedEntry = id;
+  lastNewsletter = { desk: entry.desk, newsletter: entry.newsletter };
+  renderArchiveList();
+  renderOutput(entry.desk, entry.newsletter, true);
+}
+function deleteEntry(event, id) {
+  event.stopPropagation();
+  if (seedIds[id]) { alert("This is part of the real HR archive and can't be deleted in the demo."); return; }
+  if (!confirm('Delete this edition from the archive?')) { return; }
+  setLocalSavedEditions(getLocalSavedEditions().filter(function(e) { return e.id !== id; }));
+  if (selectedEntry === id) {
+    selectedEntry = null;
+    document.getElementById('archive-view-panel').innerHTML = '<div class="archive-view-empty"><div class="empty-rule"></div><div class="empty-text" style="opacity:0.4;">Select an entry to view it here.</div><div class="empty-rule"></div></div>';
+  }
+  archiveData = archiveData.filter(function(e) { return e.id !== id; });
+  renderArchiveList();
+}
+function copyAll() {
+  if (!lastNewsletter) { return; }
+  var nl = lastNewsletter.newsletter;
+  var stories = getSelectedStoriesForCopy();
+  var t = 'SUBJECT A: ' + (nl.subject || '') + '\nSUBJECT B: ' + (nl.subject_b || '') + '\nPREVIEW: ' + (nl.preview || '') + '\n\n' + (nl.opening || '') + '\n\n';
+  for (var i = 0; i < stories.length; i++) {
+    var deskTag = stories[i].desk ? '[' + stories[i].desk + '] ' : '';
+    t += deskTag + (stories[i].hr_headline || '') + '\n\n' + (stories[i].copy || '') + '\n' + (stories[i].source_url || '') + '\n\n';
+  }
+  t += (nl.closing || '') + '\n\n' + (nl.cta_line || '');
+  navigator.clipboard.writeText(t).catch(function() { prompt('Copy this:', t); });
+}
+function copyJSON() {
+  if (!lastNewsletter) { return; }
+  navigator.clipboard.writeText(JSON.stringify(lastNewsletter.newsletter, null, 2)).catch(function() { alert('Could not copy automatically.'); });
+}
+function copyHTML() {
+  if (!lastNewsletter) { return; }
+  var nl = lastNewsletter.newsletter;
+  var issueDate = new Date().toLocaleDateString('en-AU', {weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  var stories = getSelectedStoriesForCopy();
+  var storyRows = '';
+  for (var i = 0; i < stories.length; i++) {
+    var s = stories[i];
+    var deskBadge = s.desk ? '<p style="font-family:Georgia,serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C4530A;margin:0 0 6px 0;">' + s.desk + '</p>' : '';
+    var srcHTML = s.original_headline ? '<p style="font-family:Georgia,serif;font-size:11px;color:#444444;font-style:italic;margin:0;">' + (s.source_url ? '<a href="' + s.source_url + '" style="color:#555555;">' + s.original_headline + '</a>' : s.original_headline) + '</p>' : '';
+    storyRows += '<tr><td style="padding:14px 0;border-bottom:1px solid #1e1e1e;">';
+    storyRows += deskBadge;
+    storyRows += '<p style="font-family:Georgia,Times New Roman,serif;font-size:17px;font-weight:bold;color:#F5F0E8;margin:0 0 7px 0;line-height:1.3;">' + (s.hr_headline || '') + '</p>';
+    storyRows += '<p style="font-family:Georgia,Times New Roman,serif;font-size:15px;line-height:1.85;color:#999999;margin:0 0 6px 0;">' + (s.copy || '') + '</p>';
+    storyRows += srcHTML + '</td></tr>';
+  }
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>' + (nl.subject || '') + '</title></head>' +
+    '<body style="margin:0;padding:0;background-color:#0D0D0D;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">' +
+    '<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0D0D0D;"><tr><td align="center" style="padding:24px 16px;">' +
+    '<table width="580" cellpadding="0" cellspacing="0" border="0" style="max-width:580px;width:100%;">' +
+    '<tr><td style="padding:0 0 18px 0;border-bottom:3px solid #C4530A;">' +
+    '<p style="font-family:Georgia,serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#555555;margin:0 0 8px 0;">The bi-weekly newsletter</p>' +
+    '<p style="font-family:Impact,Haettenschweiler,Arial Narrow,sans-serif;font-size:36px;letter-spacing:4px;color:#F5F0E8;margin:0;line-height:1;">HUMANITY, ROASTED</p>' +
+    '<p style="font-family:Georgia,serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#555555;margin:8px 0 0 0;">' + issueDate + '</p>' +
+    '</td></tr>' +
+    '<tr><td style="padding:20px 0 0 0;"><a href="https://humanityroasted.com" target="_blank"><img src="https://humanityroasted.com/images/hr-5products.png" alt="HUMANITY, ROASTED" width="580" style="display:block;width:100%;max-width:580px;height:auto;border:0;" border="0"></a></td></tr>' +
+    '<tr><td style="padding:20px 0 18px 0;border-bottom:1px solid #1e1e1e;"><p style="font-family:Georgia,Times New Roman,serif;font-size:16px;line-height:1.9;color:#cccccc;margin:0;">' + (nl.opening || '') + '</p></td></tr>' +
+    '<tr><td style="padding:16px 0 4px 0;"><p style="font-family:Georgia,serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#C4530A;margin:0;">This Week\'s Roast</p></td></tr>' +
+    storyRows +
+    '<tr><td style="padding:20px 0 0 0;border-top:1px solid #1e1e1e;">' +
+    '<p style="font-family:Georgia,serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#C4530A;margin:0 0 10px 0;">Still Grounded</p>' +
+    '<p style="font-family:Georgia,Times New Roman,serif;font-size:16px;line-height:1.9;color:#cccccc;margin:0;">' + (nl.closing || '') + '</p>' +
+    '</td></tr>' +
+    '<tr><td style="padding:28px 0;text-align:center;"><a href="https://humanityroasted.com/products/still-grounded" target="_blank" style="display:inline-block;background-color:#C4530A;color:#F5F0E8;font-family:Impact,Haettenschweiler,Arial Narrow,sans-serif;font-size:20px;letter-spacing:4px;text-decoration:none;padding:14px 40px;border-radius:3px;">' + (nl.cta_line || 'Get Some Coffee') + '</a></td></tr>' +
+    '<tr><td style="padding:28px 0 0 0;text-align:center;"><img src="https://humanityroasted.com/images/hr-fists.png" alt="HUMANITY, ROASTED" width="180" style="display:inline-block;width:180px;max-width:100%;height:auto;border:0;" border="0"></td></tr>' +
+    '<tr><td style="padding:16px 0 18px 0;border-top:1px solid #1a1a1a;text-align:center;">' +
+    '<p style="font-family:Georgia,serif;font-size:11px;color:#444444;line-height:1.8;margin:0;">The world\'s on fire. We\'re still making good coffee.<br>' +
+    '<a href="{$unsubscribe}" style="color:#666666;text-decoration:underline;">Unsubscribe</a> &nbsp;|&nbsp; <a href="{$url}" style="color:#666666;text-decoration:underline;">View in browser</a></p></td></tr>' +
+    '</table></td></tr></table></body></html>';
+  navigator.clipboard.writeText(html).catch(function() { prompt('Copy this HTML:', html); });
+}
+switchTab('original');
+</script>
+</body>
+</html>
