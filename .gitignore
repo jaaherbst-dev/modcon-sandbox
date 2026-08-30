@@ -3,3 +3,8 @@
 # /humanity-roasted/ and /newsletter-suite/ at the repo root; this folder is
 # scratch material only and should never be committed.
 /humanity-roasted-website-archive/
+
+# Raw planning notes and thumbnail source for Whisperer Account Coach — personal
+# ideation doc, not meant to be publicly served. The clean prototype lives at
+# /whisperer-account-coach/ and the cover image is copied to /images/.
+/whisperer-account-coach-source/
